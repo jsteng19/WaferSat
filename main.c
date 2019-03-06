@@ -621,7 +621,7 @@ static void cmd_image(BaseSequentialStream *chp, int argc, char *argv[]) {
 
   (void)argv;
   if (argc > 0) {
-    chprintf(chp, "Usage: image\r\n");
+    //chprintf(chp, "Usage: image\r\n");
     return;
   }
 
@@ -634,90 +634,19 @@ static void cmd_image(BaseSequentialStream *chp, int argc, char *argv[]) {
   //chprintf((BaseSequentialStream *)&SD_console, "capture done\r\n");
 
   if (!fs_ready) {
-    chprintf(chp, "File System not mounted\r\n");
+    //chprintf(chp, "File System not mounted\r\n");
     return;
   }
   /* Register work area to the default drive */
-  chprintf((BaseSequentialStream *)&SD_console, "SDC  > Mounting file system...");
+  //chprintf((BaseSequentialStream *)&SD_console, "SDC  > Mounting file system...");
   fr = f_mount(&SDC_FS, "0:", 0);
-  chprintf((BaseSequentialStream *)&SD_console, "done, return code = %d\r\n", fr);
+  //chprintf((BaseSequentialStream *)&SD_console, "done, return code = %d\r\n", fr);
 
   /* Write image data */
   write_jpeg();
   palSetPad(GPIOD, GPIOD_LED_GREEN);
   chThdSleepMilliseconds(1000);
   palClearPad(GPIOD, GPIOD_LED_GREEN);
-
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-//  chThdSleepMilliseconds(1000);
-
-
 
   }
 }
@@ -951,6 +880,27 @@ int main(void) {
       * Shell manager initialization.
       */
   shellInit();
+
+  /*
+   * To be put in own thread after successful test
+   */
+
+  // Initializes camera
+  OV5640_init();
+
+  // Executes capture command
+  while (true) {
+	  // TODO abstract out contents of cmd_image so that it does not depend on a shell's context
+	  // TODO possible infinite loop in cmd_image?
+	  cmd_image(NULL, 0, NULL);
+
+	  chThdSleepMilliseconds(500);
+  }
+
+
+  /*
+   * Spawns shell and handles commands indefinitely
+   */
 
   while (true) {
     if (!shelltp) {
