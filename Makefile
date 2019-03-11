@@ -143,9 +143,11 @@ CSRC = $(STARTUPSRC) \
        padc.c \
        ltr329.c \
        tmp100.c \
+       sd.c \
        mpu9250.c \
        memcpy_dma.c
-
+# Include paths that ChibiStudio does in the background
+CHIBISTUDIO = ./tools/gnu_arm_tools/7.2-2017q4/arm-none-eabi/include/ ./tools/gnu_arm_tools/7.2-2017q4/arm-none-eabi/include/sys
 #       usbcfg.c \
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -175,7 +177,7 @@ TCPPSRC =
 ASMSRC =
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 
-INCDIR = $(CHIBIOS)/os/license \
+INCDIR = $(CHIBISTUDIO) $(CHIBIOS)/os/license \
          $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
          $(STREAMSINC) $(SHELLINC) $(FATFSINC) $(CONFDIR) \
@@ -235,7 +237,7 @@ UDEFS =
 UADEFS =
 
 # List all user directories here
-UINCDIR =
+UINCDIR = 
 
 # List the user directory to look for the libraries here
 ULIBDIR =
