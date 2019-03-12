@@ -31,6 +31,7 @@
 extern "C" {
 #endif
 uint32_t    OV5640_Snapshot2RAM(void);
+uint32_t    OV5640_Snapshot2SD(char* filename);
 uint32_t    OV5640_Snapshot2RAM_RGB(void);
 uint32_t    OV5640_Capture(void);
 void        OV5640_InitGPIO(void);

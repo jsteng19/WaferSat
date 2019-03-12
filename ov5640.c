@@ -14,7 +14,12 @@
 #include "chprintf.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_dcmi.h"
+#include "sd.h"
 
+// create buffer in DRAM
+uint8_t OV5640_ram_buffer[OV5640_NUM_PIXELS*2] __attribute((section(".ram7")));
+volatile uint32_t OV5640_ram_buffer_length = 0;
+ 
 static uint32_t lightIntensity;
 static uint8_t error;
 volatile bool samplingFinished;
@@ -1778,6 +1783,25 @@ uint32_t OV5640_Snapshot2RAM() {
   return true;
 }
 
+uint32_t OV5640_Snapshot2SD(char* filename) {
+	FIL fil;
+	FRESULT fr;
+	fr = f_open(&fil, filename, FA_WRITE | FA_CREATE_NEW);
+	if (fr != 0) return fr;
+ 
+	uint32_t snapshot = OV5640_Snapshot2RAM();
+	if (snapshot != 0) return snapshot;
+ 
+	UINT bytes_written;
+	fr = f_write(&fil, OV5640_ram_buffer, OV5640_ram_buffer_length, &bytes_written);
+	
+	if (fr != 0) return fr;
+	// return 20 because the first 19 are file result errors
+	if (bytes_written < OV5640_ram_buffer_length) return 20;
+	fr = f_close(&fil);
+	return 0;
+}
+	
 
 
 /*
