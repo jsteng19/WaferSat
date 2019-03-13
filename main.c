@@ -33,5 +33,6 @@ int main(void) {
 		chsnprintf(filename, 30, "img%d.jpg", img_idx);
 		// It's ok if the filename doesn't exist at the moment because it'll increment until it does; this should be based on clock values though
 		uint32_t err = OV5640_Snapshot2SD(filename);	
+		img_idx++;
 	}
 }

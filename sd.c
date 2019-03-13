@@ -132,9 +132,12 @@ uint8_t sd_write(FIL* fil, char* string) {
 
 uint8_t sd_test(void) {
 	FIL f;
-	FRESULT open_err = f_open(&f, "testing.txt", FA_CREATE_NEW);
+	FRESULT open_err = f_open(&f, "testing123.txt", FA_CREATE_NEW);
 
-	if(!(open_err == FR_OK || open_err == FR_EXIST)) {
+	f_close(&f);
+	open_err = f_open(&f, "testing123.txt", FA_OPEN_APPEND);
+
+	if(open_err != FR_OK) {
 		f_close(&f);
 		return open_err;
 	}	

@@ -121,7 +121,7 @@ static uint32_t stream_control_register;
 int dcmi_dma_init(void)
 {
     if ((dcmi_dma_buffer == (uintptr_t) NULL) || (dcmi_dma_image_size== 0)){
-      chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: failure\r\n");
+      //chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: failure\r\n");
         return -1;
     }
     //Find appropriate fatoring of size into number of blocks
@@ -143,8 +143,8 @@ int dcmi_dma_init(void)
        block_size = 4*block_size_words;
        break;
     }
-    chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: %d byte image, transferring as %d blocks of %d bytes\r\n",
-             dcmi_dma_image_size, num_blocks, block_size);
+    //chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: %d byte image, transferring as %d blocks of %d bytes\r\n",
+    //         dcmi_dma_image_size, num_blocks, block_size);
 
     dmaStreamAllocate(dma_stream_driver, 10, (stm32_dmaisr_t)dcmi_dma_shuffle_isr, NULL);
     dmaStreamSetPeripheral(dma_stream_driver, ((uint32_t*)DCMI_REG_DR_ADDRESS));
@@ -169,7 +169,7 @@ int dcmi_dma_init(void)
 int dcmi_dma_init_open_ended(void)
 {
     if ((dcmi_dma_buffer == (uintptr_t) NULL) || (dcmi_dma_buffer_size== 0)){
-      chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: failure\r\n");
+      //chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: failure\r\n");
         return -1;
     }
     //Find appropriate factoring of size into number of blocks
@@ -177,8 +177,8 @@ int dcmi_dma_init_open_ended(void)
     block_size = 4*block_size_words;
     num_blocks = (dcmi_dma_buffer_size) / block_size -1;
 
-    chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: %d byte image, transferring as %d blocks of %d bytes\r\n",
-             dcmi_dma_buffer_size, num_blocks, block_size);
+    //chprintf((BaseSequentialStream *)&SD1, "CAM  > dcmi_dma: %d byte image, transferring as %d blocks of %d bytes\r\n",
+    //         dcmi_dma_buffer_size, num_blocks, block_size);
 
     dmaStreamAllocate(dma_stream_driver, 10, (stm32_dmaisr_t)dcmi_dma_shuffle_isr_open_ended, NULL);
     dmaStreamSetPeripheral(dma_stream_driver, ((uint32_t*)DCMI_REG_DR_ADDRESS));

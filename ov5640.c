@@ -1623,50 +1623,50 @@ typedef struct dmaControl {
 
 void OV5640_SetResolution(resolution_t res)
 {
-   chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure Resolution ");
+   //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure Resolution ");
     switch(res) {
         case RES_QQVGA:
-            chprintf((BaseSequentialStream *)&SD_console,"QQVGA\r\n");
+            //chprintf((BaseSequentialStream *)&SD_console,"QQVGA\r\n");
             for(uint32_t i=0; (OV5640_QSXGA2QQVGA[i].reg != 0xffff) || (OV5640_QSXGA2QQVGA[i].val != 0xff); i++)
                 I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_QSXGA2QQVGA[i].reg, OV5640_QSXGA2QQVGA[i].val);
             break;
 
         case RES_QVGA:
-            chprintf((BaseSequentialStream *)&SD_console,"QVGA\r\n");
+            //chprintf((BaseSequentialStream *)&SD_console,"QVGA\r\n");
             for(uint32_t i=0; (OV5640_QSXGA2QVGA[i].reg != 0xffff) || (OV5640_QSXGA2QVGA[i].val != 0xff); i++)
                 I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_QSXGA2QVGA[i].reg, OV5640_QSXGA2QVGA[i].val);
             break;
 
         case RES_VGA:
-            chprintf((BaseSequentialStream *)&SD_console,"VGA\r\n");
+            //chprintf((BaseSequentialStream *)&SD_console,"VGA\r\n");
             for(uint32_t i=0; (OV5640_QSXGA2VGA[i].reg != 0xffff) || (OV5640_QSXGA2VGA[i].val != 0xff); i++)
                 I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_QSXGA2VGA[i].reg, OV5640_QSXGA2VGA[i].val);
             break;
 
         case RES_XGA:
-          chprintf((BaseSequentialStream *)&SD_console,"XGA\r\n");
+          //chprintf((BaseSequentialStream *)&SD_console,"XGA\r\n");
             for(uint32_t i=0; (OV5640_QSXGA2XGA[i].reg != 0xffff) || (OV5640_QSXGA2XGA[i].val != 0xff); i++)
                 I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_QSXGA2XGA[i].reg, OV5640_QSXGA2XGA[i].val);
             break;
 
         case RES_UXGA:
-          chprintf((BaseSequentialStream *)&SD_console,"UXGA\r\n");
+          //chprintf((BaseSequentialStream *)&SD_console,"UXGA\r\n");
             for(uint32_t i=0; (OV5640_QSXGA2UXGA[i].reg != 0xffff) || (OV5640_QSXGA2UXGA[i].val != 0xff); i++)
                 I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_QSXGA2UXGA[i].reg, OV5640_QSXGA2UXGA[i].val);
             break;
 
         case RES_5MP:
-          chprintf((BaseSequentialStream *)&SD_console,"5MP\r\n");
+          //chprintf((BaseSequentialStream *)&SD_console,"5MP\r\n");
             for(uint32_t i=0; (OV5640_5MP_JPEG[i].reg != 0xffff) || (OV5640_5MP_JPEG[i].val != 0xff); i++)
                 I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_5MP_JPEG[i].reg, OV5640_5MP_JPEG[i].val);
             break;
 
         case RES_NONE: // No configuration is made
-          chprintf((BaseSequentialStream *)&SD_console,"none\r\n");
+          //chprintf((BaseSequentialStream *)&SD_console,"none\r\n");
             break;
 
         default: // Default QVGA
-          chprintf((BaseSequentialStream *)&SD_console,"QVGA\r\n");
+          //chprintf((BaseSequentialStream *)&SD_console,"QVGA\r\n");
             for(uint32_t i=0; (OV5640_QSXGA2QVGA[i].reg != 0xffff) || (OV5640_QSXGA2QVGA[i].val != 0xff); i++)
                 I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_QSXGA2QVGA[i].reg, OV5640_QSXGA2QVGA[i].val);
     }
@@ -1690,7 +1690,7 @@ uint32_t OV5640_Snapshot2RAM_RGB() {
   //      }
   //  }
 
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Start RGB Capture\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Start RGB Capture\r\n");
   // DCMI init and start capture
   OV5640_InitDCMI_RGB();
 
@@ -1700,11 +1700,11 @@ uint32_t OV5640_Snapshot2RAM_RGB() {
   while(!samplingFinished && chVTGetSystemTimeX() < timeout)
       chThdSleepMilliseconds(1);
   if(chVTGetSystemTimeX() >= timeout) { // Timeout has occurred
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > No image captured\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > No image captured\r\n");
       return false;
   } else { // Data successfully sampled
     palClearPad(GPIOD, GPIOD_LED_RED); //turn off red led on discovery
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > Capture Successful\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Capture Successful\r\n");
   }
 
   return true;
@@ -1733,17 +1733,17 @@ uint32_t OV5640_Snapshot2RAM() {
   //      }
   //  }
 
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Start JPEG Capture\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Start JPEG Capture\r\n");
   // DCMI init and start capture
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Start DCMI capture...\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Start DCMI capture...\r\n");
 
   //clear image buffer
   memset(OV5640_ram_buffer, 0x00, sizeof(OV5640_ram_buffer));
 
   //start transfer
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DMA\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DMA\r\n");
   OV5640_InitDMA();
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DCMI\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DCMI\r\n");
   OV5640_InitDCMI();
 
   // Wait for capture to start
@@ -1753,17 +1753,17 @@ uint32_t OV5640_Snapshot2RAM() {
   while(!samplingFinished_DCMI_controller && chVTGetSystemTimeX() < timeout){
     chThdSleepMilliseconds(1);
     samplingFinished_DCMI_controller = !(DCMI->CR &1); //Capture bit
-    //chprintf((BaseSequentialStream *)&SD_console,"%d %d %d\r\n", DMA2_Stream1->NDTR, (DCMI->CR)&1, DCMI->SR);
+    ////chprintf((BaseSequentialStream *)&SD_console,"%d %d %d\r\n", DMA2_Stream1->NDTR, (DCMI->CR)&1, DCMI->SR);
   }
   dcmi_dma_open_ended_stop();
   OV5640_ram_buffer_length = dcmi_dma_bytes_received;
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > DCMI transfer done, %d bytes captured\r\n", dcmi_dma_bytes_received);
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > DCMI transfer done, %d bytes captured\r\n", dcmi_dma_bytes_received);
 
   if(!samplingFinished_DCMI_controller) { // Timeout has occurred
     palSetPad(GPIOD, GPIOD_LED_RED);  //turn on red led on discovery
     memcpy( OV5640_ram_buffer, noCameraFound, sizeof(noCameraFound));
     OV5640_ram_buffer_length = sizeof(noCameraFound);
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > No image captured\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > No image captured\r\n");
       return false;
   } else { // Data successfully sampled
 
@@ -1777,7 +1777,7 @@ uint32_t OV5640_Snapshot2RAM() {
         break;
       }
     }
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > Capture successful, %d byte image data\r\n", OV5640_ram_buffer_length);
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Capture successful, %d byte image data\r\n", OV5640_ram_buffer_length);
   }
 
   return true;
@@ -1860,7 +1860,7 @@ uint32_t OV5640_Capture() {
 
 	OV5640_UnlockResourcesForCapture();
 
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > Capture success\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Capture success\r\n");
 
 	error = 0x0;
 	return error;
@@ -1871,7 +1871,7 @@ uint32_t OV5640_Capture() {
   */
 void OV5640_InitGPIO(void)
 {
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Activate XCLK\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Activate XCLK\r\n");
   palSetPadMode(GPIOA, 8, PAL_MODE_ALTERNATE(0)); // PA8             -> XCLK
   //set up in boards.h
   //    palSetPadMode(GPIOA, GPIOA_DCMI_HSYNC, PAL_MODE_ALTERNATE(13)); // HSYNC -> PA4
@@ -1895,20 +1895,20 @@ void OV5640_InitGPIO(void)
 
 void OV5640_TransmitConfig_RGB(void)
 {
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Software reset\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Software reset\r\n");
     I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3103, 0x11);
     I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3008, 0x82);
     chThdSleep(TIME_MS2I(100));
 
     ////RGB 565 mode
-    //  chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure RGB565 640x480\r\n");
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure RGB565 %dx%d\r\n",OV5640_MAXX,OV5640_MAXY);
+    //  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure RGB565 640x480\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure RGB565 %dx%d\r\n",OV5640_MAXX,OV5640_MAXY);
     for(uint32_t i=0; (OV5640YUV_Sensor_Dvp_Init_RGB[i].reg != 0xffff) || (OV5640YUV_Sensor_Dvp_Init_RGB[i].val != 0xff); i++)
         I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640YUV_Sensor_Dvp_Init_RGB[i].reg, OV5640YUV_Sensor_Dvp_Init_RGB[i].val);
 
     chThdSleep(TIME_MS2I(500));
 
-//  chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Light Mode: Auto\r\n");
+//  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Light Mode: Auto\r\n");
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3406, 0x00);
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3400, 0x04);
@@ -1921,7 +1921,7 @@ void OV5640_TransmitConfig_RGB(void)
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0xa3); // lanuch group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5183, 0x0 );
 //
-//  chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Saturation: 0\r\n");
+//  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Saturation: 0\r\n");
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5381, 0x1c);
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5382, 0x5a);
@@ -1937,14 +1937,14 @@ void OV5640_TransmitConfig_RGB(void)
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x13); // end group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0xa3); // launch group 3
 //
-//  chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Brightness: 0\r\n");
+//  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Brightness: 0\r\n");
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5587, 0x00);
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5588, 0x01);
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x13); // end group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0xa3); // launch group 3
 //
-//  chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Contrast: 0\r\n");
+//  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Contrast: 0\r\n");
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //  I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5586, 0x20);
@@ -1955,23 +1955,23 @@ void OV5640_TransmitConfig_RGB(void)
 
 void OV5640_TransmitConfig(void)
 {
-	chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Software reset\r\n");
+	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Software reset\r\n");
 	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3103, 0x11);
 	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3008, 0x82);
 	chThdSleep(TIME_MS2I(100));
 
-	chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Initialization\r\n");
+	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Initialization\r\n");
 	for(uint32_t i=0; (OV5640YUV_Sensor_Dvp_Init[i].reg != 0xffff) || (OV5640YUV_Sensor_Dvp_Init[i].val != 0xff); i++)
 	  I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640YUV_Sensor_Dvp_Init[i].reg, OV5640YUV_Sensor_Dvp_Init[i].val);
 
 	chThdSleep(TIME_MS2I(500));
 
-//	chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure JPEG QSXGA\r\n");
+//	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Configure JPEG QSXGA\r\n");
 //	for(uint32_t i=0; (OV5640_JPEG_QSXGA[i].reg != 0xffff) || (OV5640_JPEG_QSXGA[i].val != 0xff); i++){
 //	  I2C_write8_16bitreg(OV5640_I2C_ADR, OV5640_JPEG_QSXGA[i].reg, OV5640_JPEG_QSXGA[i].val);
 //	}
 
-	//	chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Light Mode: Auto\r\n");
+	//	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Light Mode: Auto\r\n");
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3406, 0x00);
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3400, 0x04);
@@ -1984,7 +1984,7 @@ void OV5640_TransmitConfig(void)
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0xa3); // lanuch group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5183, 0x0 );
 //
-//	chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Saturation: 0\r\n");
+//	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Saturation: 0\r\n");
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5381, 0x1c);
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5382, 0x5a);
@@ -2000,14 +2000,14 @@ void OV5640_TransmitConfig(void)
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x13); // end group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0xa3); // launch group 3
 //
-//	chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Brightness: 0\r\n");
+//	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Brightness: 0\r\n");
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5587, 0x00);
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5588, 0x01);
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x13); // end group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0xa3); // launch group 3
 //
-//	chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Contrast: 0\r\n");
+//	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > ... Contrast: 0\r\n");
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x3212, 0x03); // start group 3
 //	I2C_write8_16bitreg(OV5640_I2C_ADR, 0x5586, 0x20);
@@ -2031,43 +2031,43 @@ void OV5640_powerup(void) {
 
 void OV5640_init(void)
 {
-	chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init pins\r\n");
+	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init pins\r\n");
 	OV5640_powerup();
 //	OV5640_setLightIntensity();
 
 	// Send settings to OV5640
-	chprintf((BaseSequentialStream *)&SD_console,"CAM  > Transmit config to camera\r\n");
+	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > Transmit config to camera\r\n");
 	OV5640_TransmitConfig();
 
 	chThdSleep(TIME_MS2I(200));
 
     // DCMI DMA - done in OV5640_Snapshot2RAM()
-   // chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DMA\r\n");
+   // //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DMA\r\n");
    // OV5640_InitDMA();
 
     // DCMI Init - done in OV5640_Snapshot2RAM()
-   // chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DCMI\r\n");
+   // //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DCMI\r\n");
    // OV5640_InitDCMI();
 }
 
 void OV5640_init_RGB(void)
 {
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init pins\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init pins\r\n");
     OV5640_powerup();
     //OV5640_setLightIntensity();
 
     // Send settings to OV5640
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > Transmit config to camera\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Transmit config to camera\r\n");
     OV5640_TransmitConfig_RGB();
 
     chThdSleep(TIME_MS2I(200));
 
     // DCMI DMA
-    chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DMA\r\n");
+    //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DMA\r\n");
     OV5640_InitDMA_RGB();
 
     // DCMI Init - done in OV5640_Snapshot2RAM()
-   // chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DCMI\r\n");
+   // //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Init DCMI\r\n");
    // OV5640_InitDCMI();
 }
 
@@ -2075,15 +2075,15 @@ void OV5640_deinit(void)
 {
 
   // DCMI Init
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Deinit DMA\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Deinit DMA\r\n");
   OV5640_DeinitDCMI();
 
   // DCMI DMA
-  chprintf((BaseSequentialStream *)&SD_console,"CAM  > Deinit DCMI\r\n");
+  //chprintf((BaseSequentialStream *)&SD_console,"CAM  > Deinit DCMI\r\n");
   OV5640_DeinitDMA();
 
 	// Power off OV5640
-	chprintf((BaseSequentialStream *)&SD_console,"CAM  > Switch off\r\n");
+	//chprintf((BaseSequentialStream *)&SD_console,"CAM  > Switch off\r\n");
 
 //	palSetLineMode(LINE_CAM_PCLK, PAL_MODE_INPUT);
 //	palSetLineMode(LINE_CAM_VSYNC, PAL_MODE_INPUT);
