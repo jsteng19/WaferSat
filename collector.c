@@ -212,7 +212,6 @@ static bool aquirePosition(dataPoint_t* tp, dataPoint_t* ltp,
 //               svinfo.iTOW, svinfo.numCh, svinfo.globalFlags);
 //
 //    uint8_t i;
-//    for(i = 0; i < svinfo.numCh; i++) {
 //      gps_svchn_t *sat = &svinfo.svinfo[i];
 //      TRACE_INFO("GPS  > Satellite info chn=%03d svid=%03d flags=0x%02x"
 //          " quality=%02d cno=%03d elev=%03d azim=%06d, prRes=%06d",
