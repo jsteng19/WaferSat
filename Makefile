@@ -131,6 +131,7 @@ CSRC = $(STARTUPSRC) \
        $(FATFSSRC) \
        $(CHIBIOS_CONTRIB)/os/various/devices_lib/lcd/ili9341.c \
        main.c \
+       log.c \
        dcmi_dma.c \
        ov5640.c \
        pi2c.c \
