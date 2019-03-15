@@ -1790,7 +1790,7 @@ uint32_t OV5640_Snapshot2SD(char* filename) {
 	if (fr != 0) return fr;
  
 	uint32_t snapshot = OV5640_Snapshot2RAM();
-	if (snapshot != 0) return snapshot;
+	if (!snapshot) return 1;
  
 	UINT bytes_written;
 	fr = f_write(&fil, OV5640_ram_buffer, OV5640_ram_buffer_length, &bytes_written);
