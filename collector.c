@@ -307,7 +307,6 @@ void getSensors(dataPoint_t* tp) {
 		tp->sen_i1_hum = BME280_getHumidity(&handle);
 		tp->sen_i1_temp = BME280_getTemperature(&handle);
 	} else { // No internal BME280 found
-	    chprintf((BaseSequentialStream *)&SD_console,"COLL > Internal BME280 I1 not operational\r\n");
 		tp->sen_i1_press = 0;
 		tp->sen_i1_hum = 0;
 		tp->sen_i1_temp = 0;
@@ -321,7 +320,6 @@ void getSensors(dataPoint_t* tp) {
 		tp->sen_e2_hum = BME280_getHumidity(&handle);
 		tp->sen_e2_temp = BME280_getTemperature(&handle);
 	} else { // No external BME280 found
-	    chprintf((BaseSequentialStream *)&SD_console,"COLL > External BME280 E2 not operational\r\n");
 		tp->sen_e2_press = 0;
 		tp->sen_e2_hum = 0;
 		tp->sen_e2_temp = 0;
@@ -340,7 +338,6 @@ void getSensors(dataPoint_t* tp) {
             tp->ltr329_intensity_ch1 = ltr329_get_intensity_ch1();
 
 	    } else { //ltr329 not found
-	        chprintf((BaseSequentialStream *)&SD_console,"COLL > LTR329 not operational\r\n");
 	        tp->ltr329_intensity_ch0 = 0;
 	        tp->ltr329_intensity_ch1 = 0;
 	    }
@@ -357,7 +354,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(0);
         tp->tmp100_0_temp = tmp100_get_temperature(0);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 0 not operational\r\n");
         tp->tmp100_0_temp = 0;
     }
 
@@ -366,7 +362,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(1);
         tp->tmp100_1_temp = tmp100_get_temperature(1);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 1 not operational\r\n");
         tp->tmp100_1_temp = 0;
     }
 
@@ -375,7 +370,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(2);
         tp->tmp100_2_temp = tmp100_get_temperature(0);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 2 not operational\r\n");
         tp->tmp100_2_temp = 0;
     }
 
@@ -384,7 +378,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(3);
         tp->tmp100_3_temp = tmp100_get_temperature(3);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 3 not operational\r\n");
         tp->tmp100_3_temp = 0;
     }
 
@@ -393,7 +386,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(4);
         tp->tmp100_4_temp = tmp100_get_temperature(4);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 4 not operational\r\n");
         tp->tmp100_4_temp = 0;
     }
 
@@ -402,7 +394,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(5);
         tp->tmp100_5_temp = tmp100_get_temperature(5);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 5 not operational\r\n");
         tp->tmp100_5_temp = 0;
     }
 
@@ -411,7 +402,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(6);
         tp->tmp100_6_temp = tmp100_get_temperature(6);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 6 not operational\r\n");
         tp->tmp100_6_temp = 0;
     }
 
@@ -420,7 +410,6 @@ void getSensors(dataPoint_t* tp) {
       tmp100_init(7);
         tp->tmp100_7_temp = tmp100_get_temperature(7);
     } else {
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > TMP100 7 not operational\r\n");
         tp->tmp100_7_temp = 0;
     }
 
@@ -434,7 +423,6 @@ void getSensors(dataPoint_t* tp) {
         tp->mpu9250_z_accel = mpu9250_get_z();
 
     } else { // No external BME280 found
-        chprintf((BaseSequentialStream *)&SD_console,"COLL > MPU9250 not operational\r\n");
         tp->mpu9250_x_accel = 0;
         tp->mpu9250_y_accel = 0;
         tp->mpu9250_z_accel = 0;
