@@ -8,12 +8,24 @@
 #define LOG_WARN_LED() palSetPad(GPIOD, GPIOD_LED_BLUE)
 #define LOG_ERR_LED() palSetPad(GPIOD, GPIOD_LED_RED)
 #define LOG_CLEAR_LED() palClearPad(GPIOD, GPIOD_LED_RED);palClearPad(GPIOD, GPIOD_LED_BLUE);palClearPad(GPIOD, GPIOD_LED_GREEN)
-#define LOG_CRITICAL() do { palSetPad(GPIOD, GPIOD_LED_RED); chThdSleepMilliseconds(100); LOG_CLEAR_LED(); } while(true)
-#define LOG_TIME() TIME_I2S(chVTGetSystemTime())
+#define LOG_TIME() TIME_I2MS(chVTGetSystemTime())
 
 #define LOG_FILENAME "out.log"
 
+#define LOG_CRITICAL 0
+#define LOG_ERR 1
+#define LOG_WARN 2
+#define LOG_INFO 3
+#define LOG_VERBOSE 4
+
+// If importance <= log_level it will be logged
+#define LOG_LEVEL 3
+
+const char* const LOG_LEVEL_STRING[] = {"CRITICAL", "ERROR", "WARNING", "INFO", "VERBOSE"};
+
 uint8_t log_init(void);
 uint8_t log_data(void);
-
+uint8_t log_image(void);
+void log_close(void);
+void log_message(const char*, uint8_t level);
 #endif

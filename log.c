@@ -10,6 +10,10 @@ FIL log_file;
 char log_dirname[MAX_FILENAME]; 
 
 uint8_t log_init(void) {
+	/** 
+	* Initializes the log file. 
+	* @return 0 if success; a FATFS error otherwise
+	**/
 	FRESULT mk_err = 1;
 	int test_no = 0;
 	// Find unique directory
@@ -47,7 +51,7 @@ uint8_t log_init(void) {
 
 uint8_t log_data(void) {
 	dataPoint_t dp;
-	//getSensors(&dp);
+	getSensors(&dp);
 	uint32_t time = LOG_TIME();
 	char log_str[MAX_LOG_LEN]; 
 	chsnprintf(log_str, MAX_LOG_LEN, "TEST\n");
@@ -58,4 +62,33 @@ uint8_t log_data(void) {
 	f_write(&log_file, "TEST\n", len, &written);
 	f_sync(&log_file);
 	return 0;
+}
+
+void log_close(void) {
+	return f_close(&log_file);
+}
+
+uint8_t log_image(void) {
+	uint32_t time_s = LOG_TIME()/1000;
+	char image_filename[MAX_FILENAME];
+	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", log_dirname, time_s);
+	uint32_t err = OV5640_Snapshot2SD(image_filename);
+	if(err == FA_EXIST) {
+		int img_num = 0;
+		while(err == FA_EXIST && img_num++ < 1000) {
+			chsnprintf(image_filename, MAX_FILENAME, "%s/img%d_%d.jpg", log_dirname, time_s, img_num);
+			err = OV5640_Snapshot2SD(image_filename);
+		}
+	}
+	return err;
+}
+
+void log_message(const char* msg, uint8_t level) {
+	if(level == LOG_ERR) LOG_ERR_LED();	
+	else if(level == LOG_WARN) LOG_WARN_LED();	
+	if(level > LOG_LEVEL) return;
+	char time_message[MAX_LOG_LEN];
+	chsnprintf(time_message, MAX_LOG_LEN, "%d %s:%s\n", LOG_TIME(), LOG_LEVEL_STRING[level], msg);
+	uint8_t bytes_written;	
+	f_write(&log_file, time_message, strlen(time_message), &bytes_written);
 }
