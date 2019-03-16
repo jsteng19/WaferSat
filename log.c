@@ -14,8 +14,9 @@ uint8_t log_init(void) {
 	int test_no = 0;
 	// Find unique directory
 	while(mk_err && test_no < 100000) {
-		chsnprintf(log_dirname, MAX_FILENAME, "/test%d/", test_no);
+		chsnprintf(log_dirname, MAX_FILENAME, "test%d", test_no);
 		mk_err = f_mkdir(log_dirname);
+		test_no++;
 	}
 	if(mk_err != 0) {
 		LOG_ERR_LED();
@@ -23,7 +24,7 @@ uint8_t log_init(void) {
 	}
 	
 	char log_filename[MAX_FILENAME];
-	chsnprintf(log_filename, MAX_FILENAME, "%s%s", log_dirname, LOG_FILENAME);
+	chsnprintf(log_filename, MAX_FILENAME, "%s/%s", log_dirname, LOG_FILENAME);
  
 	FRESULT f_err;
 	f_err = f_open(&log_file, log_filename, FA_CREATE_NEW);
@@ -46,9 +47,15 @@ uint8_t log_init(void) {
 
 uint8_t log_data(void) {
 	dataPoint_t dp;
-	getSensors(&dp);
+	//getSensors(&dp);
 	uint32_t time = LOG_TIME();
 	char log_str[MAX_LOG_LEN]; 
-	chsnprintf(log_str, MAX_LOG_LEN, "TEST");
+	chsnprintf(log_str, MAX_LOG_LEN, "TEST\n");
+
+	int len = 5;
+	int written = 0;
+	
+	f_write(&log_file, "TEST\n", len, &written);
+	f_sync(&log_file);
 	return 0;
 }

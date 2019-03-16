@@ -18,6 +18,8 @@
 #include "hal.h"
 #include "log.h"
 #include "sd.h"
+#include "hal_fsmc_sdram.h"
+#include "is42s16400j.h"
 #include "ov5640.h"
 #include "chprintf.h"
 #include "ff.h"
@@ -27,7 +29,12 @@ int main(void) {
 	halInit();
 	chSysInit();
 	init_err &= sd_init();
-	//init_err &= log_init();
+	init_err &= log_init();
+
+	//Initialize SDRAM
+	fsmcSdramInit();
+	fsmcSdramStart(&SDRAMD, &sdram_cfg);
+ 
 	OV5640_init();
 	if(init_err) LOG_CRITICAL();
 	char filename[30];
@@ -40,6 +47,7 @@ int main(void) {
 		if(err) LOG_ERR_LED();
 		else LOG_OK_LED();
 		img_idx++;
+		log_data();
 		chThdSleepMilliseconds(2500);
 		LOG_CLEAR_LED();
 		chThdSleepMilliseconds(2500);

@@ -17,7 +17,8 @@
 #include "sd.h"
 
 // create buffer in DRAM
-uint8_t OV5640_ram_buffer[OV5640_NUM_PIXELS*2] __attribute((section(".ram7")));
+#define IN_DRAM __attribute__((section(".ram7")))
+uint8_t OV5640_ram_buffer[OV5640_NUM_PIXELS*2] IN_DRAM;
 volatile uint32_t OV5640_ram_buffer_length = 0;
  
 static uint32_t lightIntensity;
