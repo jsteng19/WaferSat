@@ -313,21 +313,6 @@ void getSensors(dataPoint_t* tp) {
 		bme280_error |= 0x1;
 	}
 
-	// External BME280 Sensor 2
-	if(BME280_isAvailable(BME280_E2)) {
-		BME280_Init(&handle, BME280_E2);
-		tp->sen_e2_press = BME280_getPressure(&handle, 32);
-		tp->sen_e2_hum = BME280_getHumidity(&handle);
-		tp->sen_e2_temp = BME280_getTemperature(&handle);
-	} else { // No external BME280 found
-		tp->sen_e2_press = 0;
-		tp->sen_e2_hum = 0;
-		tp->sen_e2_temp = 0;
-		bme280_error |= 0x10;
-	}
-
-
-
 	// Measure light intensity from OV5640
 	tp->light_intensity = OV5640_getLastLightIntensity() & 0xFFFF;
 
@@ -364,55 +349,6 @@ void getSensors(dataPoint_t* tp) {
     } else {
         tp->tmp100_1_temp = 0;
     }
-
-    // TMP100 sensor 2
-    if(tmp100_isAvailable(2)) {
-      tmp100_init(2);
-        tp->tmp100_2_temp = tmp100_get_temperature(0);
-    } else {
-        tp->tmp100_2_temp = 0;
-    }
-
-    // TMP100 sensor 3
-    if(tmp100_isAvailable(3)) {
-      tmp100_init(3);
-        tp->tmp100_3_temp = tmp100_get_temperature(3);
-    } else {
-        tp->tmp100_3_temp = 0;
-    }
-
-    // TMP100 sensor 4
-    if(tmp100_isAvailable(4)) {
-      tmp100_init(4);
-        tp->tmp100_4_temp = tmp100_get_temperature(4);
-    } else {
-        tp->tmp100_4_temp = 0;
-    }
-
-    // TMP100 sensor 5
-    if(tmp100_isAvailable(5)) {
-      tmp100_init(5);
-        tp->tmp100_5_temp = tmp100_get_temperature(5);
-    } else {
-        tp->tmp100_5_temp = 0;
-    }
-
-    // TMP100 sensor 6
-    if(tmp100_isAvailable(6)) {
-      tmp100_init(6);
-        tp->tmp100_6_temp = tmp100_get_temperature(6);
-    } else {
-        tp->tmp100_6_temp = 0;
-    }
-
-    // TMP100 sensor 7
-    if(tmp100_isAvailable(7)) {
-      tmp100_init(7);
-        tp->tmp100_7_temp = tmp100_get_temperature(7);
-    } else {
-        tp->tmp100_7_temp = 0;
-    }
-
 
 
     // MPU-9250 IMU

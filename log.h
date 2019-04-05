@@ -21,7 +21,6 @@
 // If importance <= log_level it will be logged
 #define LOG_LEVEL 3
 
-const char* const LOG_LEVEL_STRING[] = {"CRITICAL", "ERROR", "WARNING", "INFO", "VERBOSE"};
 
 uint8_t log_init(void);
 uint8_t log_data(void);

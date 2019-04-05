@@ -36,20 +36,14 @@ int main(void) {
 	fsmcSdramStart(&SDRAMD, &sdram_cfg);
  
 	OV5640_init();
-	if(init_err) LOG_CRITICAL();
-	char filename[30];
-	int img_idx = 0;
-
+ 
 	while (true) {
-		chsnprintf(filename, 30, "img%d.jpg", img_idx);
-		// It's ok if the filename doesn't exist at the moment because it'll increment until it does; this should be based on clock values though
-		uint32_t err = OV5640_Snapshot2SD(filename);	
+		int err = log_image();
+		log_data();
 		if(err) LOG_ERR_LED();
 		else LOG_OK_LED();
-		img_idx++;
-		log_data();
-		chThdSleepMilliseconds(2500);
+		chThdSleepMilliseconds(1000);
 		LOG_CLEAR_LED();
-		chThdSleepMilliseconds(2500);
+		chThdSleepMilliseconds(1000);
 	}
 }

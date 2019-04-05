@@ -2,12 +2,14 @@
 #include "hal.h"
 #include "string.h"
 #include "chprintf.h"
+#include "ov5640.h"
 #include "ff.h"
 #include "collector.h"
 #include "log.h"
 
 FIL log_file;
 char log_dirname[MAX_FILENAME]; 
+const char* const log_level_string[] = {"CRITICAL", "ERROR", "WARNING", "INFO", "VERBOSE"};
 
 uint8_t log_init(void) {
 	/** 
@@ -53,19 +55,50 @@ uint8_t log_data(void) {
 	dataPoint_t dp;
 	getSensors(&dp);
 	uint32_t time = LOG_TIME();
-	char log_str[MAX_LOG_LEN]; 
-	chsnprintf(log_str, MAX_LOG_LEN, "TEST\n");
-
-	int len = 5;
-	int written = 0;
+	char log_buf[MAX_LOG_LEN]; 
+ 
+	chsnprintf(log_buf, MAX_LOG_LEN, "%d DATA:\n", time);
+	unsigned int written;
+	unsigned int to_write = strlen(log_buf);
+	f_write(&log_file, log_buf, to_write, &written);
+	if(to_write < written) LOG_ERR_LED();
+ 
+	chsnprintf(log_buf, MAX_LOG_LEN, "\tBME280 pressure:%d humidity:%d temperature:%d\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
+	written = 0;
+	to_write = strlen(log_buf);
+	f_write(&log_file, log_buf, to_write, &written);
+	if(to_write < written) LOG_ERR_LED();
+ 
+	chsnprintf(log_buf, MAX_LOG_LEN, "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
+	written = 0;
+	to_write = strlen(log_buf);
+	f_write(&log_file, log_buf, to_write, &written);
+	if(to_write < written) LOG_ERR_LED();
+ 
+	chsnprintf(log_buf, MAX_LOG_LEN, "\tSTM32 temp:%d adc_vbat:%d\n", dp.stm32_temp, dp.adc_vbat);
+	written = 0;
+	to_write = strlen(log_buf);
+	f_write(&log_file, log_buf, to_write, &written);
+	if(to_write < written) LOG_ERR_LED();
+ 
+	chsnprintf(log_buf, MAX_LOG_LEN, "\tTMP100 temp_0:%d temp_1:%d\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
+	written = 0;
+	to_write = strlen(log_buf);
+	f_write(&log_file, log_buf, to_write, &written);
+	if(to_write < written) LOG_ERR_LED();
+ 
+	chsnprintf(log_buf, MAX_LOG_LEN, "\tMPU9250 x:%d y:%d z:%d\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
+	written = 0;
+	to_write = strlen(log_buf);
+	f_write(&log_file, log_buf, to_write, &written);
+	if(to_write < written) LOG_ERR_LED();
 	
-	f_write(&log_file, "TEST\n", len, &written);
 	f_sync(&log_file);
 	return 0;
 }
 
 void log_close(void) {
-	return f_close(&log_file);
+	f_close(&log_file);
 }
 
 uint8_t log_image(void) {
@@ -73,9 +106,9 @@ uint8_t log_image(void) {
 	char image_filename[MAX_FILENAME];
 	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", log_dirname, time_s);
 	uint32_t err = OV5640_Snapshot2SD(image_filename);
-	if(err == FA_EXIST) {
+	if(err == FR_EXIST) {
 		int img_num = 0;
-		while(err == FA_EXIST && img_num++ < 1000) {
+		while(err == FR_EXIST && img_num++ < 1000) {
 			chsnprintf(image_filename, MAX_FILENAME, "%s/img%d_%d.jpg", log_dirname, time_s, img_num);
 			err = OV5640_Snapshot2SD(image_filename);
 		}
@@ -88,7 +121,7 @@ void log_message(const char* msg, uint8_t level) {
 	else if(level == LOG_WARN) LOG_WARN_LED();	
 	if(level > LOG_LEVEL) return;
 	char time_message[MAX_LOG_LEN];
-	chsnprintf(time_message, MAX_LOG_LEN, "%d %s:%s\n", LOG_TIME(), LOG_LEVEL_STRING[level], msg);
-	uint8_t bytes_written;	
+	chsnprintf(time_message, MAX_LOG_LEN, "%d %s:%s\n", LOG_TIME(), log_level_string[level], msg);
+	unsigned int bytes_written;	
 	f_write(&log_file, time_message, strlen(time_message), &bytes_written);
 }
