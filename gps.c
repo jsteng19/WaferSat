@@ -1,3 +1,4 @@
+#include "hal.h"
 #include "hal_serial.h"
 #include "gps.h"
 #include "log.h"
@@ -7,7 +8,7 @@ uint8_t gps_init() {
 	Initializes GPIO and SerialDriver to communicate with GPS.
 	Returns 0 on success and 1 on failure.
 	**/
-	palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7))
+	palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
 	palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
 	sdStart(&SD_GPS, &gps_conf);
 	return (SD_GPS.state == SD_READY) ? 0 : 1;	
@@ -34,8 +35,9 @@ uint8_t gps_receive(uint8_t* buf, uint16_t buflen) {
 	}
 
 	// Read msg-length
-	uint16_t msg_len;
-	read = sdReadTimeout(&SD_GPS, &msg_len, 2, GPS_TIMEOUT);
+	uint8_t msg_len_buf[2];
+	read = sdReadTimeout(&SD_GPS, msg_len_buf, 2, GPS_TIMEOUT);
+	uint16_t msg_len = (msg_len_buf[0] << 8) + msg_len_buf[1];	
 	if(read != 2) {
 		log_message("Did not read payload length from GPS.", LOG_ERR);
 		return 1;
@@ -68,7 +70,7 @@ uint8_t gps_receive(uint8_t* buf, uint16_t buflen) {
 	
 	// read end-of-sequence
 	uint8_t endbuf[GPS_END_LEN];
-	uint8_t read = sdReadTimeout(&SD_GPS, endbuf, GPS_END_LEN, GPS_TIMEOUT);
+	read = sdReadTimeout(&SD_GPS, endbuf, GPS_END_LEN, GPS_TIMEOUT);
 	if(read != GPS_END_LEN || endbuf[0] != end_seq[0] || endbuf[1] != end_seq[1]) {
 		log_message("Did not read end-of-sequence from GPS.", LOG_ERR);
 		return 1;
@@ -117,7 +119,7 @@ uint8_t gps_send(uint8_t* msg, uint16_t msg_len) {
 	}
  
 	// Transmit end-of-sequence to GPS
-	int transmitted = sdWriteTimeout(&SD_GPS, end_seq, GPS_END_LEN, GPS_TIMEOUT);
+	transmitted = sdWriteTimeout(&SD_GPS, end_seq, GPS_END_LEN, GPS_TIMEOUT);
 	if(transmitted != GPS_END_LEN) {
 		log_message("Failed to write end-of-sequence to GPS.", LOG_ERR);
 		return 6;
@@ -132,7 +134,10 @@ uint8_t gps_ping() {
 	0 if succesful comm, 1 if otherwise.
 	**/ 
 	uint8_t buf[GPS_MSG_SIZE];
-	uint8_t err = gps_send(ping_msg, GPS_PING_LEN);
+	// Unique ID and payload for ping message
+	uint8_t ping_msg[2] = {0x02, 0x00};
+	uint8_t ping_len = 2;
+	uint8_t err = gps_send(ping_msg, ping_len);
 	if(err) return err;
 
 	// This should return an ACK
