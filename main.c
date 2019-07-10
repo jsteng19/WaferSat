@@ -31,17 +31,18 @@ int main(void) {
 	init_err &= sd_init();
 	init_err &= log_init();
 
+	pi2cInit();
+
 	//Initialize SDRAM
 	fsmcSdramInit();
 	fsmcSdramStart(&SDRAMD, &sdram_cfg);
  
-	OV5640_init();
+	// OV5640_init();
  
 	while (true) {
-		int err = log_image();
+		// int err = log_image();
 		log_data();
-		if(err) LOG_ERR_LED();
-		else LOG_OK_LED();
+		LOG_OK_LED();
 		chThdSleepMilliseconds(1000);
 		LOG_CLEAR_LED();
 		chThdSleepMilliseconds(1000);
