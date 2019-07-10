@@ -11,6 +11,12 @@
 #define LOG_TIME() TIME_I2MS(chVTGetSystemTime())
 
 #define LOG_FILENAME "out.log"
+static const SerialConfig LOG_CONF = {38400, 0, 0, 0};
+
+//Log over SD, serial, or both
+#define LOG_SD 0
+#define LOG_SERIAL 1
+
 
 #define LOG_CRITICAL 0
 #define LOG_ERR 1
