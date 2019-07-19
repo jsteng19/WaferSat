@@ -130,6 +130,7 @@ CSRC = $(STARTUPSRC) \
        $(SHELLSRC) \
        $(FATFSSRC) \
        $(CHIBIOS_CONTRIB)/os/various/devices_lib/lcd/ili9341.c \
+	   $(CHIBIOS)/os/various/syscalls.c \
        main.c \
        log.c \
        dcmi_dma.c \
@@ -213,7 +214,7 @@ HEX  = $(CP) -O ihex
 BIN  = $(CP) -O binary
 
 # ARM-specific options here
-AOPT =
+AOPT = 
 
 # THUMB-specific options here
 TOPT = -mthumb -DTHUMB
