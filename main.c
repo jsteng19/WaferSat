@@ -16,34 +16,43 @@
 
 #include "ch.h"
 #include "hal.h"
-#include "log.h"
-#include "sd.h"
+#include "emmc.h"
 #include "hal_fsmc_sdram.h"
 #include "is42s16400j.h"
 #include "ov5640.h"
 #include "chprintf.h"
+#include "membench.h"
+#include "diskio.h"
 #include "ff.h"
+#include "log.h"
+
+PARTITION VolToPart[] = {
+	{0, 1},
+	{1, 0}
+};
 
 int main(void) {
 	int init_err = 0;
 	halInit();
 	chSysInit();
-	init_err &= sd_init();
+	emmc_init();
 	init_err &= log_init();
-
-	//Initialize SDRAM
-	fsmcSdramInit();
-	fsmcSdramStart(&SDRAMD, &sdram_cfg);
- 
-	OV5640_init();
- 
-	while (true) {
-		int err = log_image();
-		log_data();
-		if(err) LOG_ERR_LED();
-		else LOG_OK_LED();
-		chThdSleepMilliseconds(1000);
-		LOG_CLEAR_LED();
-		chThdSleepMilliseconds(1000);
-	}
+	char message[100];
+	 
+	snprintf(message, 100, "Disk Status: %u", disk_status(1));
+	log_message(message, LOG_INFO);
+	snprintf(message, 100, "Disk Init: %u", disk_initialize(1));
+	log_message(message, LOG_INFO);
+	snprintf(message, 100, "Disk Status: %u", disk_status(1));
+	log_message(message, LOG_INFO);
+	 
+	DWORD ptable[] = {100, 0, 0, 0};
+	BYTE work[FF_MAX_SS];
+	FRESULT f = f_fdisk(1, ptable, work);
+	snprintf(message, 100, "Attempted to create fatfs; success %u", f);
+	log_message(message, LOG_INFO);
+	f = f_mkfs("1:", FM_ANY, 0, work, sizeof work);
+	 
+	snprintf(message, 100, "Attempted to create filesystem; success %u", f);
+	log_message(message, LOG_INFO);
 }
