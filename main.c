@@ -29,11 +29,6 @@
 #include "ff.h"
 #include "log.h"
 
-PARTITION VolToPart[] = {
-	{0, 1},
-	{1, 0}
-};
-
 int main(void) {
 	int init_err = 0;
 	halInit();

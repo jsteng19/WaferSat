@@ -6,7 +6,7 @@
 #include "hal.h"
 #include "pi2c.h"
 
-#define I2C_DRIVER	(&I2CD1)
+#define I2C_DRIVER	(&I2CD2)
 
 static uint8_t error;
 
