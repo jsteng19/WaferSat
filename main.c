@@ -19,25 +19,29 @@
 #include "log.h"
 #include "sd.h"
 #include "gps.h"
+#include "emmc.h"
 #include "hal_fsmc_sdram.h"
 #include "is42s16400j.h"
 #include "ov5640.h"
 #include "chprintf.h"
+#include "membench.h"
+#include "diskio.h"
 #include "ff.h"
+#include "log.h"
+
+PARTITION VolToPart[] = {
+	{0, 1},
+	{1, 0}
+};
 
 int main(void) {
 	int init_err = 0;
 	halInit();
 	chSysInit();
-	init_err &= sd_init();
 	init_err &= log_init();
+	init_err &= gps_init();
 
 	//Initialize SDRAM
-	fsmcSdramInit();
-	fsmcSdramStart(&SDRAMD, &sdram_cfg);
- 
-	OV5640_init();
- 
 	while (true) {
 		int err = log_image();
 		log_data();
