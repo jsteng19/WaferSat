@@ -25,7 +25,7 @@ static const SerialConfig LOG_CONF = {38400, 0, 0, 0};
 #define LOG_VERBOSE 4
 
 // If importance <= log_level it will be logged
-#define LOG_LEVEL 3
+#define LOG_LEVEL 4
 
 
 uint8_t log_init(void);

@@ -25,8 +25,6 @@
 #include "ov5640.h"
 #include "chprintf.h"
 #include "membench.h"
-#include "diskio.h"
-#include "ff.h"
 #include "log.h"
 
 int main(void) {
@@ -38,14 +36,7 @@ int main(void) {
 
 	//Initialize SDRAM
 	while (true) {
-		int err = log_image();
-		log_data();
-		if(err) LOG_ERR_LED();
-		else LOG_OK_LED();
-		chThdSleepMilliseconds(1000);
-		LOG_CLEAR_LED();
-		chThdSleepMilliseconds(1000);
-		if(gps_ping()) LOG_ERR_LED();
+		if(gps_listen()) LOG_ERR_LED();
 		else LOG_OK_LED();
 		chThdSleepMilliseconds(1000);
 		LOG_CLEAR_LED();
