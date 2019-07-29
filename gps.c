@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "log.h"
 
-uint8_t gps_init() {
+uint8_t gps_init(void) {
 	/**
 	Initializes GPIO and SerialDriver to communicate with GPS.
 	Returns 0 on success and 1 on failure.
@@ -26,7 +26,6 @@ int gps_receive(uint8_t* buf, uint16_t buflen) {
 		4 Failed to read end-of-sequence (message might still be okay)
 	**/
 	// Read start-of-sequence 
-	uint8_t startbuf[GPS_START_LEN];
 	uint8_t gpsbuf[100];
 	uint8_t b = 0;
 	uint8_t c = 0;
@@ -146,63 +145,13 @@ uint8_t gps_send(uint8_t* msg, uint16_t msg_len) {
 	return 0;
 }
  
-uint8_t gps_ping() {	
+uint16_t gps_readline(char* buf, uint16_t maxlen) {
 	/**
-	Asks the GPS its software version in order to confirm communication.
-	0 if succesful comm, 1 if otherwise.
-	**/ 
-	uint8_t buf[GPS_MSG_SIZE];
-	// Unique ID and payload for ping message
-	uint8_t ping_msg[2] = {0x03, 0x00};
-	uint8_t ping_len = 2;
-	uint8_t err = gps_send(ping_msg, ping_len);
-	if(err) return err;
-
-	// This should return an ACK
-	int bread = gps_all(buf, GPS_MSG_SIZE);
-	if(bread < 0) {
-		return 1;
-	}
-	char log_msg[MAX_LOG_LEN];
-	char* ptr = log_msg;
-	ptr += snprintf(ptr, log_msg + MAX_LOG_LEN - ptr, "Read from GPS: ");
-	for(int q = 0; q < bread; q++) {
-		ptr += snprintf(ptr, log_msg + MAX_LOG_LEN - ptr, "%02X ", buf[q]);
-	}
-	log_message(log_msg, LOG_VERBOSE);
-
-	return 0;
-}
-
-uint16_t gps_all(uint8_t* msg, uint16_t max_len) {
-	/**
-		Reads all bytes from GPS and returns the number of bytes read.
+		Reads one line of GPS output into the given buffer.
+		Returns bytes read.
 	**/
-	uint8_t c = 0;
-	uint16_t i = 0;
-	while((c = gps_get()) && i < max_len) {
-		msg[i] = c;
-		i++;
-	}
-	return i;
-}	
- 
-uint8_t gps_listen() {	
-	uint8_t buf[GPS_MSG_SIZE + 1];
-	int bread = gps_all(buf, GPS_MSG_SIZE);
-	buf[GPS_MSG_SIZE] = 0x00;
-	if(bread < 0) {
-		return 1;
-	}
-	char log_msg[MAX_LOG_LEN];
-	char* ptr = log_msg;
-	ptr += snprintf(ptr, log_msg + MAX_LOG_LEN - ptr, "Read %u characters from GPS: %s", bread, (char*) buf);
-	/*
-	for(int q = 0; q < bread; q++) {
-		ptr += snprintf(ptr, log_msg + MAX_LOG_LEN - ptr, "%02X ", buf[q]);
-	}
-	*/
-	log_message(log_msg, LOG_VERBOSE);
-
-	return 0;
+	char* ptr = buf;
+	while(ptr < buf + maxlen && (*ptr = gps_get()) && *ptr != '\n') if(*ptr != 0xFF) ptr++;
+	*ptr = '\0';
+	return ptr - buf;
 }

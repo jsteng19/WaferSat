@@ -5,6 +5,7 @@
 
 #define SD_GPS SD2
 #define GPS_TIMEOUT TIME_MS2I(50)
+#define GPS_LOOPOUT 50
 #define GPS_MSG_SIZE 1024
 
 static const SerialConfig gps_conf = {9600, 0, 0, 0};
@@ -22,7 +23,6 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 uint8_t gps_init(void);
 int gps_receive(uint8_t* buf, uint16_t buflen);
 uint8_t gps_send(uint8_t* msg, uint16_t msg_len);
-uint8_t gps_ping(void);
-uint8_t gps_listen(void);
-uint16_t gps_all(uint8_t* msg, uint16_t max_len);
+uint16_t gps_readline(char* buf, uint16_t maxlen);
+
 #endif
