@@ -36,10 +36,14 @@ int main(void) {
 
 	//Initialize SDRAM
 	while (true) {
-		if(gps_readline(NULL, 0)) LOG_ERR_LED();
-		else LOG_OK_LED();
-		chThdSleepMilliseconds(1000);
+		char line[MAX_LOG_LEN];
+		if(gps_readline(line, MAX_LOG_LEN) == 0) LOG_ERR_LED();
+		else {
+			LOG_OK_LED();
+			log_message(line, LOG_VERBOSE);
+		}
+		chThdSleepMilliseconds(10);
 		LOG_CLEAR_LED();
-		chThdSleepMilliseconds(1000);
+		chThdSleepMilliseconds(10);
 	}
 }
