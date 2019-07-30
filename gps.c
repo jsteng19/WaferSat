@@ -2,6 +2,7 @@
 #include "hal_serial.h"
 #include "gps.h"
 #include "stdio.h"
+#include "string.h"
 #include "log.h"
 
 uint8_t gps_init(void) {
@@ -154,4 +155,64 @@ uint16_t gps_readline(char* buf, uint16_t maxlen) {
 	while(ptr < buf + maxlen && (*ptr = gps_get()) && *ptr != '\n') if(*ptr != 0xFF) ptr++;
 	*ptr = '\0';
 	return ptr - buf;
+}
+
+gps_err_t gps_checksum(char* buf) {
+	/**
+		Calculates the GPS checksum
+		returns GPS_OK if valid and GPS_INV if no delims ($ and *) are found and GPS_BAD_CS if checksum is wrong
+	**/
+	char* start = strchr(buf, (int)'$');
+	char* end = strchr(buf, (int)'*');
+	if(start == NULL || end == NULL) return GPS_INV;
+	// We want to be just inside the $ and *
+	char calc_cs = 0;
+	char* ptr = start;
+	// XOR every message character
+	while(++ptr < end) calc_cs ^= *ptr;
+	// Scan checksum from string
+	unsigned int recv_cs;
+	int matches = sscanf(end, "*%x", &recv_cs);
+	if(matches != 1) {
+		return GPS_INV;
+	}
+	
+	char log[MAX_LOG_LEN];
+	snprintf(log, MAX_LOG_LEN, "Calculated checksum: %X Received Checksum: %X", calc_cs, recv_cs);
+	log_message(log, LOG_VERBOSE);
+
+	if((uint8_t)recv_cs != (uint8_t) calc_cs) return GPS_BAD_CS;
+	return GPS_OK;
+}
+
+gps_err_t gps_parse(char* buf, gps_data_t* data) {
+	gps_err_t cs = gps_checksum(buf); 
+	if(cs != GPS_OK) {
+		return cs;
+	}
+	/*
+		$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47
+	 
+		GGA          Global Positioning System Fix Data
+		123519       Fix taken at 12:35:19 UTC
+		4807.038,N   Latitude 48 deg 07.038' N
+		01131.000,E  Longitude 11 deg 31.000' E
+		1            Fix quality: 
+						0 = invalid		1 = GPS fix (SPS)		2 = DGPS fix 
+						3 = PPS fix 	4 = Real Time Kinematic	5 = Float RTK 
+						6 = estimated	7 = Manual input mode	8 = Simulation mode
+		08           Number of satellites being tracked
+		0.9          Horizontal dilution of position
+		545.4,M      Altitude, Meters, above mean sea level
+		46.9,M       Height of geoid (mean sea level) above WGS84 ellipsoid
+		(empty field) time in seconds since last DGPS update
+		(empty field) DGPS station ID number
+		*47          the checksum data, always begins with *
+	*/
+	int found = gps_scan_gga(buf, data);
+	if(found != 9) {
+		return GPS_INV;
+	}
+	 
+	return GPS_OK;
 }
