@@ -134,6 +134,7 @@ uint8_t log_image(void) {
 }
 
 void log_message(const char* msg, uint8_t level) {
+	// TODO thread safe logging
 	if(level == LOG_ERR) LOG_ERR_LED();	
 	else if(level == LOG_WARN) LOG_WARN_LED();	
 	if(level > LOG_LEVEL) return;
