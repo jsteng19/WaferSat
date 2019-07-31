@@ -45,10 +45,10 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 		*47          the checksum data, always begins with *
 */
 //FIXME GGA scan breaks at fix, after 5 values
-#define gps_scan_gga(buf, data) sscanf(buf, "$GNGGA,%lf,%lf,%c,%lf,%c,%hhu,%hhu,%lf,%lf,M,%*s,M,%*s,%*s*%*s", \
-											&(data->time), &(data->lat), &(data->ns), \
-											&(data->lon), &(data->ew), (uint8_t*) &(data->fix), \
-											(uint8_t*) &(data->satellites),  &(data->dilution),  &(data->alt))
+#define gps_scan_gga(buf, data) sscanf(buf, "$GNGGA,%lf,%lf,%c,%lf,%c,%u,%u,%lf,%lf,M,%*s,M,%*s,%*s*%*s", \
+											&((data)->time), &((data)->lat), &((data)->ns), \
+											&((data)->lon), &((data)->ew), (unsigned int*) &((data)->fix), \
+											(unsigned int*) &((data)->satellites),  &((data)->dilution),  &((data)->alt))
 											 
 #define gps_data_str(buf, n, data) snprintf(buf, n, "date:%lu,time:%f,lat:%fdeg%c,lon:%fdeg%c,alt:%f,fix:%u,sat:%u,dil:%f", gps_data_fields(data))
 #define gps_data_csv(buf, n, data) snprintf(buf, n, "%lu,\t%f,\t%f,\t%c,\t%f%c,\t%f,\t%u,\t%u,\t%f", gps_data_fields(data))

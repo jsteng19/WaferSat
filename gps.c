@@ -233,8 +233,7 @@ gps_err_t gps_parse(char* buf, gps_data_t* data) {
 		return cs;
 	}
 	int found = gps_scan_gga(buf, data);
-	if(found != 0) {
-	//FIXME Please seee gps.h:21
+	if(found != 9) {
 		return GPS_INV;
 	}
 	return GPS_OK;
