@@ -53,12 +53,10 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 										&(((data))->time), (unsigned int*) &(((data)->dd)), \
 										(unsigned int*) &(((data)->mm)), (unsigned int*) &(((data)->yyyy)))
 											 
-#define gps_data_str(buf, n, data) snprintf(buf, n, "dd:%u,mm%u,yyyy:%u,time:%f,lat:%fdeg%c,lon:%fdeg%c,alt:%f,fix:%u,sat:%u,dil:%f", gps_data_fields(data))
+#define gps_data_str(buf, n, data) snprintf(buf, n, "dd:%u,mm:%u,yyyy:%u,time:%f,lat:%fdeg%c,lon:%fdeg%c,alt:%f,fix:%u,sat:%u,dil:%f", gps_data_fields(data))
 #define gps_data_csv(buf, n, data) snprintf(buf, n, "\t%u,\t%u,\t%u,\t%f,\t%f,\t%c,\t%f%c,\t%f,\t%u,\t%u,\t%f", gps_data_fields(data))
 // Returns a new struct with values from the one passed in
 #define gps_data_cpy(data) ((gps_data_t){ gps_data_fields(data) })
-// only replace data if the data from the new field is non-zero
-#define gps_data_add(data) ((gps_data_t){ gps_data_fields(data) })
 
 typedef enum gps_fix_t {
 	GPS_FIX_NONE,
@@ -86,6 +84,7 @@ typedef struct gps_data_t {
 	double dilution;
 } gps_data_t;
 #define gps_data_init() ((gps_data_t){0, 0, 0, 0.0, 0.0, '0', 0.0, '0', 0.0, GPS_FIX_NONE, 0, 0.0})
+ 
 
 typedef enum gps_err_t {
 	GPS_OK,

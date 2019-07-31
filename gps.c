@@ -14,8 +14,10 @@ static THD_FUNCTION(gps_serial_fn, args) {
 		// TODO use events instead of continuous poll
 		char line[GPS_MSG_SIZE];
 		if(gps_readline(line, GPS_MSG_SIZE) > 0) {
-			gps_data_t data = gps_data_init();
-			if(gps_parse(line, &data) == GPS_OK) gps_set(&data);
+			gps_data_t data = gps_get();
+			if(gps_parse(line, &data) == GPS_OK) {
+				gps_set(&data);
+			}
 		}
 	}
 }
@@ -61,7 +63,7 @@ void gps_set(gps_data_t* data) {
 	chSysUnlock();
 	chMtxUnlock(&gps_mtx);
 }
-
+ 
 int gps_receive(uint8_t* buf, uint16_t buflen) {
 	/**
 	Receive a SerialDriver message from the GPS module.
