@@ -233,8 +233,12 @@ gps_err_t gps_parse(char* buf, gps_data_t* data) {
 		return cs;
 	}
 	int found = gps_scan_gga(buf, data);
-	if(found != 9) {
-		return GPS_INV;
+	if(found == 9) {
+		return GPS_OK;
 	}
-	return GPS_OK;
+	found = gps_scan_zda(buf, data);
+	if(found == 4) {
+		return GPS_OK;
+	}
+	return GPS_INV;
 }
