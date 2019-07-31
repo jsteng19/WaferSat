@@ -4,6 +4,7 @@
 #include "chprintf.h"
 #include "ov5640.h"
 #include "ff.h"
+#include "gps.h"
 #include "collector.h"
 #include "log.h"
 
@@ -63,7 +64,6 @@ uint8_t log_data(void) {
 	uint32_t time = LOG_TIME();
 #if LOG_SD
 	char log_buf[MAX_LOG_LEN]; 
-	char log_buf[MAX_LOG_LEN]; 
 	chsnprintf(log_buf, MAX_LOG_LEN, "%d DATA:\r\n", time);
 	unsigned int written;
 	unsigned int to_write = strlen(log_buf);
@@ -99,6 +99,14 @@ uint8_t log_data(void) {
 	to_write = strlen(log_buf);
 	f_write(&log_file, log_buf, to_write, &written);
 	if(to_write < written) LOG_ERR_LED();
+	 
+	gps_data_t gps = gps_get();
+	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
+	written = 0;
+	to_write = strlen(log_buf);
+	f_write(&log_file, log_buf, to_write, &written);
+	if(to_write < written) LOG_ERR_LED();
+	 
 	f_sync(&log_file);
 #endif /* LOG_SD */
  
@@ -109,6 +117,13 @@ uint8_t log_data(void) {
 	chprintf((BaseSequentialStream*) &SD1, "\tSTM32 temp:%d adc_vbat:%d\r\n", dp.stm32_temp, dp.adc_vbat);
 	chprintf((BaseSequentialStream*) &SD1, "\tTMP100 temp_0:%d temp_1:%d\r\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
 	chprintf((BaseSequentialStream*) &SD1, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
+	chprintf((BaseSequentialStream*) &SD1, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
+	 
+	char log_buf[MAX_LOG_LEN]; 
+	gps_data_t gps = gps_get();
+	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
+	chprintf((BaseSequentialStream*) &SD1, "\t");
+	chprintf((BaseSequentialStream*) &SD1, log_buf);
 #endif/* LOG_SERIAL */
 	
 	return 0;

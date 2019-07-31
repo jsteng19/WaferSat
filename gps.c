@@ -14,6 +14,7 @@ static THD_FUNCTION(gps_serial_fn, args) {
 		// TODO use events instead of continuous poll
 		char line[GPS_MSG_SIZE];
 		if(gps_readline(line, GPS_MSG_SIZE) > 0) {
+			//TODO update once per burst
 			gps_data_t data = gps_get();
 			if(gps_parse(line, &data) == GPS_OK) {
 				gps_set(&data);

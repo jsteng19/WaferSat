@@ -36,13 +36,10 @@ int main(void) {
 
 	//Initialize SDRAM
 	while (true) {
-		char line[MAX_LOG_LEN];
-		gps_data_t data = gps_get();
-		gps_data_str(line, MAX_LOG_LEN, &data);
-		log_message(line, LOG_VERBOSE);
+		log_data();
 		LOG_OK_LED();
-		chThdSleepMilliseconds(100);
+		chThdSleepMilliseconds(1000);
 		LOG_CLEAR_LED();
-		chThdSleepMilliseconds(100);
+		chThdSleepMilliseconds(1000);
 	}
 }
