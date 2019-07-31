@@ -19,8 +19,8 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 
 #define gps_read(buf, len) sdReadTimeout(&SD_GPS, buf, len, GPS_TIMEOUT)
 #define gps_write(buf, len) sdWriteTimeout(&SD_GPS, buf, len, GPS_TIMEOUT)
-#define gps_get() sdGetTimeout(&SD_GPS, GPS_TIMEOUT)
-#define gps_put(c) sdPutTimeout(&SD_GPS, c, GPS_TIMEOUT)
+#define gps_getc() sdGetTimeout(&SD_GPS, GPS_TIMEOUT)
+#define gps_putc(c) sdPutTimeout(&SD_GPS, c, GPS_TIMEOUT)
 // Scan definitions for GPS message types
 #define gps_data_fields(data) 	(data)->date, (data)->time, (data)->lat, (data)->ns, \
 								(data)->lon, (data)->ew, (data)->alt, (data)->fix, \
@@ -46,12 +46,13 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 */
 #define gps_scan_gga(buf, data) sscanf(buf, "$GNGGA,%lf,%lf,%c,%lf,%c,%hhu,%hhu,%lf,%lf,M,%*s,M,%*s,%*s*%*s", \
 											&(data->time), &(data->lat), &(data->ns), \
-											&(data->lon), &(data->ew), (uint8_t*) &(data->fix), \
+											&(data->lon), &(data->ew), &(data->fix), \
 											&(data->satellites),  &(data->dilution),  &(data->alt))
-
 											 
 #define gps_data_str(buf, n, data) snprintf(buf, n, "date:%lu,time:%f,lat:%fdeg%c,lon:%fdeg%c,alt:%f,fix:%u,sat:%u,dil:%f", gps_data_fields(data))
 #define gps_data_csv(buf, n, data) snprintf(buf, n, "%lu,\t%f,\t%f,\t%c,\t%f%c,\t%f,\t%u,\t%u,\t%f", gps_data_fields(data))
+// Returns a new struct with values from the one passed in
+#define gps_data_cpy(data) ((gps_data_t){ gps_data_fields(data) })
 
 typedef enum gps_fix_t {
 	GPS_FIX_NONE,
@@ -76,7 +77,7 @@ typedef struct gps_data_t {
 	uint8_t satellites;
 	double dilution;
 } gps_data_t;
-#define gps_data_init() {0, 0.0, 0.0, '\0', 0.0, '\0', 0.0, GPS_FIX_NONE, 0, 0.0}
+#define gps_data_init() ((gps_data_t){0, 0.0, 0.0, '\0', 0.0, '\0', 0.0, GPS_FIX_NONE, 0, 0.0})
 
 typedef enum gps_err_t {
 	GPS_OK,
@@ -84,8 +85,10 @@ typedef enum gps_err_t {
 	GPS_BAD_CS,
 	GPS_BAD_TYPE,
 } gps_err_t;
- 
+
 uint8_t gps_init(void);
+gps_data_t gps_get(void);
+void gps_set(gps_data_t* data);
 int gps_receive(uint8_t* buf, uint16_t buflen);
 uint8_t gps_send(uint8_t* msg, uint16_t msg_len);
 uint16_t gps_readline(char* buf, uint16_t maxlen);

@@ -5,6 +5,9 @@
 #include "string.h"
 #include "log.h"
 
+static volatile gps_data_t gps_protected;
+static mutex_t gps_mtx;
+ 
 uint8_t gps_init(void) {
 	/**
 	Initializes GPIO and SerialDriver to communicate with GPS.
@@ -13,7 +16,36 @@ uint8_t gps_init(void) {
 	palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
 	palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
 	sdStart(&SD_GPS, &gps_conf);
+	chMtxObjectInit(&gps_mtx);
+	gps_data_t data = gps_data_init();
+	gps_set(&data);
 	return (SD_GPS.state == SD_READY) ? 0 : 1;	
+}
+
+gps_data_t gps_get() {
+	/*
+		Thread safe read of stored values.
+		Returns stored struct.
+	*/
+	chMtxLock(&gps_mtx);
+	chSysLock();
+	gps_data_t data = gps_data_cpy(&gps_protected);
+	chSysUnlock();
+	chMtxUnlock(&gps_mtx);
+	return data;
+}
+ 
+void gps_set(gps_data_t* data) {
+	/*
+		Thread safe write of stored values.
+		Accepts pointer to gps data struct
+		Returns void
+	*/
+	chMtxLock(&gps_mtx);
+	chSysLock();
+	gps_protected = gps_data_cpy(data);
+	chSysUnlock();
+	chMtxUnlock(&gps_mtx);
 }
 
 int gps_receive(uint8_t* buf, uint16_t buflen) {
@@ -31,7 +63,7 @@ int gps_receive(uint8_t* buf, uint16_t buflen) {
 	uint8_t b = 0;
 	uint8_t c = 0;
 	uint8_t i = 0;
-	while((	c = gps_get()) &&
+	while((	c = gps_getc()) &&
 			i < 100 &&
 			!(b == 0xA0 &&
 			c == 0xA1)) {
@@ -78,7 +110,7 @@ int gps_receive(uint8_t* buf, uint16_t buflen) {
 	}
 
 	// read/verify checksum
-	uint8_t recv_cs = gps_get();
+	uint8_t recv_cs = gps_getc();
 	uint8_t calc_cs = 0;	
 	for(int i = 0; i < msg_len; i++) calc_cs ^= buf[i];
 	if(calc_cs != recv_cs) {
@@ -152,7 +184,7 @@ uint16_t gps_readline(char* buf, uint16_t maxlen) {
 		Returns bytes read.
 	**/
 	char* ptr = buf;
-	while(ptr < buf + maxlen && (*ptr = gps_get()) && *ptr != '\n') if(*ptr != 0xFF) ptr++;
+	while(ptr < buf + maxlen && (*ptr = gps_getc()) && *ptr != '\n') if(*ptr != 0xFF) ptr++;
 	*ptr = '\0';
 	return ptr - buf;
 }
@@ -190,25 +222,6 @@ gps_err_t gps_parse(char* buf, gps_data_t* data) {
 	if(cs != GPS_OK) {
 		return cs;
 	}
-	/*
-		$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47
-	 
-		GGA          Global Positioning System Fix Data
-		123519       Fix taken at 12:35:19 UTC
-		4807.038,N   Latitude 48 deg 07.038' N
-		01131.000,E  Longitude 11 deg 31.000' E
-		1            Fix quality: 
-						0 = invalid		1 = GPS fix (SPS)		2 = DGPS fix 
-						3 = PPS fix 	4 = Real Time Kinematic	5 = Float RTK 
-						6 = estimated	7 = Manual input mode	8 = Simulation mode
-		08           Number of satellites being tracked
-		0.9          Horizontal dilution of position
-		545.4,M      Altitude, Meters, above mean sea level
-		46.9,M       Height of geoid (mean sea level) above WGS84 ellipsoid
-		(empty field) time in seconds since last DGPS update
-		(empty field) DGPS station ID number
-		*47          the checksum data, always begins with *
-	*/
 	int found = gps_scan_gga(buf, data);
 	if(found != 9) {
 		return GPS_INV;
@@ -216,3 +229,4 @@ gps_err_t gps_parse(char* buf, gps_data_t* data) {
 	 
 	return GPS_OK;
 }
+
