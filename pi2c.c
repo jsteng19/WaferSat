@@ -22,6 +22,11 @@ const I2CConfig _i2cfg = {
 //    FAST_DUTY_CYCLE_2,
 //};
 
+void pi2cInit() {
+	palSetPadMode(GPIOH, 4, PAL_MODE_ALTERNATE(4));
+	palSetPadMode(GPIOH, 5, PAL_MODE_ALTERNATE(4));
+}
+
 static bool I2C_transmit(uint8_t addr, uint8_t *txbuf, uint32_t txbytes, uint8_t *rxbuf, uint32_t rxbytes, sysinterval_t timeout) {
 	i2cAcquireBus(I2C_DRIVER);
 	i2cStart(I2C_DRIVER, &_i2cfg);

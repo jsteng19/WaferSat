@@ -23,9 +23,11 @@
 #include "hal_fsmc_sdram.h"
 #include "is42s16400j.h"
 #include "ov5640.h"
+#include "stdio.h"
 #include "chprintf.h"
 #include "membench.h"
 #include "log.h"
+#include "ff.h"
 
 int main(void) {
 	int init_err = 0;
@@ -34,7 +36,6 @@ int main(void) {
 	init_err &= log_init();
 	init_err &= gps_init();
 
-	//Initialize SDRAM
 	while (true) {
 		log_data();
 		LOG_OK_LED();
