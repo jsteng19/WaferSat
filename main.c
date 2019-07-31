@@ -37,19 +37,12 @@ int main(void) {
 	//Initialize SDRAM
 	while (true) {
 		char line[MAX_LOG_LEN];
-		if(gps_readline(line, MAX_LOG_LEN) == 0) LOG_ERR_LED();
-		else {
-			LOG_OK_LED();
-			gps_checksum(line);
-			gps_data_t dat = gps_data_init();
-			gps_parse(line, &dat);
-			char log[MAX_LOG_LEN];
-			gps_data_str(log, MAX_LOG_LEN, &dat);
-			log_message(log, LOG_VERBOSE);
-			log_message(line, LOG_VERBOSE);
-		}
-		chThdSleepMilliseconds(10);
+		gps_data_t data = gps_get();
+		gps_data_str(line, MAX_LOG_LEN, &data);
+		log_message(line, LOG_VERBOSE);
+		LOG_OK_LED();
+		chThdSleepMilliseconds(100);
 		LOG_CLEAR_LED();
-		chThdSleepMilliseconds(10);
+		chThdSleepMilliseconds(100);
 	}
 }

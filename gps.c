@@ -7,6 +7,19 @@
 
 static volatile gps_data_t gps_protected;
 static mutex_t gps_mtx;
+
+static THD_WORKING_AREA(gps_serial_wa, (MAX_LOG_LEN + GPS_MSG_SIZE) * 2);
+static THD_FUNCTION(gps_serial_fn, args) {
+	while(true) {
+		// TODO use events instead of continuous poll
+		char line[GPS_MSG_SIZE];
+		if(gps_readline(line, GPS_MSG_SIZE) > 0) {
+			gps_data_t data = gps_data_init();
+			if(gps_parse(line, &data) == GPS_OK) gps_set(&data);
+		}
+	}
+}
+static thread_t* gps_serial_thd;
  
 uint8_t gps_init(void) {
 	/**
@@ -19,6 +32,7 @@ uint8_t gps_init(void) {
 	chMtxObjectInit(&gps_mtx);
 	gps_data_t data = gps_data_init();
 	gps_set(&data);
+	gps_serial_thd = chThdCreateStatic(gps_serial_wa, sizeof(gps_serial_wa), NORMALPRIO, gps_serial_fn, NULL);
 	return (SD_GPS.state == SD_READY) ? 0 : 1;	
 }
 
@@ -208,10 +222,6 @@ gps_err_t gps_checksum(char* buf) {
 	if(matches != 1) {
 		return GPS_INV;
 	}
-	
-	char log[MAX_LOG_LEN];
-	snprintf(log, MAX_LOG_LEN, "Calculated checksum: %X Received Checksum: %X", calc_cs, recv_cs);
-	log_message(log, LOG_VERBOSE);
 
 	if((uint8_t)recv_cs != (uint8_t) calc_cs) return GPS_BAD_CS;
 	return GPS_OK;
@@ -223,10 +233,9 @@ gps_err_t gps_parse(char* buf, gps_data_t* data) {
 		return cs;
 	}
 	int found = gps_scan_gga(buf, data);
-	if(found != 9) {
+	if(found != 0) {
+	//FIXME Please seee gps.h:21
 		return GPS_INV;
 	}
-	 
 	return GPS_OK;
 }
-
