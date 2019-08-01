@@ -12,7 +12,7 @@ static uint8_t error;
 
 const I2CConfig _i2cfg = {
 	OPMODE_I2C,
-	50000,
+	25000,
 	STD_DUTY_CYCLE,
 };
 //seriously, do not try to use 200khz I2C, it causes the camera to stop working
@@ -35,10 +35,10 @@ static bool I2C_transmit(uint8_t addr, uint8_t *txbuf, uint32_t txbytes, uint8_t
 	i2cReleaseBus(I2C_DRIVER);
 
 	if(i2c_status == MSG_TIMEOUT) { // Restart I2C at timeout
-	  chprintf((BaseSequentialStream *)&SD1,"I2C  > TIMEOUT (ADDR 0x%02x)\r\n", addr);
+	  // chprintf((BaseSequentialStream *)&SD1,"I2C  > TIMEOUT (ADDR 0x%02x)\r\n", addr);
 		error = 0x1;
 	} else if(i2c_status == MSG_RESET) {
-	  chprintf((BaseSequentialStream *)&SD1,"I2C  > RESET (ADDR 0x%02x)\r\n", addr);
+	  // chprintf((BaseSequentialStream *)&SD1,"I2C  > RESET (ADDR 0x%02x)\r\n", addr);
 		error = 0x0;
 	} else {
 		error = 0x0;
@@ -46,6 +46,7 @@ static bool I2C_transmit(uint8_t addr, uint8_t *txbuf, uint32_t txbytes, uint8_t
 	return i2c_status == MSG_OK;
 }
 
+// TODO preprocessor func.s
 void I2C_Lock(void) {
   i2cAcquireBus(I2C_DRIVER);
 }
@@ -103,6 +104,20 @@ bool I2C_write8_16bitreg(uint8_t address, uint16_t reg, uint8_t value) // 16bit 
 	uint8_t txbuf[] = {reg >> 8, reg & 0xFF, value};
 	return I2C_transmit(address, txbuf, 3, NULL, 0, TIME_MS2I(100));
 }
+
+uint8_t I2C_scan(uint8_t* addresses) {
+	/* 
+		Takes an array of recommended length 127
+		Fills the array if a device is present, leaves it blank if not present.
+		returns number of devices found.
+	*/
+	uint8_t num_devices = 0;
+	uint8_t val;
+	for(uint8_t i = 0x08; i < 0x78; i++)
+		if(I2C_read8(i, 0x00, &val)) addresses[num_devices++] = i;
+	return num_devices;
+}
+		
 
 uint8_t I2C_hasError(void)
 {
