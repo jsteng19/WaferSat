@@ -124,6 +124,7 @@ uint8_t log_data(void) {
 	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
 	chprintf((BaseSequentialStream*) &SD1, "\t");
 	chprintf((BaseSequentialStream*) &SD1, log_buf);
+	chprintf((BaseSequentialStream*) &SD1, "\r\n");
 #endif/* LOG_SERIAL */
 	
 	return 0;

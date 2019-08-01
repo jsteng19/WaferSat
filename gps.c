@@ -16,8 +16,20 @@ static THD_FUNCTION(gps_serial_fn, args) {
 		gps_data_t data = gps_get();
 		gps_err_t msgs = GPS_NONE;
 		// exit once all expected messages are collected
-		while(gps_readline(line, GPS_MSG_SIZE) > 0 && !((msgs & GPS_ZDA) && (msgs & GPS_GGA))) {
-			msgs |= gps_parse(line, &data);
+		while(gps_readline(line, GPS_MSG_SIZE) > 0 && msgs != GPS_MSG_MSK) {
+			gps_err_t msg_type = gps_parse(line, &data);
+			// If there’s an error, keep going
+			if(msg_type & GPS_ERR_MSK) continue;
+			if(msg_type & msgs) {
+				// this is a message we have already collected
+				// so we must have had an error in the last loop
+				// so, reset the data
+				data = gps_get();
+				gps_parse(line, &data);
+				continue;
+			}
+			// No errors and its a new message, so track of it
+			msgs |= msg_type;	
 		}
 		gps_set(&data);
 	}
@@ -231,6 +243,11 @@ gps_err_t gps_checksum(char* buf) {
 }
 
 gps_err_t gps_parse(char* buf, gps_data_t* data) {
+	/**
+		Parse an NMEA line into GPS data.
+		Return error code and type of message parsed.
+		If there is a parsing error, leave the GPS data untouched
+	**/
 	gps_err_t cs = gps_checksum(buf); 
 	if(cs != GPS_OK) {
 		return cs;

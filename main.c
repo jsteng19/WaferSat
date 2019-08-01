@@ -28,6 +28,7 @@
 #include "membench.h"
 #include "log.h"
 #include "ff.h"
+#include "pi2c.h"
 
 int main(void) {
 	int init_err = 0;
@@ -35,9 +36,21 @@ int main(void) {
 	chSysInit();
 	init_err &= log_init();
 	init_err &= gps_init();
+	pi2cInit();
 
 	while (true) {
 		log_data();
+		 
+		char log[MAX_LOG_LEN];
+		char* ptr = log;
+		ptr += snprintf(ptr, log + MAX_LOG_LEN - ptr, "I2C Scan:");
+		uint8_t addresses[127];
+		uint8_t numd = I2C_scan(addresses);
+		for(int i = 0; i < numd; i++) {
+			ptr += snprintf(ptr, log + MAX_LOG_LEN - ptr, " %02X", addresses[i]);
+		}
+		log_message(log, LOG_VERBOSE);
+		 
 		LOG_OK_LED();
 		chThdSleepMilliseconds(1000);
 		LOG_CLEAR_LED();

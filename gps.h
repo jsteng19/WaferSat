@@ -97,6 +97,10 @@ typedef enum gps_err_t {
 	GPS_ZDA			= 0x01 << 3,
 	GPS_GGA			= 0x01 << 4
 } gps_err_t;
+// All error bits
+#define GPS_ERR_MSK (GPS_INV | GPS_BAD_CS | GPS_BAD_TYPE)
+// all message bits
+#define GPS_MSG_MSK (GPS_ZDA | GPS_GGA)
 
 uint8_t gps_init(void);
  
