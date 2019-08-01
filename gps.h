@@ -87,10 +87,15 @@ typedef struct gps_data_t {
  
 
 typedef enum gps_err_t {
-	GPS_OK,
-	GPS_INV,
-	GPS_BAD_CS,
-	GPS_BAD_TYPE,
+	// success
+	GPS_OK 			= 0x00,
+	GPS_INV 		= 0x01,
+	GPS_BAD_CS 		= 0x01 << 1,
+	GPS_BAD_TYPE 	= 0x01 << 2,
+	// Message types
+	GPS_NONE		= 0x00,
+	GPS_ZDA			= 0x01 << 3,
+	GPS_GGA			= 0x01 << 4
 } gps_err_t;
 
 uint8_t gps_init(void);

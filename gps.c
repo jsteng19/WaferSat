@@ -13,13 +13,13 @@ static THD_FUNCTION(gps_serial_fn, args) {
 	while(true) {
 		// TODO use events instead of continuous poll
 		char line[GPS_MSG_SIZE];
-		if(gps_readline(line, GPS_MSG_SIZE) > 0) {
-			//TODO update once per burst
-			gps_data_t data = gps_get();
-			if(gps_parse(line, &data) == GPS_OK) {
-				gps_set(&data);
-			}
+		gps_data_t data = gps_get();
+		gps_err_t msgs = GPS_NONE;
+		// exit once all expected messages are collected
+		while(gps_readline(line, GPS_MSG_SIZE) > 0 && !((msgs & GPS_ZDA) && (msgs & GPS_GGA))) {
+			msgs |= gps_parse(line, &data);
 		}
+		gps_set(&data);
 	}
 }
 static thread_t* gps_serial_thd;
@@ -235,13 +235,16 @@ gps_err_t gps_parse(char* buf, gps_data_t* data) {
 	if(cs != GPS_OK) {
 		return cs;
 	}
-	int found = gps_scan_gga(buf, data);
+	gps_data_t test = gps_data_init();
+	int found = gps_scan_gga(buf, &test);
 	if(found == 9) {
-		return GPS_OK;
+		gps_scan_gga(buf, data);
+		return GPS_OK | GPS_GGA;
 	}
-	found = gps_scan_zda(buf, data);
+	found = gps_scan_zda(buf, &test);
 	if(found == 4) {
-		return GPS_OK;
+		gps_scan_zda(buf, data);
+		return GPS_OK | GPS_ZDA;
 	}
 	return GPS_INV;
 }
