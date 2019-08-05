@@ -39,15 +39,18 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 #define LOG_SERIAL 1
 
 
+#define LOG_LEVEL LOG_TRACE
+
+
+#define LOG_USE_COLOR 0
+
+
 #define LOG_SD SD1
 static const SerialConfig LOG_CFG = {38400, 0, 0, 0};
 
  
 void log_init(void);
-void log_set_fp(FILE *fp);
 void log_set_level(int level);
-void log_set_quiet(int enable);
-
 void log_log(int level, const char *file, int line, const char *fmt, ...);
 
 #endif

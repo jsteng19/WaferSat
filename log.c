@@ -32,20 +32,19 @@
 #include "ff.h"
 
 static struct {
-  mutex_t mtx;
-  FIL *fp;
-  int level;
-  int quiet;
+	mutex_t mtx;
+	FIL fp;
+	int level;
 } L;
 
 
 static const char *level_names[] = {
-  "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"
+	"TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"
 };
 
 #ifdef LOG_USE_COLOR
 static const char *level_colors[] = {
-  "\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
+	"\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
 };
 #endif
 
@@ -69,18 +68,18 @@ void log_init(void) {
 	chsnprintf(log_filename, MAX_FILENAME, "%s/%s", log_dirname, LOG_FILENAME);
  
 	FRESULT f_err;
-	f_err = f_open(&log_file, log_filename, FA_CREATE_NEW);
+	f_err = f_open(&(L.fp), log_filename, FA_CREATE_NEW);
 	if(f_err) {
 		LOG_ERR_LED();
 		//TODO error handling system
 		// return f_err;
 	}
-	f_err = f_close(&log_file);
+	f_err = f_close(&(L.fp));
 	if(f_err) {
 		LOG_ERR_LED();
 		// return f_err;
 	}
-	f_err = f_open(&log_file, log_filename, FA_WRITE);
+	f_err = f_open(&(L.fp), log_filename, FA_WRITE);
 	if(f_err) {
 		LOG_ERR_LED();
 		// return f_err;
@@ -89,58 +88,47 @@ void log_init(void) {
 #if LOG_SERIAL
 	sdStart(&LOG_SD, &LOG_CONF);
 #endif /* LOG_SERIAL */
+
+	log.set_level(LOG_LEVEL);
 }
 
-void log_set_udata(void *udata) {
-  L.udata = udata;
-}
-
-
-void log_set_fp(FILE *fp) {
-  L.fp = fp;
-}
-
-
+ 
 void log_set_level(int level) {
-  L.level = level;
+	L.level = level;
 }
-
-
-void log_set_quiet(int enable) {
-  L.quiet = enable ? 1 : 0;
-}
-
-
+ 
+  
 void log_log(int level, const char *file, int line, const char *fmt, ...) {
-  if (level < L.level) {
-    return;
-  }
+	if (level < L.level) {
+		return;
+	}
 
   /* Acquire lock */
   chMtxLock(&(L.mtx));
 
   /* Get current time */
-  time_t t = time(NULL);
-  struct tm *lt = localtime(&t);
 
   /* Log to stderr */
-  if (!L.quiet) {
-    va_list args;
-    char buf[16];
-    buf[strftime(buf, sizeof(buf), "%H:%M:%S", lt)] = '\0';
-#ifdef LOG_USE_COLOR
-    fprintf(
-      stderr, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
-      buf, level_colors[level], level_names[level], file, line);
-#else
-    fprintf(stderr, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
-#endif
-    va_start(args, fmt);
-    vfprintf(stderr, fmt, args);
-    va_end(args);
-    fprintf(stderr, "\n");
-    fflush(stderr);
-  }
+	long int ms = log_ms();
+	long int s = ms / 1000;
+	long int m = (s % 3600) / 60;
+	long int h = s / 3600;
+	ms = ms % 1000;
+	va_list args;
+	 
+#if LOG_SERIAL
+#if LOG_USE_COLOR
+	chprintf(
+		(BaseSequentialStream*) &SD1, "%li:%li:%li.%li %-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
+		h, m, s, ms, level_colors[level], level_names[level], file, line);
+#else /* !LOG_USE_COLOR */
+	chprintf((BaseSequentialStream*) &SD1, "%li:%li:%li.%li %-5s %s:%d: ", h, m, s, ms, level_names[level], file, line);
+#endif /* LOG_USE_COLOR */
+	va_start(args, fmt);
+	chvprintf((BaseSequentialStream*) &SD1, fmt, args);
+	va_end(args);
+	chprintf((BaseSequentialStream*) &SD1, "\n");
+#endif /* LOG_SERIAL */
 
   /* Log to file */
   if (L.fp) {
