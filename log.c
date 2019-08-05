@@ -18,6 +18,10 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
+ *
+ * Modified by varun-iyer for ChibiOS/MCU usage
+ *
+ *
  */
 
 #include <stdio.h>
@@ -25,13 +29,14 @@
 #include <stdarg.h>
 #include <string.h>
 #include <time.h>
+#include <ch.h>
+#include <hal.h>
 
 #include "log.h"
 
 static struct {
-  void *udata;
-  log_LockFn lock;
-  FILE *fp;
+  mutex_t mtx;
+  FIL *fp;
   int level;
   int quiet;
 } L;
@@ -47,28 +52,12 @@ static const char *level_colors[] = {
 };
 #endif
 
-
-static void lock(void)   {
-  if (L.lock) {
-    L.lock(L.udata, 1);
-  }
+void log_init(void) {
+	chMtxObjectInit(&(L.mtx));
 }
-
-
-static void unlock(void) {
-  if (L.lock) {
-    L.lock(L.udata, 0);
-  }
-}
-
 
 void log_set_udata(void *udata) {
   L.udata = udata;
-}
-
-
-void log_set_lock(log_LockFn fn) {
-  L.lock = fn;
 }
 
 
@@ -93,7 +82,7 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
   }
 
   /* Acquire lock */
-  lock();
+  chMtxLock(&(L.mtx));
 
   /* Get current time */
   time_t t = time(NULL);
@@ -132,5 +121,5 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
   }
 
   /* Release lock */
-  unlock();
+  chMtxLock(&(L.mtx));
 }
