@@ -1,167 +1,136 @@
-#include "sd.h"
-#include "hal.h"
-#include "string.h"
-#include "chprintf.h"
-#include "ov5640.h"
-#include "ff.h"
-#include "gps.h"
-#include "collector.h"
+/*
+ * Copyright (c) 2017 rxi
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to
+ * deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ * IN THE SOFTWARE.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <string.h>
+#include <time.h>
+
 #include "log.h"
 
-FIL log_file;
-char log_dirname[MAX_FILENAME]; 
-const char* const log_level_string[] = {"CRITICAL", "ERROR", "WARNING", "INFO", "VERBOSE"};
+static struct {
+  void *udata;
+  log_LockFn lock;
+  FILE *fp;
+  int level;
+  int quiet;
+} L;
 
-uint8_t log_init(void) {
-	/** 
-	* Initializes the log file. 
-	* @return 0 if success; a FATFS error otherwise
-	**/
-#if LOG_SD
-	FRESULT mk_err = 1;
-	int test_no = 0;
-	// Find unique directory
-	while(mk_err && test_no < 100000) {
-		chsnprintf(log_dirname, MAX_FILENAME, "test%d", test_no);
-		mk_err = f_mkdir(log_dirname);
-		test_no++;
-	}
-	if(mk_err != 0) {
-		LOG_ERR_LED();
-		return mk_err;
-	}
-	
-	char log_filename[MAX_FILENAME];
-	chsnprintf(log_filename, MAX_FILENAME, "%s/%s", log_dirname, LOG_FILENAME);
- 
-	FRESULT f_err;
-	f_err = f_open(&log_file, log_filename, FA_CREATE_NEW);
-	// TODO don't return if you can handle the error and still log over serial
-	if(f_err) {
-		LOG_ERR_LED();
-		return f_err;
-	}
-	f_err = f_close(&log_file);
-	if(f_err) {
-		LOG_ERR_LED();
-		return f_err;
-	}
-	f_err = f_open(&log_file, log_filename, FA_WRITE);
-	if(f_err) {
-		LOG_ERR_LED();
-		return f_err;
-	}
-#endif /* LOG_SD */
-#if LOG_SERIAL
-	sdStart(&SD1, &LOG_CONF);
-#endif /* LOG_SERIAL */
-	return 0;	
+
+static const char *level_names[] = {
+  "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"
+};
+
+#ifdef LOG_USE_COLOR
+static const char *level_colors[] = {
+  "\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
+};
+#endif
+
+
+static void lock(void)   {
+  if (L.lock) {
+    L.lock(L.udata, 1);
+  }
 }
 
-uint8_t log_data(void) {
-	dataPoint_t dp;
-	getSensors(&dp);
-	uint32_t time = LOG_TIME();
-#if LOG_SD
-	char log_buf[MAX_LOG_LEN]; 
-	chsnprintf(log_buf, MAX_LOG_LEN, "%d DATA:\r\n", time);
-	unsigned int written;
-	unsigned int to_write = strlen(log_buf);
-	f_write(&log_file, log_buf, to_write, &written);
-	if(to_write < written) LOG_ERR_LED();
-	 
-	chsnprintf(log_buf, MAX_LOG_LEN, "\tBME280 pressure:%d humidity:%d temperature:%d\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
-	written = 0;
-	to_write = strlen(log_buf);
-	f_write(&log_file, log_buf, to_write, &written);
-	if(to_write < written) LOG_ERR_LED();
-	 
-	chsnprintf(log_buf, MAX_LOG_LEN, "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
-	written = 0;
-	to_write = strlen(log_buf);
-	f_write(&log_file, log_buf, to_write, &written);
-	if(to_write < written) LOG_ERR_LED();
-	 
-	chsnprintf(log_buf, MAX_LOG_LEN, "\tSTM32 temp:%d adc_vbat:%d\n", dp.stm32_temp, dp.adc_vbat);
-	written = 0;
-	to_write = strlen(log_buf);
-	f_write(&log_file, log_buf, to_write, &written);
-	if(to_write < written) LOG_ERR_LED();
-	 
-	chsnprintf(log_buf, MAX_LOG_LEN, "\tTMP100 temp_0:%d temp_1:%d\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
-	written = 0;
-	to_write = strlen(log_buf);
-	f_write(&log_file, log_buf, to_write, &written);
-	if(to_write < written) LOG_ERR_LED();
-	 
-	chsnprintf(log_buf, MAX_LOG_LEN, "\tMPU9250 x:%d y:%d z:%d\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
-	written = 0;
-	to_write = strlen(log_buf);
-	f_write(&log_file, log_buf, to_write, &written);
-	if(to_write < written) LOG_ERR_LED();
-	 
-	gps_data_t gps = gps_get();
-	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
-	written = 0;
-	to_write = strlen(log_buf);
-	f_write(&log_file, log_buf, to_write, &written);
-	if(to_write < written) LOG_ERR_LED();
-	 
-	f_sync(&log_file);
-#endif /* LOG_SD */
- 
-#if LOG_SERIAL
-	chprintf((BaseSequentialStream*) &SD1, "%d DATA:\r\n", time);
-	chprintf((BaseSequentialStream*) &SD1, "\tBME280 pressure:%d humidity:%d temperature:%d\r\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
-	chprintf((BaseSequentialStream*) &SD1, "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\r\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
-	chprintf((BaseSequentialStream*) &SD1, "\tSTM32 temp:%d adc_vbat:%d\r\n", dp.stm32_temp, dp.adc_vbat);
-	chprintf((BaseSequentialStream*) &SD1, "\tTMP100 temp_0:%d temp_1:%d\r\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
-	chprintf((BaseSequentialStream*) &SD1, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
-	chprintf((BaseSequentialStream*) &SD1, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
-	 
-	char log_buf[MAX_LOG_LEN]; 
-	gps_data_t gps = gps_get();
-	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
-	chprintf((BaseSequentialStream*) &SD1, "\t");
-	chprintf((BaseSequentialStream*) &SD1, log_buf);
-	chprintf((BaseSequentialStream*) &SD1, "\r\n");
-#endif/* LOG_SERIAL */
-	
-	return 0;
+
+static void unlock(void) {
+  if (L.lock) {
+    L.lock(L.udata, 0);
+  }
 }
 
-void log_close(void) {
-	f_close(&log_file);
+
+void log_set_udata(void *udata) {
+  L.udata = udata;
 }
 
-uint8_t log_image(void) {
-	uint32_t time_s = LOG_TIME()/1000;
-	char image_filename[MAX_FILENAME];
-	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", log_dirname, time_s);
-	uint32_t err = OV5640_Snapshot2SD(image_filename);
-	if(err == FR_EXIST) {
-		int img_num = 0;
-		while(err == FR_EXIST && img_num++ < 1000) {
-			chsnprintf(image_filename, MAX_FILENAME, "%s/img%d_%d.jpg", log_dirname, time_s, img_num);
-			err = OV5640_Snapshot2SD(image_filename);
-		}
-	}
-	return err;
+
+void log_set_lock(log_LockFn fn) {
+  L.lock = fn;
 }
 
-void log_message(const char* msg, uint8_t level) {
-	// TODO thread safe logging
-	if(level == LOG_ERR) LOG_ERR_LED();	
-	else if(level == LOG_WARN) LOG_WARN_LED();	
-	if(level > LOG_LEVEL) return;
-#if LOG_SD
-	char time_message[MAX_LOG_LEN];
-	chsnprintf(time_message, MAX_LOG_LEN, "%d %s:%s\n", LOG_TIME(), log_level_string[level], msg);
-	unsigned int bytes_written;	
-	f_write(&log_file, time_message, strlen(time_message), &bytes_written);
-	f_sync();
-#endif /* LOG_SD */ 
-#if LOG_SERIAL
-	chprintf((BaseSequentialStream*) &SD1, "%d %s:%s\r\n", LOG_TIME(), log_level_string[level], msg);
-#endif /* LOG_SERIAL */
+
+void log_set_fp(FILE *fp) {
+  L.fp = fp;
+}
+
+
+void log_set_level(int level) {
+  L.level = level;
+}
+
+
+void log_set_quiet(int enable) {
+  L.quiet = enable ? 1 : 0;
+}
+
+
+void log_log(int level, const char *file, int line, const char *fmt, ...) {
+  if (level < L.level) {
+    return;
+  }
+
+  /* Acquire lock */
+  lock();
+
+  /* Get current time */
+  time_t t = time(NULL);
+  struct tm *lt = localtime(&t);
+
+  /* Log to stderr */
+  if (!L.quiet) {
+    va_list args;
+    char buf[16];
+    buf[strftime(buf, sizeof(buf), "%H:%M:%S", lt)] = '\0';
+#ifdef LOG_USE_COLOR
+    fprintf(
+      stderr, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
+      buf, level_colors[level], level_names[level], file, line);
+#else
+    fprintf(stderr, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
+#endif
+    va_start(args, fmt);
+    vfprintf(stderr, fmt, args);
+    va_end(args);
+    fprintf(stderr, "\n");
+    fflush(stderr);
+  }
+
+  /* Log to file */
+  if (L.fp) {
+    va_list args;
+    char buf[32];
+    buf[strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
+    fprintf(L.fp, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
+    va_start(args, fmt);
+    vfprintf(L.fp, fmt, args);
+    va_end(args);
+    fprintf(L.fp, "\n");
+    fflush(L.fp);
+  }
+
+  /* Release lock */
+  unlock();
 }
