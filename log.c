@@ -56,13 +56,14 @@ void log_init(void) {
 	FRESULT mk_err = 1;
 	int test_no = 0;
 	// Find unique directory
+	char log_dirname[MAX_FILENAME];
 	while(mk_err && test_no < 100000) {
 		chsnprintf(log_dirname, MAX_FILENAME, "test%d", test_no);
 		mk_err = f_mkdir(log_dirname);
 		test_no++;
 	}
 	if(mk_err != 0) {
-		LOG_ERR_LED();
+		LED_ERR();
 		// return mk_err;
 	}
 	
@@ -72,18 +73,18 @@ void log_init(void) {
 	FRESULT f_err;
 	f_err = f_open(&(L.fp), log_filename, FA_CREATE_NEW);
 	if(f_err) {
-		LOG_ERR_LED();
+		LED_ERR();
 		//TODO error handling system
 		// return f_err;
 	}
 	f_err = f_close(&(L.fp));
 	if(f_err) {
-		LOG_ERR_LED();
+		LED_ERR();
 		// return f_err;
 	}
 	f_err = f_open(&(L.fp), log_filename, FA_WRITE);
 	if(f_err) {
-		LOG_ERR_LED();
+		LED_ERR();
 		// return f_err;
 	}
 #endif /* LOG_MEM */
@@ -139,7 +140,7 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
     f_vprintf(&(L.fp), fmt, args);
     va_end(args);
     f_printf(&(L.fp), "\n");
-    f_sync();
+    f_sync(&(L.fp));
 #endif /* LOG_MEM */
 
   /* Release lock */
