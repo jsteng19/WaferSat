@@ -24,15 +24,12 @@
  *
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <string.h>
-#include <time.h>
-#include <ch.h>
-#include <hal.h>
-
+#include "string.h"
+#include "chprintf.h"
+#include "sd.h"
+#include "hal.h"
 #include "log.h"
+#include "ff.h"
 
 static struct {
   mutex_t mtx;
@@ -54,6 +51,44 @@ static const char *level_colors[] = {
 
 void log_init(void) {
 	chMtxObjectInit(&(L.mtx));
+#if LOG_MEM
+	FRESULT mk_err = 1;
+	int test_no = 0;
+	// Find unique directory
+	while(mk_err && test_no < 100000) {
+		chsnprintf(log_dirname, MAX_FILENAME, "test%d", test_no);
+		mk_err = f_mkdir(log_dirname);
+		test_no++;
+	}
+	if(mk_err != 0) {
+		LOG_ERR_LED();
+		// return mk_err;
+	}
+	
+	char log_filename[MAX_FILENAME];
+	chsnprintf(log_filename, MAX_FILENAME, "%s/%s", log_dirname, LOG_FILENAME);
+ 
+	FRESULT f_err;
+	f_err = f_open(&log_file, log_filename, FA_CREATE_NEW);
+	if(f_err) {
+		LOG_ERR_LED();
+		//TODO error handling system
+		// return f_err;
+	}
+	f_err = f_close(&log_file);
+	if(f_err) {
+		LOG_ERR_LED();
+		// return f_err;
+	}
+	f_err = f_open(&log_file, log_filename, FA_WRITE);
+	if(f_err) {
+		LOG_ERR_LED();
+		// return f_err;
+	}
+#endif /* LOG_MEM */
+#if LOG_SERIAL
+	sdStart(&LOG_SD, &LOG_CONF);
+#endif /* LOG_SERIAL */
 }
 
 void log_set_udata(void *udata) {
