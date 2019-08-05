@@ -147,7 +147,21 @@ uint8_t log_data(void) {
 	
 	return 0;
 }
-
+ 
+uint8_t log_image(void) {
+	uint32_t time_s = LOG_TIME()/1000;
+	char image_filename[MAX_FILENAME];
+	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", log_dirname, time_s);
+	uint32_t err = OV5640_Snapshot2SD(image_filename);
+	if(err == FR_EXIST) {
+		int img_num = 0;
+		while(err == FR_EXIST && img_num++ < 1000) {
+			chsnprintf(image_filename, MAX_FILENAME, "%s/img%d_%d.jpg", log_dirname, time_s, img_num);
+			err = OV5640_Snapshot2SD(image_filename);
+		}
+	}
+	return err;
+}
   
 void log_log(int level, const char *file, int line, const char *fmt, ...) {
 	if (level < L.level) {
