@@ -28,12 +28,16 @@
 #include "string.h"
 #include "sd.h"
 #include "chprintf.h"
+#include "collector.h"
+#include "ov5640.h"
+#include "gps.h"
 #include "ch.h"
 #include "log.h"
 #include "ff.h"
 
 static struct {
 	mutex_t mtx;
+	char log_dirname[MAX_FILENAME];
 	FIL fp;
 	int level;
 } L;
@@ -56,10 +60,9 @@ void log_init(void) {
 	FRESULT mk_err = 1;
 	int test_no = 0;
 	// Find unique directory
-	char log_dirname[MAX_FILENAME];
 	while(mk_err && test_no < 100000) {
-		chsnprintf(log_dirname, MAX_FILENAME, "test%d", test_no);
-		mk_err = f_mkdir(log_dirname);
+		chsnprintf(L.log_dirname, MAX_FILENAME, "test%d", test_no);
+		mk_err = f_mkdir(L.log_dirname);
 		test_no++;
 	}
 	if(mk_err != 0) {
@@ -68,7 +71,7 @@ void log_init(void) {
 	}
 	
 	char log_filename[MAX_FILENAME];
-	chsnprintf(log_filename, MAX_FILENAME, "%s/%s", log_dirname, LOG_FILENAME);
+	chsnprintf(log_filename, MAX_FILENAME, "%s/%s", L.log_dirname, LOG_FILENAME);
  
 	FRESULT f_err;
 	f_err = f_open(&(L.fp), log_filename, FA_CREATE_NEW);
@@ -100,7 +103,7 @@ void log_set_level(int level) {
 	L.level = level;
 }
  
-uint8_t log_data(void) {
+void log_data(void) {
 	dataPoint_t dp;
 	getSensors(&dp);
 	 
@@ -109,8 +112,12 @@ uint8_t log_data(void) {
 	long int m = (ms / (60 * 1000)) % 60;
 	long int h = ms / (3600 * 1000);
 	ms = ms % 1000;
+	 
+	char log_buf[GPS_MSG_SIZE]; 
+	gps_data_t gps = gps_get();
+	gps_data_str(log_buf, GPS_MSG_SIZE, &gps);
+	 
 #if LOG_MEM
-	char log_buf[MAX_LOG_LEN]; 
 	f_printf(&(L.fp), "%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
 	f_printf(&(L.fp), "\tBME280 pressure:%d humidity:%d temperature:%d\r\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
 	f_printf(&(L.fp), "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\r\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
@@ -119,9 +126,6 @@ uint8_t log_data(void) {
 	f_printf(&(L.fp), "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
 	f_printf(&(L.fp), "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
 	 
-	char log_buf[MAX_LOG_LEN]; 
-	gps_data_t gps = gps_get();
-	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
 	f_printf(&(L.fp), "\t");
 	f_printf(&(L.fp), log_buf);
 	f_printf(&(L.fp), "\r\n");
@@ -137,30 +141,25 @@ uint8_t log_data(void) {
 	chprintf((BaseSequentialStream*) &LOG_SD, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
 	chprintf((BaseSequentialStream*) &LOG_SD, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
 	 
-	char log_buf[MAX_LOG_LEN]; 
-	gps_data_t gps = gps_get();
-	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
 	chprintf((BaseSequentialStream*) &LOG_SD, "\t");
 	chprintf((BaseSequentialStream*) &LOG_SD, log_buf);
 	chprintf((BaseSequentialStream*) &LOG_SD, "\r\n");
 #endif/* LOG_SERIAL */
-	
-	return 0;
 }
  
-uint8_t log_image(void) {
-	uint32_t time_s = LOG_TIME()/1000;
+void log_image(void) {
+	uint32_t time_s = log_ms()/1000;
 	char image_filename[MAX_FILENAME];
-	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", log_dirname, time_s);
+	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", L.log_dirname, time_s);
 	uint32_t err = OV5640_Snapshot2SD(image_filename);
 	if(err == FR_EXIST) {
 		int img_num = 0;
 		while(err == FR_EXIST && img_num++ < 1000) {
-			chsnprintf(image_filename, MAX_FILENAME, "%s/img%d_%d.jpg", log_dirname, time_s, img_num);
+			chsnprintf(image_filename, MAX_FILENAME, "%s/img%d_%d.jpg", L.log_dirname, time_s, img_num);
 			err = OV5640_Snapshot2SD(image_filename);
 		}
 	}
-	return err;
+	return;
 }
   
 void log_log(int level, const char *file, int line, const char *fmt, ...) {

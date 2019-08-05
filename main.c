@@ -23,16 +23,7 @@ int main(void) {
 	pi2cInit();
 
 	while (true) {
-		char log[1024];
-		char* ptr = log;
-		ptr += snprintf(ptr, log + 1024 - ptr, "I2C Scan:");
-		uint8_t addresses[127];
-		uint8_t numd = I2C_scan(addresses);
-		for(int i = 0; i < numd; i++) {
-			ptr += snprintf(ptr, log + 1024 - ptr, " %02X", addresses[i]);
-		}
-		log_error(log);
-		 
+		log_data();
 		LED_OK();
 		chThdSleepMilliseconds(1000);
 		LED_CLEAR();
