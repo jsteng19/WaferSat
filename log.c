@@ -112,19 +112,19 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 
   /* Log to stderr */
 	long int ms = log_ms();
-	long int s = ms / 1000;
-	long int m = (s % 3600) / 60;
-	long int h = s / 3600;
+	long int s = (ms / 1000) % 60;
+	long int m = (ms / (60 * 1000)) % 60;
+	long int h = ms / (3600 * 1000);
 	ms = ms % 1000;
 	va_list args;
 	 
 #if LOG_SERIAL
 #if LOG_USE_COLOR
 	chprintf(
-		(BaseSequentialStream*) &SD1, "%li:%li:%li.%li %-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
+		(BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\x1b[0m \x1b[90m%\ts:%d:\x1b[0m\t",
 		h, m, s, ms, level_colors[level], level_names[level], file, line);
 #else /* !LOG_USE_COLOR */
-	chprintf((BaseSequentialStream*) &SD1, "%li:%li:%li.%li %-5s %s:%d: ", h, m, s, ms, level_names[level], file, line);
+	chprintf((BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t", h, m, s, ms, level_names[level], file, line);
 #endif /* LOG_USE_COLOR */
 	va_start(args, fmt);
 	chvprintf((BaseSequentialStream*) &SD1, fmt, args);
@@ -134,12 +134,12 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 
   /* Log to file */
 #if LOG_MEM
-    f_printf(L.fp, "%li:%li:%li.%li %-5s %s:%d: ", h, m, s, ms, level_names[level], file, line);
+    f_printf(&(L.fp), "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t", h, m, s, ms, level_names[level], file, line);
     va_start(args, fmt);
-    f_vprintf(L.fp, fmt, args);
+    f_vprintf(&(L.fp), fmt, args);
     va_end(args);
-    fprintf(L.fp, "\n");
-    fflush(L.fp);
+    f_printf(&(L.fp), "\n");
+    f_sync();
 #endif /* LOG_MEM */
 
   /* Release lock */
