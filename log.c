@@ -100,6 +100,54 @@ void log_set_level(int level) {
 	L.level = level;
 }
  
+uint8_t log_data(void) {
+	dataPoint_t dp;
+	getSensors(&dp);
+	 
+	long int ms = log_ms();
+	long int s = (ms / 1000) % 60;
+	long int m = (ms / (60 * 1000)) % 60;
+	long int h = ms / (3600 * 1000);
+	ms = ms % 1000;
+#if LOG_MEM
+	char log_buf[MAX_LOG_LEN]; 
+	f_printf(&(L.fp), "%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
+	f_printf(&(L.fp), "\tBME280 pressure:%d humidity:%d temperature:%d\r\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
+	f_printf(&(L.fp), "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\r\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
+	f_printf(&(L.fp), "\tSTM32 temp:%d adc_vbat:%d\r\n", dp.stm32_temp, dp.adc_vbat);
+	f_printf(&(L.fp), "\tTMP100 temp_0:%d temp_1:%d\r\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
+	f_printf(&(L.fp), "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
+	f_printf(&(L.fp), "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
+	 
+	char log_buf[MAX_LOG_LEN]; 
+	gps_data_t gps = gps_get();
+	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
+	f_printf(&(L.fp), "\t");
+	f_printf(&(L.fp), log_buf);
+	f_printf(&(L.fp), "\r\n");
+	f_sync(&(L.fp));
+#endif /* LOG_SD */
+ 
+#if LOG_SERIAL
+	chprintf((BaseSequentialStream*) &LOG_SD, "%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\tBME280 pressure:%d humidity:%d temperature:%d\r\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\r\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\tSTM32 temp:%d adc_vbat:%d\r\n", dp.stm32_temp, dp.adc_vbat);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\tTMP100 temp_0:%d temp_1:%d\r\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
+	 
+	char log_buf[MAX_LOG_LEN]; 
+	gps_data_t gps = gps_get();
+	gps_data_str(log_buf, MAX_LOG_LEN, &gps);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\t");
+	chprintf((BaseSequentialStream*) &LOG_SD, log_buf);
+	chprintf((BaseSequentialStream*) &LOG_SD, "\r\n");
+#endif/* LOG_SERIAL */
+	
+	return 0;
+}
+
   
 void log_log(int level, const char *file, int line, const char *fmt, ...) {
 	if (level < L.level) {
@@ -107,7 +155,7 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 	}
 
   /* Acquire lock */
-  chMtxLock(&(L.mtx));
+	chMtxLock(&(L.mtx));
 
   /* Get current time */
 
@@ -144,5 +192,5 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 #endif /* LOG_MEM */
 
   /* Release lock */
-  chMtxUnlock(&(L.mtx));
+	chMtxUnlock(&(L.mtx));
 }

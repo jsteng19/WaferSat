@@ -35,6 +35,7 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 #define log_ms() TIME_I2MS(chVTGetSystemTime())
  
 
+//TODO TEST MEM
 #define LOG_MEM 1
 #define LOG_SERIAL 1
 
@@ -56,5 +57,7 @@ static const SerialConfig LOG_CFG = {38400, 0, 0, 0};
 void log_init(void);
 void log_set_level(int level);
 void log_log(int level, const char *file, int line, const char *fmt, ...);
+void log_image(void);
+void log_data(void);
 
 #endif
