@@ -34,26 +34,24 @@ int main(void) {
 	int init_err = 0;
 	halInit();
 	chSysInit();
-	init_err &= log_init();
+	log_init();
 	init_err &= gps_init();
 	pi2cInit();
 
 	while (true) {
-		log_data();
-		 
-		char log[MAX_LOG_LEN];
+		char log[1024];
 		char* ptr = log;
-		ptr += snprintf(ptr, log + MAX_LOG_LEN - ptr, "I2C Scan:");
+		ptr += snprintf(ptr, log + 1024 - ptr, "I2C Scan:");
 		uint8_t addresses[127];
 		uint8_t numd = I2C_scan(addresses);
 		for(int i = 0; i < numd; i++) {
-			ptr += snprintf(ptr, log + MAX_LOG_LEN - ptr, " %02X", addresses[i]);
+			ptr += snprintf(ptr, log + 1024 - ptr, " %02X", addresses[i]);
 		}
-		log_message(log, LOG_VERBOSE);
+		log_error(log);
 		 
-		LOG_OK_LED();
+		LED_OK();
 		chThdSleepMilliseconds(1000);
-		LOG_CLEAR_LED();
+		LED_CLEAR();
 		chThdSleepMilliseconds(1000);
 	}
 }

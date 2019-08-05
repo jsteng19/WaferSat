@@ -24,10 +24,11 @@
  *
  */
 
-#include "string.h"
-#include "chprintf.h"
-#include "sd.h"
 #include "hal.h"
+#include "string.h"
+#include "sd.h"
+#include "chprintf.h"
+#include "ch.h"
 #include "log.h"
 #include "ff.h"
 
@@ -51,6 +52,7 @@ static const char *level_colors[] = {
 void log_init(void) {
 	chMtxObjectInit(&(L.mtx));
 #if LOG_MEM
+	// TODO name log with gps date
 	FRESULT mk_err = 1;
 	int test_no = 0;
 	// Find unique directory
@@ -86,10 +88,10 @@ void log_init(void) {
 	}
 #endif /* LOG_MEM */
 #if LOG_SERIAL
-	sdStart(&LOG_SD, &LOG_CONF);
+	sdStart(&LOG_SD, &LOG_CFG);
 #endif /* LOG_SERIAL */
 
-	log.set_level(LOG_LEVEL);
+	log_set_level(LOG_LEVEL);
 }
 
  
@@ -127,22 +129,19 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 	va_start(args, fmt);
 	chvprintf((BaseSequentialStream*) &SD1, fmt, args);
 	va_end(args);
-	chprintf((BaseSequentialStream*) &SD1, "\n");
+	chprintf((BaseSequentialStream*) &SD1, "\n\r");
 #endif /* LOG_SERIAL */
 
   /* Log to file */
-  if (L.fp) {
-    va_list args;
-    char buf[32];
-    buf[strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
-    fprintf(L.fp, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
+#if LOG_MEM
+    f_printf(L.fp, "%li:%li:%li.%li %-5s %s:%d: ", h, m, s, ms, level_names[level], file, line);
     va_start(args, fmt);
-    vfprintf(L.fp, fmt, args);
+    f_vprintf(L.fp, fmt, args);
     va_end(args);
     fprintf(L.fp, "\n");
     fflush(L.fp);
-  }
+#endif /* LOG_MEM */
 
   /* Release lock */
-  chMtxLock(&(L.mtx));
+  chMtxUnlock(&(L.mtx));
 }
