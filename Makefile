@@ -236,7 +236,7 @@ UDEFS =
 UADEFS =
 
 # List all user directories here
-UINCDIR = conf inc
+UINCDIR = inc
 
 # List the user directory to look for the libraries here
 ULIBDIR =
