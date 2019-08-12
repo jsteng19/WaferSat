@@ -48,7 +48,7 @@ uint8_t gps_init(void) {
 	gps_data_t data = gps_data_init();
 	gps_set(&data);
 	gps_serial_thd = chThdCreateStatic(gps_serial_wa, sizeof(gps_serial_wa), NORMALPRIO, gps_serial_fn, NULL);
-	return (SD_GPS.state == SD_READY) ? 0 : 1;	
+	return (SD_GPS.state == SD_READY) ? 0 : 1;
 }
 
 gps_data_t gps_get() {

@@ -5,7 +5,6 @@
 
 #include "ch.h"
 #include "hal.h"
-#include "debug.h"
 #include "ov5640.h"
 #include "pi2c.h"
 #include "board.h"
