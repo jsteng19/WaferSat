@@ -44,11 +44,17 @@
 #define THERM_RESOLUTION_11_BIT        0x40        //0.125 degC
 #define THERM_RESOLUTION_12_BIT        0x60        //0.0625 degC
 
+struct {
+	uint16_t therm_0;
+	uint16_t therm_1;
+	SensorErr err;
+} therm_t;
+#define THERM_HUMAN_STR "therm0:%u therm1:%u"
+#define THERM_CSV_STR "%u,%u"
+#define THERM_T_FIELDS(dptr) ((dptr)->therm_0), ((dptr)->therm_1)
+#define therm_t_init() ((struct therm_t){0, 0, SENSOR_OK})
+ 
 enum SensorErr therm_init(uint8_t id);
-enum SensorErr therm_avail(uint8_t id);
-uint16_t therm_get(uint8_t id);
-size_t therm_str(char* str, size_t n, uint16_t data);
-#define THERM_FORMAT_STR "%u"
-#define therm_str(str, n, data) snprintf(str, n, THERM_FORMAT_STR, data);
+therm_t therm_get(void);
 
 #endif /* __THERM_H__ */
