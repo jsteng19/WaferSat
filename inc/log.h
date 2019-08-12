@@ -27,13 +27,18 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 
 #define LED_OK() palSetPad(GPIOD, GPIOD_LED_GREEN)
 #define LED_WARN() palSetPad(GPIOD, GPIOD_LED_BLUE)
-#define LED_ERR() do{ palSetPad(GPIOD, GPIOD_LED_BLUE);palSetPad(GPIOD, GPIOD_LED_GREEN); } while(0)
+#define LED_ERR() do { \
+		 palSetPad(GPIOD, GPIOD_LED_BLUE); \
+		 palSetPad(GPIOD, GPIOD_LED_GREEN); \
+	 } while(0)
 #define LED_FATAL() palClearPad(GPIOD, GPIOD_LED_RED)
-#define LED_CLEAR() do{ palClearPad(GPIOD, GPIOD_LED_RED);palClearPad(GPIOD, GPIOD_LED_BLUE);palClearPad(GPIOD, GPIOD_LED_GREEN); } while(0)
- 
-  
+#define LED_CLEAR() do { \
+		 palClearPad(GPIOD, GPIOD_LED_RED); \
+		 palClearPad(GPIOD, GPIOD_LED_BLUE); \
+		 palClearPad(GPIOD, GPIOD_LED_GREEN); \
+	 } while(0)
 #define log_ms() TIME_I2MS(chVTGetSystemTime())
- 
+
 
 //TODO TEST MEM
 #define LOG_MEM 0
@@ -53,7 +58,7 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 #define LOG_SD SD1
 static const SerialConfig LOG_CFG = {38400, 0, 0, 0};
 
- 
+
 void log_init(void);
 void log_set_level(int level);
 void log_log(int level, const char *file, int line, const char *fmt, ...);
