@@ -96,7 +96,8 @@ include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.m
 # HAL-OSAL files (optional).
 include $(CHIBIOS_CONTRIB)/os/hal/hal.mk
 include $(CHIBIOS_CONTRIB)/os/hal/ports/STM32/STM32F4xx/platform.mk
-include ./WAFERSAT_TEST_FIXTURE/board.mk
+include ./WAFERSAT_3IN/board_fixed.mk
+#include ./WAFERSAT_TEST_FIXTURE/board.mk 
 #include $(CHIBIOS)/os/hal/boards/ST_STM32F429I_DISCOVERY/board.mk
 include $(CHIBIOS)/os/hal/osal/rt/osal.mk
 # RTOS files (optional).
@@ -234,7 +235,8 @@ CPPWARN = -Wall -Wextra -Wundef
 #
 
 # List all user C define here, like -D_DEBUG=1
-UDEFS =
+UDEFS = 
+
 
 # Define ASM defines here
 UADEFS =

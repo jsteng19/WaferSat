@@ -36,7 +36,6 @@ int main(void) {
 	chSysInit();
 	init_err &= log_init();
 	init_err &= gps_init();
-	pi2cInit();
 
 	while (true) {
 		log_data();
