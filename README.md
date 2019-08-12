@@ -33,10 +33,12 @@ $ arm-none-eabi-gdb build/ch.elf
 (gdb)
 ```
 ## TODO
-* APRS Radio communication
-* clean ov5640.c -- lot of stuff in there
-* Log arrays
-* Many GPS messages are reading with invalid checksums? 
-* Read all values out of the IMU
-* Configure and use the EMMC on the three-inch WaferSat model
-* Laser comms
+[ ] APRS Radio communication
+[ ] Add back membench
+[ ] Create tests
+[ ] clean ov5640.c -- lot of stuff in there
+[ ] Log arrays
+[ ] Many GPS messages are reading with invalid checksums? 
+[ ] Read all values out of the IMU
+[ ] Configure and use the EMMC on the three-inch WaferSat model
+[ ] Laser comms
