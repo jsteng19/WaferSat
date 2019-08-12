@@ -1,4 +1,4 @@
-# UCSB Si4464 Module Testing
+# UCSB WaferSat
 This repository contains software which runs on the [UCSB Deepspace and Cosmology Lab](https://www.deepspace.ucsb.edu)’s [Wafer Scale Spacecraft](https://www.deepspace.ucsb.edu/projects/wafer%20scale%20spacecraft%20development) project.
 ## Requirements
 Currently, this project only compiles on Linux systems.
