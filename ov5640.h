@@ -55,6 +55,18 @@ uint8_t     OV5640_hasError(void);
 #ifdef __cplusplus
 }
 #endif
+ 
+typedef enum {
+	RES_NONE = 0,
+	RES_QQVGA,
+	RES_QVGA,
+	RES_VGA,
+	RES_VGA_ZOOMED,
+	RES_XGA,
+	RES_UXGA,
+	RES_5MP,
+	RES_MAX
+} resolution_t;
 
 #endif /* __OV5640_H__ */
 

@@ -139,10 +139,6 @@ CSRC = $(STARTUPSRC) \
        pi2c.c \
        membench.c \
        bme280.c \
-       collector.c \
-       ptime.c \
-       watchdog.c \
-       debug.c \
        padc.c \
        ltr329.c \
        tmp100.c \
@@ -152,7 +148,6 @@ CSRC = $(STARTUPSRC) \
        gps.c
 # Include paths that ChibiStudio does in the background
 CHIBISTUDIO = ./tools/gnu_arm_tools/7.2-2017q4/arm-none-eabi/include/ ./tools/gnu_arm_tools/7.2-2017q4/arm-none-eabi/include/sys
-#       usbcfg.c \
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CPPSRC = $(CHCPPSRC)
