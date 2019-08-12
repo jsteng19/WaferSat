@@ -34,6 +34,7 @@ $ arm-none-eabi-gdb build/ch.elf
 ```
 ## TODO
 * APRS Radio communication
+* Log arrays
 * Many GPS messages are reading with invalid checksums? 
 * Read all values out of the IMU
 * Configure and use the EMMC on the three-inch WaferSat model
