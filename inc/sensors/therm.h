@@ -48,17 +48,18 @@
  * @struct therm_t
  * @brief	    Stores temperature data and error state
  */
-struct {
-	uint16_t therm_0;   /**< Temperature reading from therm 0 */
-	uint16_t therm_1;   /**< Temperature reading from therm 1 */
-	SensorErr err;	    /**< Error state @see SensorErr */
-} therm_t;
-#define THERM_HUMAN_STR "therm0:%u therm1:%u"
-#define THERM_CSV_STR "%u,%u"
-#define THERM_T_FIELDS(dptr) ((dptr)->therm_0), ((dptr)->therm_1)
+struct therm_t {
+	uint16_t therm_0;	/**< Temperature reading from therm 0 */
+	uint16_t therm_1;	/**< Temperature reading from therm 1 */
+	enum SensorErr err;	/**< Error state @see SensorErr */
+};
+
+#define THERM_HUMAN_STR "therm0:%u therm1:%u err:%u"
+#define THERM_CSV_STR "%u,%u,%u"
+#define THERM_T_FIELDS(dptr) ((dptr)->therm_0), ((dptr)->therm_1), ((dptr)->err)
 #define therm_t_init() ((struct therm_t){0, 0, SENSOR_OK})
  
 enum SensorErr therm_init(uint8_t id);
-therm_t therm_get(void);
+struct therm_t therm_get(void);
 
 #endif /* __THERM_H__ */
