@@ -11,7 +11,7 @@
 #include "ch.h"
 #include "hal.h"
 #include "sensors/therm.h"
-#include "common.h"
+#include "sensors/common.h"
 #include "pi2c.h"
 #include "log.h"
 //#include "ei2c.h"  //software i2c
@@ -39,9 +39,9 @@ static enum SensorErr therm_status(uint8_t id)
 	}
 }
 
-therm_t therm_get(void)
+struct therm_t therm_get(void)
 {
-	therm_t data = therm_t_init();
+	struct therm_t data = therm_t_init();
 	
 	if(therm_status(0)) {
 		 uint16_t val;
