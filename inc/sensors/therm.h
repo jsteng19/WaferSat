@@ -49,7 +49,7 @@ struct therm_t {
 	uint16_t therm_1;
 	enum SensorErr err;
 };
-#define THERM_HUMAN_STR "therm0:%u therm1:%u valid:%u"
+#define THERM_HUMAN_STR "therm0:%u therm1:%u err:%u"
 #define THERM_CSV_STR "%u,%u,%u"
 #define THERM_T_FIELDS(dptr) ((dptr)->therm_0), ((dptr)->therm_1), ((dptr)->err)
 #define therm_t_init() ((struct therm_t){0, 0, SENSOR_OK})

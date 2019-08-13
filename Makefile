@@ -137,11 +137,11 @@ CSRC = $(STARTUPSRC) \
        src/log.c \
        src/dcmi_dma.c \
        src/camera/ov5640.c \
+       src/sensors/therm.c \
        src/pi2c.c \
        src/sensors/bme280.c \
-       src/sensors/padc.c \
+       src/sensors/adc.c \
        src/sensors/ltr329.c \
-       src/sensors/tmp100.c \
        src/sd.c \
        src/sensors/mpu9250.c \
        src/sensors/gps.c

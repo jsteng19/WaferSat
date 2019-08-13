@@ -8,8 +8,6 @@
 
 #define DIVIDER_VIN		10	/* VBat -- 90KOhm -- ADC -- 10kOhm -- GND */
 
-static adcsample_t samples[ADC_NUM_CHANNELS]; // ADC sample buffer
-
 void adccb(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 {
 	(void)adcp;
@@ -60,6 +58,8 @@ enum SensorErr adc_shutdown(void) {
  
 struct adc_t adc_get(void)
 {
+	adcsample_t samples[ADC_NUM_CHANNELS]; // ADC sample buffer
+	 
 	adc_init();
 	adcStartConversion(&ADCD1, &adcgrpcfg, samples, 1);
 	chThdSleep(TIME_MS2I(50)); // FIXME naive wait until conversion is finished

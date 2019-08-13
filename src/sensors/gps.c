@@ -1,6 +1,6 @@
 #include "hal.h"
 #include "hal_serial.h"
-#include "gps.h"
+#include "sensors/gps.h"
 #include "stdio.h"
 #include "string.h"
 #include "log.h"

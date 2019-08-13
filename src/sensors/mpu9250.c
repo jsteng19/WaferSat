@@ -8,7 +8,7 @@
 
 #include "ch.h"
 #include "hal.h"
-#include "mpu9250.h"
+#include "sensors/mpu9250.h"
 #include "pi2c.h"
 //#include "ei2c.h"  //software i2c
 #include <math.h>
