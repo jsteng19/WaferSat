@@ -31,11 +31,16 @@
 
 #include "common.h"
 
+/**
+ * @struct  imu_t
+ * @brief	    Stores acceleration data from the IMU along 3 axes
+ * @note	    Units unknown
+ */
 struct imu_t {
-	int16_t x;
-	int16_t y;
-	int16_t z;
-	enum SensorErr err;
+	int16_t x;		/**< Acceleration in the x direction */
+	int16_t y;		/**< Acceleration in the y direction */
+	int16_t z;		/**< Acceleration in the z direction */
+	enum SensorErr err;	/**< Error state */
 };
 #define IMU_HUMAN_STR "x:%i y:%i z:%i err:%u"
 #define IMU_CSV_STR "%i,%i,%i,%u"
