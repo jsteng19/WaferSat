@@ -54,7 +54,7 @@ struct therm_t {
 #define THERM_T_FIELDS(dptr) ((dptr)->therm_0), ((dptr)->therm_1), ((dptr)->err)
 #define therm_t_init() ((struct therm_t){0, 0, SENSOR_OK})
  
-enum SensorErr therm_init(uint8_t id);
+enum SensorErr therm_init(void);
 struct therm_t therm_get(void);
 
 #endif /* __THERM_H__ */

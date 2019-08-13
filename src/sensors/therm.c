@@ -24,16 +24,20 @@
  * @return	The error state of the sensor
  * @see		SensorErr
  */
-enum SensorErr therm_init(uint8_t id)
+enum SensorErr therm_init(void)
 {
-	if(I2C_write8(THERM_ADDR | (id & 0x07),
-					THERM_CONTR_REG,
-					THERM_CONSECUTIVE_FAULTS_6  | THERM_RESOLUTION_12_BIT )) {
-		return SENSOR_COMM_ERR;
-	} else {
-		log_error("Unable to initialize therm sensor with ID %u!", id);
-		return SENSOR_OK;
+	enum SensorErr err = SENSOR_OK;
+	for(uint8_t id = 0; id < 2; id++) {
+		if(I2C_write8(THERM_ADDR | (id & 0x07),
+						THERM_CONTR_REG,
+						THERM_CONSECUTIVE_FAULTS_6  | THERM_RESOLUTION_12_BIT )) {
+			err |= SENSOR_COMM_ERR;
+			log_error("Unable to initialize therm sensor with ID %u!", id);
+		} else {
+			err |= SENSOR_OK;
+		}
 	}
+	return err;
 }
 
 /**
