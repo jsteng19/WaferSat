@@ -163,10 +163,6 @@ void log_image(void) {
 }
   
 void log_log(int level, const char *file, int line, const char *fmt, ...) {
-	if (level < L.level) {
-		return;
-	}
-
   /* Acquire lock */
 	chMtxLock(&(L.mtx));
 
@@ -181,17 +177,19 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 	va_list args;
 	 
 #if LOG_SERIAL
+	if (level >= L.level) {
 #if LOG_USE_COLOR
-	chprintf(
-		(BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\x1b[0m \x1b[90m%\ts:%d:\x1b[0m\t",
-		h, m, s, ms, level_colors[level], level_names[level], file, line);
+		chprintf(
+			(BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\x1b[0m \x1b[90m%\ts:%d:\x1b[0m\t",
+			h, m, s, ms, level_colors[level], level_names[level], file, line);
 #else /* !LOG_USE_COLOR */
-	chprintf((BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t", h, m, s, ms, level_names[level], file, line);
+		chprintf((BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t", h, m, s, ms, level_names[level], file, line);
 #endif /* LOG_USE_COLOR */
-	va_start(args, fmt);
-	chvprintf((BaseSequentialStream*) &SD1, fmt, args);
-	va_end(args);
-	chprintf((BaseSequentialStream*) &SD1, "\n\r");
+		va_start(args, fmt);
+		chvprintf((BaseSequentialStream*) &SD1, fmt, args);
+		va_end(args);
+		chprintf((BaseSequentialStream*) &SD1, "\n\r");
+	}
 #endif /* LOG_SERIAL */
 
   /* Log to file */
