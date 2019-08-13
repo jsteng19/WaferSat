@@ -17,6 +17,13 @@
 //#include "ei2c.h"  //software i2c
 #include <math.h>
 
+/**
+ * @brief	Initializes and configures the sensor 	
+ * @note	Currently set to a 12 bit resolution and a maximum tolerance of 6 consecutive faults
+ *
+ * @return	The error state of the sensor
+ * @see		SensorErr
+ */
 enum SensorErr therm_init(uint8_t id)
 {
 	if(I2C_write8(THERM_ADDR | (id & 0x07),
@@ -29,8 +36,18 @@ enum SensorErr therm_init(uint8_t id)
 	}
 }
 
+/**
+ * @brief	Checks on the status of a given temperature sensor 
+ * 
+ * @param id	The id of the desired sensor. It can only be 0 or 1, which will refer
+ *		to therm_0 and therm_1, respectively.
+ * @return	The error state of the sensor
+ * @see		SensorErr
+ */
 static enum SensorErr therm_status(uint8_t id)
 {
+	// TODO Enforce ID restriction
+
 	uint8_t val;
 	if(I2C_read8(THERM_ADDR | (id & 0x07), THERM_CONTR_REG, &val)) {
 		return SENSOR_OK;
@@ -39,6 +56,13 @@ static enum SensorErr therm_status(uint8_t id)
 	}
 }
 
+/**
+ * @brief	Gets temperature data from the two temperature sensors
+ * @note	If a sensor is in an error state, the reading will be 0
+ * 
+ * @return	A structure containing the temperatures and an error state 
+ * @see		therm_t
+ */
 struct therm_t therm_get(void)
 {
 	struct therm_t data = therm_t_init();
