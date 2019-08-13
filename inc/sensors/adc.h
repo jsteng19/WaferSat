@@ -8,10 +8,13 @@
 // We need a struct because different calls to get_vbat/temp are different 
 // readings
 
+/** @struct adc_t
+ *  @brief	    Stores data coming from the Analog to Digital Converter (ADC) on the microcontroller (MCU)
+ */
 struct adc_t {
-	uint16_t vbat;
-	uint16_t therm;
-	enum SensorErr err;
+	uint16_t vbat;	    /**< Stores the MCU battery voltage */
+	uint16_t therm;	    /**< Stores the MCU temperature */
+	enum SensorErr err; /**< Stores the ADC error state */
 };
 #define adc_t_init() ((struct adc_t){0, 0, SENSOR_OK})
 #define adc_t_fields(dptr) ((dptr)->vbat), ((dptr)->therm), ((dptr)->err)
