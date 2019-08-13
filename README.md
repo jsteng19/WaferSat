@@ -35,6 +35,7 @@ $ arm-none-eabi-gdb build/ch.elf
 ## TODO
 [ ] APRS Radio communication
 [ ] Add back membench
+[ ] Have an actual conf file
 [ ] Create tests
 [ ] clean ov5640.c -- lot of stuff in there
 [ ] Log arrays
