@@ -36,11 +36,12 @@ static THD_FUNCTION(gps_serial_fn, args) {
 }
 static thread_t* gps_serial_thd;
  
+/**
+ * @brief	    Initializes GPIO and SerialDriver to communicate with GPS.
+ * 
+ * @return	    0 on success and 1 on failure.
+ */
 uint8_t gps_init(void) {
-	/**
-	Initializes GPIO and SerialDriver to communicate with GPS.
-	Returns 0 on success and 1 on failure.
-	**/
 	palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
 	palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
 	sdStart(&SD_GPS, &gps_conf);
@@ -51,11 +52,11 @@ uint8_t gps_init(void) {
 	return (SD_GPS.state == SD_READY) ? 0 : 1;
 }
 
+/**
+ * @brief	    Thread safe read of stored values.
+ * @return	    Stored struct.
+ */
 gps_data_t gps_get() {
-	/*
-		Thread safe read of stored values.
-		Returns stored struct.
-	*/
 	chMtxLock(&gps_mtx);
 	chSysLock();
 	gps_data_t data = gps_data_cpy(&gps_protected);
@@ -64,12 +65,12 @@ gps_data_t gps_get() {
 	return data;
 }
  
+/**
+ * @brief	    Thread safe write of stored values.
+ * @param data	    Pointer to gps data struct
+ * @see		    gps_data_t
+ */
 void gps_set(gps_data_t* data) {
-	/*
-		Thread safe write of stored values.
-		Accepts pointer to gps data struct
-		Returns void
-	*/
 	chMtxLock(&gps_mtx);
 	chSysLock();
 	gps_protected = gps_data_cpy(data);
@@ -77,22 +78,27 @@ void gps_set(gps_data_t* data) {
 	chMtxUnlock(&gps_mtx);
 }
  
+/**
+ * @brief	    Reads one line of GPS output into the given buffer
+ *
+ * @param buf	    Buffer being read into
+ * @param maxlen    Maximum length of message
+ * @return	    Number of bytes read
+ */
 uint16_t gps_readline(char* buf, uint16_t maxlen) {
-	/**
-		Reads one line of GPS output into the given buffer.
-		Returns bytes read.
-	**/
 	char* ptr = buf;
 	while(ptr < buf + maxlen && (*ptr = gps_getc()) && *ptr != '\n') if(*ptr != 0xFF) ptr++;
 	*ptr = '\0';
 	return ptr - buf;
 }
 
+/** 
+ * @brief	    Calculates the GPS checksum
+ * 
+ * @param buf	    Buffer containing input to checksum
+ * @return	    GPS_OK if valid and GPS_INV if no delims ($ and *) are found and GPS_BAD_CS if checksum is wrong
+ */
 gps_err_t gps_checksum(char* buf) {
-	/**
-		Calculates the GPS checksum
-		returns GPS_OK if valid and GPS_INV if no delims ($ and *) are found and GPS_BAD_CS if checksum is wrong
-	**/
 	char* start = strchr(buf, (int)'$');
 	char* end = strchr(buf, (int)'*');
 	if(start == NULL || end == NULL) return GPS_INV;
@@ -112,12 +118,14 @@ gps_err_t gps_checksum(char* buf) {
 	return GPS_OK;
 }
 
+/**
+ * @brief	    Parse an NMEA line into GPS data.
+ * 
+ * @param buf	    NMEA message
+ * @param data	    GPS Data struct to be filled
+ * @return	    Error code and type of message parsed; if there is a parsing error, leave the GPS data untouched
+ */
 gps_err_t gps_parse(char* buf, gps_data_t* data) {
-	/**
-		Parse an NMEA line into GPS data.
-		Return error code and type of message parsed.
-		If there is a parsing error, leave the GPS data untouched
-	**/
 	gps_err_t cs = gps_checksum(buf); 
 	if(cs != GPS_OK) {
 		return cs;
