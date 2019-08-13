@@ -9,7 +9,9 @@
 // readings
 
 /** @struct adc_t
- *  @brief	    Stores data coming from the Analog to Digital Converter (ADC) on the microcontroller (MCU)
+ *  @brief	    Stores data coming from the Analog to Digital Converter (ADC) 
+ *  @note	    Readings are coming from the sensors on the microcontroller (MCU), 
+ *		    not any external peripherals.
  */
 struct adc_t {
 	uint16_t vbat;	    /**< Stores the MCU battery voltage */
