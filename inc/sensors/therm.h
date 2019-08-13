@@ -1,12 +1,12 @@
 /*
-* therm.h
-* Library for TI TMP100 temperature sensor
-*
-* Created on: 2018-11-08:
-* 	Author: Peter Krogen
-*  Reformatted on 2019-08-12:
-* 	Author: Varun Iyer <varun_iyer@protonmail.ch>
-*/
+ * therm.h
+ * Library for TI TMP100 temperature sensor
+ *
+ * Created on: 2018-11-08:
+ * 	Author: Peter Krogen
+ *  Reformatted on 2019-08-12:
+ * 	Author: Varun Iyer <varun_iyer@protonmail.ch>
+ */
 
 #ifndef __THERM_H__
 #define __THERM_H__
@@ -44,10 +44,14 @@
 #define THERM_RESOLUTION_11_BIT        0x40        //0.125 degC
 #define THERM_RESOLUTION_12_BIT        0x60        //0.0625 degC
 
+/**
+ * @struct therm_t
+ * @brief	    Stores temperature data and error state
+ */
 struct {
-	uint16_t therm_0;
-	uint16_t therm_1;
-	SensorErr err;
+	uint16_t therm_0;   /**< Temperature reading from therm 0 */
+	uint16_t therm_1;   /**< Temperature reading from therm 1 */
+	SensorErr err;	    /**< Error state @see SensorErr */
 } therm_t;
 #define THERM_HUMAN_STR "therm0:%u therm1:%u"
 #define THERM_CSV_STR "%u,%u"
