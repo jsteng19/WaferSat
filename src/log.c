@@ -29,9 +29,9 @@
 #include "sd.h"
 #include "chprintf.h"
 #include "ov5640.h"
-#include "sensors/gps.h"
 #include "ch.h"
 #include "log.h"
+#include "sensors/therm.h"
 #include "ff.h"
 
 static struct {
@@ -51,6 +51,19 @@ static const char *level_colors[] = {
 	"\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
 };
 #endif
+
+#if LOG_MEM && LOG_SERIAL
+#define lprintf(...) do{ \
+		 chprintf((BaseSequentialStream*) &LOG_SD, __VA_ARGS__); \
+		 f_printf(&(L.fp), __VA_ARGS__); \
+	} while(0)
+#elif LOG_MEM /* && !LOG_SERIAL */
+#define lprintf(...) f_printf(&(L.fp), __VA_ARGS__)
+#elif LOG_SERIAL /* && !LOG_MEM */
+#define lprintf(...) chprintf((BaseSequentialStream*) &LOG_SD, __VA_ARGS__)
+#else /* !LOG_MEM && !LOG_SERIAL */
+#define lprintf(...) do{ } while(0)
+#endif /* LOG_MEM && LOG_SERIAL */
 
 void log_init(void) {
 	chMtxObjectInit(&(L.mtx));
@@ -97,56 +110,30 @@ void log_init(void) {
 	log_set_level(LOG_LEVEL);
 }
 
- 
+
 void log_set_level(int level) {
 	L.level = level;
 }
- 
+
 void log_data(void) {
-	dataPoint_t dp;
-	getSensors(&dp);
-	 
+	chMtxLock(&(L.mtx));
 	long int ms = log_ms();
 	long int s = (ms / 1000) % 60;
 	long int m = (ms / (60 * 1000)) % 60;
 	long int h = ms / (3600 * 1000);
 	ms = ms % 1000;
-	 
-	char log_buf[GPS_MSG_SIZE]; 
-	gps_data_t gps = gps_get();
-	gps_data_str(log_buf, GPS_MSG_SIZE, &gps);
-	 
+	
+	lprintf("%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
+	struct therm_t thermdata = therm_get();
+	lprintf("\t"THERM_HUMAN_STR"\r\n", THERM_T_FIELDS(&thermdata));
+	
 #if LOG_MEM
-	f_printf(&(L.fp), "%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
-	f_printf(&(L.fp), "\tBME280 pressure:%d humidity:%d temperature:%d\r\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
-	f_printf(&(L.fp), "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\r\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
-	f_printf(&(L.fp), "\tSTM32 temp:%d adc_vbat:%d\r\n", dp.stm32_temp, dp.adc_vbat);
-	f_printf(&(L.fp), "\tTMP100 temp_0:%d temp_1:%d\r\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
-	f_printf(&(L.fp), "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
-	f_printf(&(L.fp), "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
-	 
-	f_printf(&(L.fp), "\t");
-	f_printf(&(L.fp), log_buf);
-	f_printf(&(L.fp), "\r\n");
 	f_sync(&(L.fp));
-#endif /* LOG_SD */
- 
-#if LOG_SERIAL
-	chprintf((BaseSequentialStream*) &LOG_SD, "%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
-	chprintf((BaseSequentialStream*) &LOG_SD, "\tBME280 pressure:%d humidity:%d temperature:%d\r\n", dp.sen_i1_press, dp.sen_i1_hum, dp.sen_i1_temp);
-	chprintf((BaseSequentialStream*) &LOG_SD, "\tLTR329 ltr329_intensity_ch0:%d ltr329_intensity_ch1:%d\r\n", dp.ltr329_intensity_ch0, dp.ltr329_intensity_ch1);
-	chprintf((BaseSequentialStream*) &LOG_SD, "\tSTM32 temp:%d adc_vbat:%d\r\n", dp.stm32_temp, dp.adc_vbat);
-	chprintf((BaseSequentialStream*) &LOG_SD, "\tTMP100 temp_0:%d temp_1:%d\r\n", dp.tmp100_0_temp, dp.tmp100_1_temp);
-	chprintf((BaseSequentialStream*) &LOG_SD, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
-	chprintf((BaseSequentialStream*) &LOG_SD, "\tMPU9250 x:%d y:%d z:%d\r\n", dp.mpu9250_x_accel, dp.mpu9250_y_accel, dp.mpu9250_z_accel);
-	 
-	chprintf((BaseSequentialStream*) &LOG_SD, "\t");
-	chprintf((BaseSequentialStream*) &LOG_SD, log_buf);
-	chprintf((BaseSequentialStream*) &LOG_SD, "\r\n");
-#endif/* LOG_SERIAL */
+#endif /* LOG_MEM */
 }
- 
+
 void log_image(void) {
+#if LOG_MEM
 	uint32_t time_s = log_ms()/1000;
 	char image_filename[MAX_FILENAME];
 	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", L.log_dirname, time_s);
@@ -158,6 +145,10 @@ void log_image(void) {
 			err = OV5640_Snapshot2SD(image_filename);
 		}
 	}
+	chMtxUnlock(&(L.mtx));
+#else /* !LOG_MEM */
+	log_warn("Did not save camera data because logging to memory is disabled!");
+#endif /* LOG_MEM */
 	return;
 }
   
@@ -179,10 +170,15 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 	if (level >= L.level) {
 #if LOG_USE_COLOR
 		chprintf(
-			(BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\x1b[0m \x1b[90m%\ts:%d:\x1b[0m\t",
-			h, m, s, ms, level_colors[level], level_names[level], file, line);
+			(BaseSequentialStream*) &SD1,
+			"%li:%02li:%02li.%03li\t%-5s\x1b[0m \x1b[90m%\ts:%d:\x1b[0m\t",
+			h, m, s, ms, level_colors[level], level_names[level], file, line
+		);
 #else /* !LOG_USE_COLOR */
-		chprintf((BaseSequentialStream*) &SD1, "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t", h, m, s, ms, level_names[level], file, line);
+		chprintf((BaseSequentialStream*) &SD1,
+			"%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t",
+			h, m, s, ms, level_names[level], file, line
+		);
 #endif /* LOG_USE_COLOR */
 		va_start(args, fmt);
 		chvprintf((BaseSequentialStream*) &SD1, fmt, args);
@@ -193,7 +189,10 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 
   /* Log to file */
 #if LOG_MEM
-    f_printf(&(L.fp), "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t", h, m, s, ms, level_names[level], file, line);
+    f_printf(
+		&(L.fp), "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t",
+		h, m, s, ms, level_names[level], file, line
+	);
     va_start(args, fmt);
     f_vprintf(&(L.fp), fmt, args);
     va_end(args);

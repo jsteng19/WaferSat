@@ -44,22 +44,17 @@
 #define THERM_RESOLUTION_11_BIT        0x40        //0.125 degC
 #define THERM_RESOLUTION_12_BIT        0x60        //0.0625 degC
 
-/**
- * @struct therm_t
- * @brief	    Stores temperature data and error state
- */
 struct therm_t {
-	uint16_t therm_0;	/**< Temperature reading from therm 0 */
-	uint16_t therm_1;	/**< Temperature reading from therm 1 */
-	enum SensorErr err;	/**< Error state @see SensorErr */
+	uint16_t therm_0;
+	uint16_t therm_1;
+	enum SensorErr err;
 };
-
 #define THERM_HUMAN_STR "therm0:%u therm1:%u err:%u"
 #define THERM_CSV_STR "%u,%u,%u"
 #define THERM_T_FIELDS(dptr) ((dptr)->therm_0), ((dptr)->therm_1), ((dptr)->err)
 #define therm_t_init() ((struct therm_t){0, 0, SENSOR_OK})
  
-enum SensorErr therm_init(uint8_t id);
+enum SensorErr therm_init(void);
 struct therm_t therm_get(void);
 
 #endif /* __THERM_H__ */

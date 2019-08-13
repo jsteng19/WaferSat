@@ -44,6 +44,7 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 #define LOG_MEM 0
 #define LOG_SERIAL 1
 
+#define log_printf
 
 #define MAX_FILENAME 127
 #define LOG_FILENAME "out.log"
