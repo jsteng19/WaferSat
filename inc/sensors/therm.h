@@ -1,12 +1,12 @@
 /*
-* therm.h
-* Library for TI TMP100 temperature sensor
-*
-* Created on: 2018-11-08:
-* 	Author: Peter Krogen
-*  Reformatted on 2019-08-12:
-* 	Author: Varun Iyer <varun_iyer@protonmail.ch>
-*/
+ * therm.h
+ * Library for TI TMP100 temperature sensor
+ *
+ * Created on: 2018-11-08:
+ * 	Author: Peter Krogen
+ *  Reformatted on 2019-08-12:
+ * 	Author: Varun Iyer <varun_iyer@protonmail.ch>
+ */
 
 #ifndef __THERM_H__
 #define __THERM_H__
