@@ -137,13 +137,13 @@ CSRC = $(STARTUPSRC) \
        src/log.c \
        src/dcmi_dma.c \
        src/camera/ov5640.c \
-       src/sensors/therm.c \
        src/pi2c.c \
-       src/sensors/bme280.c \
+       src/sensors/therm.c \
        src/sensors/adc.c \
+       src/sensors/imu.c \
+       src/sensors/bme280.c \
        src/sensors/ltr329.c \
        src/sd.c \
-       src/sensors/mpu9250.c \
        src/sensors/gps.c
 # Include paths that ChibiStudio does in the background
 CHIBISTUDIO = ./tools/gnu_arm_tools/7.2-2017q4/arm-none-eabi/include/ ./tools/gnu_arm_tools/7.2-2017q4/arm-none-eabi/include/sys
