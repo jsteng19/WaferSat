@@ -57,30 +57,13 @@ enum SensorErr adc_shutdown(void) {
 	adcStop(&ADCD1);
 	return SENSOR_OK;
 }
-
-static void do_conversion(void)
+ 
+struct adc_t adc_get(void)
 {
 	adc_init();
 	adcStartConversion(&ADCD1, &adcgrpcfg, samples, 1);
-	chThdSleep(TIME_MS2I(50)); // Wait until conversion is finished
+	chThdSleep(TIME_MS2I(50)); // FIXME naive wait until conversion is finished
 	adc_shutdown();
-}
-
-uint16_t adc_get_vbat(void)
-{
-	do_conversion();
-	return samples[1] * VCC_REF * DIVIDER_VIN / 4096;
-}
-
-uint16_t adc_get_therm(void)
-{
-	do_conversion();
-	return (((int32_t)samples[3] * 40 * VCC_REF / 4096) - 30400) + 2500;
-}
-
-adc_t adc_get(void)
-{
-	do_conversion();
 	// FIXME we have no way of checking if these are good values; they could be
 	// random spots in memory.
 	struct adc_t data = adc_t_init();
