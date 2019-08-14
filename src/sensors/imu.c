@@ -15,6 +15,13 @@
 #include "log.h"
 #include <math.h>
 
+/**
+ * @brief	Initializes Inertial Measurement Unit (IMU)
+ * @note	Basically just ensures that we can talk to it
+ *
+ * @return	Error state
+ * @see		SensorErr
+ */
 enum SensorErr imu_init(void)
 {
 	uint8_t val;
@@ -31,8 +38,16 @@ enum SensorErr imu_init(void)
 	}
 }
 
+/**
+ * @brief	Gets data from the Inertial Measurement Unit (IMU)
+ * @note	Data comes from the accelerometers, units currently unknown
+ * 
+ * @return	Accelerometer data in the x, y, and z directions; and the error state
+ * @see		imu_t
+ */
 struct imu_t imu_get(void)
 {
+	// TODO Figure out units and document
 	uint16_t val;
 	struct imu_t data = imu_t_init();
 	if(!I2C_read16(IMU_ADDR, IMU_ACCEL_XOUT_H, &val)) {

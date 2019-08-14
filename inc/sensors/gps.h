@@ -58,6 +58,9 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 // Returns a new struct with values from the one passed in
 #define gps_data_cpy(data) ((gps_data_t){ gps_data_fields(data) })
 
+/**
+ * @brief GPS Fix status
+ */
 typedef enum gps_fix_t {
 	GPS_FIX_NONE,
 	// ~100yard precision
@@ -66,26 +69,33 @@ typedef enum gps_fix_t {
 	GPS_FIX_GPS
 } gps_fix_t;
 
+/**
+ * @struct  gps_data_t
+ * @brief   Stores Global Positioning System (GPS) data
+ * @note    Time is in UTC
+ */
 typedef struct gps_data_t {
 	//TODO we can probably get even more 
 	// ddmmyyyy
-	uint8_t dd;
-	uint8_t mm;
-	uint16_t yyyy;
+	uint8_t dd;	    /**< Day */
+	uint8_t mm;	    /**< Month */
+	uint16_t yyyy;	    /**< Year */
 	// UTC hhmmss.ss
-	double time;
-	double lat;
-	char ns;
-	double lon;
-	char ew;
-	double alt;
-	gps_fix_t fix;
-	uint8_t satellites;
-	double dilution;
+	double time;	    /**< UTC time in hhmmss.ss */
+	double lat;	    /**< Latitude */
+	char ns;	    /**< North/South */ 
+	double lon;	    /**< Longitude */
+	char ew;	    /**< East/West */
+	double alt;	    /**< Altitude */
+	gps_fix_t fix;	    /**< GPS Fix status */
+	uint8_t satellites; /**< Number of satellites */
+	double dilution;    /**< Dilution of precision */
 } gps_data_t;
 #define gps_data_init() ((gps_data_t){0, 0, 0, 0.0, 0.0, '0', 0.0, '0', 0.0, GPS_FIX_NONE, 0, 0.0})
  
-
+/**
+ * @brief   GPS error enum
+ */
 typedef enum gps_err_t {
 	// success
 	GPS_OK 			= 0x00,

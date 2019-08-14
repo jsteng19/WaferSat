@@ -8,6 +8,9 @@
 
 #define DIVIDER_VIN		10	/* VBat -- 90KOhm -- ADC -- 10kOhm -- GND */
 
+/**
+ * @brief	Called when ADC finishes converting; does nothing at the moment
+ */
 void adccb(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 {
 	(void)adcp;
@@ -43,6 +46,13 @@ static const ADCConversionGroup adcgrpcfg = {
 		| ADC_SQR3_SQ4_N(ADC_CHANNEL_SENSOR)
 };
 
+/*
+ * @brief	Initializes and configures the Analog to Digital Converter (ADC) 
+ * @note	Enables the ADC clock, making it ready for conversion
+ *
+ * @return	The error state (only returns SENSOR_OK at the moment)
+ * @see		SensorErr
+ */
 enum SensorErr adc_init(void)
 {
 	adcStart(&ADCD1, NULL);
@@ -51,12 +61,26 @@ enum SensorErr adc_init(void)
 	return SENSOR_OK;
 }
 
-enum SensorErr adc_shutdown(void)
-{
+/*
+ * @brief	Deactivates the ADC peripheral	
+ * @note	Puts the ADC into low power mode	
+ * 
+ * @return	The error state (only returns SENSOR_OK at the moment)
+ * @see		SensorErr
+ */
+enum SensorErr adc_shutdown(void) {
+	// TODO Error handling?
 	adcStop(&ADCD1);
 	return SENSOR_OK;
 }
  
+/*
+ * @brief	Gets data from the ADC on the MCU
+ *
+ * @pre		@p adc_init() has been called
+ * @return	A structure containing battery voltage, temperature, and an error state
+ * @see		adc_t
+ */
 struct adc_t adc_get(void)
 {
 	adcsample_t samples[ADC_NUM_CHANNELS]; // ADC sample buffer
