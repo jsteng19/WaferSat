@@ -27,7 +27,7 @@
 #define IMU_ACCEL_ZOUT_H			0x3f
 #define IMU_ACCEL_ZOUT_L			0x40
 
-#define IMU_ACK_ID						0x71
+#define IMU_ACK_ID					0x71
 
 #include "common.h"
 

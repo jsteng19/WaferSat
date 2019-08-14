@@ -141,7 +141,7 @@ CSRC = $(STARTUPSRC) \
        src/sensors/therm.c \
        src/sensors/adc.c \
        src/sensors/imu.c \
-       src/sensors/bme280.c \
+       src/sensors/bme.c \
        src/sensors/ltr329.c \
        src/sd.c \
        src/sensors/gps.c

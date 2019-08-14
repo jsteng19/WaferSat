@@ -51,7 +51,8 @@ enum SensorErr adc_init(void)
 	return SENSOR_OK;
 }
 
-enum SensorErr adc_shutdown(void) {
+enum SensorErr adc_shutdown(void)
+{
 	adcStop(&ADCD1);
 	return SENSOR_OK;
 }
