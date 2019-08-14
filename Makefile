@@ -142,7 +142,7 @@ CSRC = $(STARTUPSRC) \
        src/sensors/adc.c \
        src/sensors/imu.c \
        src/sensors/bme.c \
-       src/sensors/ltr329.c \
+       src/sensors/ltr.c \
        src/sd.c \
        src/sensors/gps.c
 # Include paths that ChibiStudio does in the background
