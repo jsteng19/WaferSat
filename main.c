@@ -33,7 +33,6 @@ int main(void) {
 	halInit();
 	chSysInit();
 	log_init();
-	init_err &= gps_init();
 
 	while (true) {
 		log_data();

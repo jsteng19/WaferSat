@@ -10,7 +10,7 @@
 #define GPS_MSG_SIZE 1024
 
 static const SerialConfig gps_conf = {9600, 0, 0, 0};
- 
+
 static const uint8_t start_seq[] = {0xA0, 0xA1};
 #define GPS_START_LEN 2
 static const uint8_t end_seq[] = {0x0D, 0x0A};
@@ -22,9 +22,11 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 #define gps_getc() sdGetTimeout(&SD_GPS, GPS_TIMEOUT)
 #define gps_putc(c) sdPutTimeout(&SD_GPS, c, GPS_TIMEOUT)
 // Scan definitions for GPS message types
-#define gps_data_fields(data) 	(data)->dd, (data)->mm, (data)-> yyyy, (data)->time, (data)->lat, \
-								(data)->ns, (data)->lon, (data)->ew, (data)->alt, (data)->fix, \
-								(data)->satellites, (data)->dilution
+#define gps_data_fields(data) 	(data)->dd, (data)->mm, (data)-> yyyy, \
+	(data)->time, (data)->lat, (data)->ns, \
+	(data)->lon, (data)->ew, (data)->alt, \
+	(data)->fix, (data)->satellites, \
+	(data)->dilution, (data)->ms, (data)->err
 
 /*
 	$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47
@@ -44,82 +46,74 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 		(empty field) DGPS station ID number
 		*47          the checksum data, always begins with *
 */
-#define gps_scan_gga(buf, data) sscanf(buf, "$GNGGA,%lf,%lf,%c,%lf,%c,%u,%u,%lf,%lf,M,%*s,M,%*s,%*s*%*s", \
-											&((data)->time), &((data)->lat), &((data)->ns), \
-											&((data)->lon), &((data)->ew), (unsigned int*) &((data)->fix), \
-											(unsigned int*) &((data)->satellites),  &((data)->dilution),  &((data)->alt))
+#define gps_scan_gga(buf, data) sscanf( \
+		buf, "$GNGGA,%lf,%lf,%c,%lf,%c,%u,%u,%lf,%lf,M,%*s,M,%*s,%*s*%*s", \
+		&((data)->time), &((data)->lat), &((data)->ns), &((data)->lon), \
+		&((data)->ew), (unsigned int*) &((data)->fix), \
+		(unsigned int*) &((data)->satellites),  &((data)->dilution), \
+		&((data)->alt) \
+	)
 
-#define gps_scan_zda(buf, data) sscanf(buf, "$GNZDA,%lf,%u,%u,%u,%*s,%*s)", \
-										&(((data))->time), (unsigned int*) &(((data)->dd)), \
-										(unsigned int*) &(((data)->mm)), (unsigned int*) &(((data)->yyyy)))
-											 
-#define gps_data_str(buf, n, data) snprintf(buf, n, "GPS dd:%u mm:%u yyyy:%u time:%f lat:%fdeg%c lon:%fdeg%c alt:%f fix:%u sat:%u dil:%f", gps_data_fields(data))
-#define gps_data_csv(buf, n, data) snprintf(buf, n, "\t%u,\t%u,\t%u,\t%f,\t%f,\t%c,\t%f%c,\t%f,\t%u,\t%u,\t%f", gps_data_fields(data))
+#define gps_scan_zda(buf, data) sscanf( \
+		buf, "$GNZDA,%lf,%u,%u,%u,%*s,%*s)", &(((data))->time), \
+		(unsigned int*) &(((data)->dd)), (unsigned int*) &(((data)->mm)), \
+		(unsigned int*) &(((data)->yyyy)) \
+	)
+
+#define GPS_HUMAN_STR "dd:%u mm:%u yyyy:%u time:%f lat:%fdeg%c lon:%fdeg%c alt:%f fix:%u sat:%u dil:%f ms:%lu err:%u"
+#define GPS_CSV_STR "%u,%u,%u,%f,%f,%c,%f,%c,%f,%u,%u,%f,%lu,%u"
+		 
 // Returns a new struct with values from the one passed in
-#define gps_data_cpy(data) ((gps_data_t){ gps_data_fields(data) })
+#define gps_data_cpy(data) ((struct gps_data_t){ gps_data_fields(data) })
+
+#include "sensors/common.h"
 
 /**
  * @brief GPS Fix status
  */
-typedef enum gps_fix_t {
+enum gps_fix_t {
 	GPS_FIX_NONE,
 	// ~100yard precision
 	GPS_FIX_SPS,
 	// Regular GPS
 	GPS_FIX_GPS
-} gps_fix_t;
+};
 
 /**
  * @struct  gps_data_t
  * @brief   Stores Global Positioning System (GPS) data
  * @note    Time is in UTC
  */
-typedef struct gps_data_t {
+struct gps_data_t {
 	//TODO we can probably get even more 
 	// ddmmyyyy
-	uint8_t dd;	    /**< Day */
-	uint8_t mm;	    /**< Month */
-	uint16_t yyyy;	    /**< Year */
+	uint8_t dd;								/**< Day */
+	uint8_t mm;								/**< Month */
+	uint16_t yyyy;							/**< Year */
 	// UTC hhmmss.ss
-	double time;	    /**< UTC time in hhmmss.ss */
-	double lat;	    /**< Latitude */
-	char ns;	    /**< North/South */ 
-	double lon;	    /**< Longitude */
-	char ew;	    /**< East/West */
-	double alt;	    /**< Altitude */
-	gps_fix_t fix;	    /**< GPS Fix status */
-	uint8_t satellites; /**< Number of satellites */
-	double dilution;    /**< Dilution of precision */
-} gps_data_t;
-#define gps_data_init() ((gps_data_t){0, 0, 0, 0.0, 0.0, '0', 0.0, '0', 0.0, GPS_FIX_NONE, 0, 0.0})
- 
-/**
- * @brief   GPS error enum
- */
-typedef enum gps_err_t {
-	// success
-	GPS_OK 			= 0x00,
-	GPS_INV 		= 0x01,
-	GPS_BAD_CS 		= 0x01 << 1,
-	GPS_BAD_TYPE 	= 0x01 << 2,
-	// Message types
-	GPS_NONE		= 0x00,
-	GPS_ZDA			= 0x01 << 3,
-	GPS_GGA			= 0x01 << 4
-} gps_err_t;
+	double time;							/**< UTC time in hhmmss.ss */
+	double lat;								/**< Latitude */
+	char ns;								/**< North/South */
+	double lon;								/**< Longitude */
+	char ew;								/**< East/West */
+	double alt;								/**< Altitude */
+	enum gps_fix_t fix;						/**< GPS Fix status */
+	uint8_t satellites; 					/**< Number of satellites */
+	double dilution;						/**< Dilution of precision */
+	uint32_t ms;							/**< time of last position update*/
+	enum SensorErr err;
+};
+#define gps_data_init() ((struct gps_data_t){0, 0, 0, 0.0, 0.0, '0', 0.0, '0', \
+	0.0, GPS_FIX_NONE, 0, 0.0, 0, SENSOR_OK})
+
+// TODO remove GPS error enum
+
 // All error bits
 #define GPS_ERR_MSK (GPS_INV | GPS_BAD_CS | GPS_BAD_TYPE)
 // all message bits
 #define GPS_MSG_MSK (GPS_ZDA | GPS_GGA)
 
-uint8_t gps_init(void);
- 
-gps_data_t gps_get(void);
-void gps_set(gps_data_t* data);
-int gps_receive(uint8_t* buf, uint16_t buflen);
-uint8_t gps_send(uint8_t* msg, uint16_t msg_len);
-uint16_t gps_readline(char* buf, uint16_t maxlen);
-gps_err_t gps_checksum(char* buf);
-gps_err_t gps_parse(char* buf, gps_data_t* data);
+enum SensorErr gps_init(void);
+struct gps_data_t gps_get(void);
 
 #endif
