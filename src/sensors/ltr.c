@@ -25,6 +25,8 @@ enum SensorErr ltr_init(void){
 	chThdSleepMilliseconds(10);
 	if(err & SENSOR_COMM_ERR) {
 		log_error("Failed to communicate with LTR!");
+	} else {
+		log_trace("Succesfully initialized LTR.");
 	}
 	return err;
 }
@@ -49,8 +51,9 @@ struct ltr_t ltr_get(void) {
 		SENSOR_OK : SENSOR_COMM_ERR;
 	data.ch0 = swap_byte(data.ch0);
 	data.ch1 = swap_byte(data.ch1);
-	
-	return data;;
+
+	log_trace("Succesfully read LTR data " LTR_HUMAN_STR, LTR_T_FIELDS(&data));
+	return data;
 }
 
 #undef swap_byte

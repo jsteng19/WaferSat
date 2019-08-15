@@ -68,6 +68,6 @@ struct imu_t imu_get(void)
 	} else {
 		data.z = (int16_t) val * 1000 / 16384;
 	}
-	log_trace("Collected imu data " IMU_HUMAN_STR, IMU_T_FIELDS(&data));
+	log_trace("Succesfully read IMU data " IMU_HUMAN_STR, IMU_T_FIELDS(&data));
 	return data;
 }

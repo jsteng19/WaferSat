@@ -1,6 +1,7 @@
 #include "ch.h"
 #include "hal.h"
 #include "sensors/adc.h"
+#include "log.h"
 #include <stdlib.h>
 
 #define ADC_NUM_CHANNELS	4		/* solar, battery, temperature */
@@ -16,6 +17,7 @@ void adccb(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 	(void)adcp;
 	(void)buffer;
 	(void)n;
+	log_trace("Succesfully completed conversion!");
 }
 
 /*
@@ -46,32 +48,30 @@ static const ADCConversionGroup adcgrpcfg = {
 		| ADC_SQR3_SQ4_N(ADC_CHANNEL_SENSOR)
 };
 
-/*
- * @brief	Initializes and configures the Analog to Digital Converter (ADC) 
- * @note	Enables the ADC clock, making it ready for conversion
- *
- * @return	The error state (only returns SENSOR_OK at the moment)
- * @see		SensorErr
- */
 enum SensorErr adc_init(void)
 {
-	adcStart(&ADCD1, NULL);
-	adcSTM32EnableTSVREFE();
-	palSetLineMode(LINE_ADC_VIN, PAL_MODE_INPUT_ANALOG); // Vin
+	log_trace("Succesfully initialized ADC (empty function)");
 	return SENSOR_OK;
 }
 
 /*
- * @brief	Deactivates the ADC peripheral	
- * @note	Puts the ADC into low power mode	
- * 
- * @return	The error state (only returns SENSOR_OK at the moment)
- * @see		SensorErr
+ * @brief	Starts the ADC
+ * @note	Enables the ADC clock, making it ready for conversion
  */
-enum SensorErr adc_shutdown(void) {
+void adc_start(void)
+{
+	adcStart(&ADCD1, NULL);
+	adcSTM32EnableTSVREFE();
+	palSetLineMode(LINE_ADC_VIN, PAL_MODE_INPUT_ANALOG); // Vin
+}
+
+/*
+ * @brief	Deactivates the ADC peripheral
+ * @note	Puts the ADC into low power mode
+ */
+void adc_stop(void) {
 	// TODO Error handling?
 	adcStop(&ADCD1);
-	return SENSOR_OK;
 }
  
 /*
@@ -84,15 +84,16 @@ enum SensorErr adc_shutdown(void) {
 struct adc_t adc_get(void)
 {
 	adcsample_t samples[ADC_NUM_CHANNELS]; // ADC sample buffer
-	 
-	adc_init();
+	adc_start();
 	adcStartConversion(&ADCD1, &adcgrpcfg, samples, 1);
 	chThdSleep(TIME_MS2I(50)); // FIXME naive wait until conversion is finished
-	adc_shutdown();
+	adc_stop();
 	// FIXME we have no way of checking if these are good values; they could be
 	// random spots in memory.
 	struct adc_t data = adc_t_init();
 	data.vbat = samples[1] * VCC_REF * DIVIDER_VIN / 4096;
 	data.therm = (((int32_t)samples[3] * 40 * VCC_REF / 4096) - 30400) + 2500;
+	log_trace("Successfully retrieved ADC data " ADC_HUMAN_STR,
+		ADC_T_FIELDS(&data));
 	return data;
 }

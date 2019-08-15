@@ -108,9 +108,12 @@ static THD_FUNCTION(gps_serial_fn, args) {
 	while(true) {
 		// TODO use events instead of continuous poll
 		char line[GPS_MSG_SIZE];
+		gps_readline(&line, GPS_MSG_SIZE);
 		struct gps_t data = gps_get();
 		enum SensorErr err = gps_parse(line, &data);
 		if(err == SENSOR_OK) {
+			log_trace("Succesfully updated GPS data " GPS_HUMAN_STR,
+				GPS_T_FIELDS(&data));
 			gps_set(&data);
 		}
 	}
@@ -132,6 +135,7 @@ enum SensorErr gps_init(void) {
 	gps_serial_thd = chThdCreateStatic(gps_serial_wa, sizeof(gps_serial_wa),
 		NORMALPRIO, gps_serial_fn, NULL);
 	if(SD_GPS.state == SD_READY) {
+		log_trace("Successfully initialized GPS Serial Driver!");
 		return SENSOR_OK;
 	}
 	log_error("Failed to initialize GPS Serial Driver!");

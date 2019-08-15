@@ -78,6 +78,7 @@ enum SensorErr bme_init(void)
 		log_error("Failed to read calibration values from BME!");
 		return err;
 	}
+	log_trace("Successfully initialized BME!");
 	chThdSleep(TIME_MS2I(50)); // Wait for BME
 	return err;
 }
@@ -220,5 +221,6 @@ struct bme_t bme_get(void)
 	data.press = press();
 	data.hum = hum();
 	data.alt = alt(data.press);
+	log_trace("Succesfully read BME data " BME_HUMAN_STR, BME_T_FIELDS(&data));
 	return data;
 }

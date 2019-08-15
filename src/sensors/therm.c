@@ -34,6 +34,7 @@ enum SensorErr therm_init(void)
 			err |= SENSOR_COMM_ERR;
 			log_error("Unable to initialize therm sensor with ID %u!", id);
 		} else {
+			log_trace("Successfully initialized therm sensor with ID %u!", id);
 			err |= SENSOR_OK;
 		}
 	}
@@ -92,6 +93,8 @@ struct therm_t therm_get(void)
 		}
 	}
 	
+	log_trace("Succesfully read therm data " THERM_HUMAN_STR,
+		THERM_T_FIELDS(&data));
 	return data;
 }
 
