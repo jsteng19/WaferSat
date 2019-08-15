@@ -10,6 +10,7 @@ ifeq ($(USE_OPT),)
 endif
 
 # C specific options here (added to USE_OPT).
+# -lm compiles with the math library, used for `pow` to calculate altitude
 ifeq ($(USE_COPT),)
   USE_COPT =
 endif
@@ -26,7 +27,7 @@ endif
 
 # Linker extra options here.
 ifeq ($(USE_LDOPT),)
-  USE_LDOPT = 
+  USE_LDOPT = -lm
 endif
 
 # Enable this if you want link time optimizations (LTO)
@@ -143,6 +144,7 @@ CSRC = $(STARTUPSRC) \
        src/sensors/imu.c \
        src/sensors/bme.c \
        src/sensors/ltr.c \
+       src/sensors/common.c \
        src/sd.c \
        src/sensors/gps.c
 # Include paths that ChibiStudio does in the background

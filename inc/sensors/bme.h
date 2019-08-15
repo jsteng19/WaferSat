@@ -67,8 +67,8 @@ struct bme_t {
 	enum SensorErr err;
 };
 #define BME_HUMAN_STR "therm:%i press:%lu hum:%u alt:%u err:%u"
-#define BME_CSV_STR "%i,%lu,%u,%u"
-#define BME_T_FIELDS(dptr) ((dptr)->therm), ((dptr)->press), ((dptr)->hum) \
+#define BME_CSV_STR "%i,%lu,%u,%u,%u"
+#define BME_T_FIELDS(dptr) ((dptr)->therm), ((dptr)->press), ((dptr)->hum), \
 	((dptr)->alt), ((dptr)->err)
 #define bme_t_init() ((struct bme_t){0, 0, 0, 0, SENSOR_OK})
 

@@ -31,7 +31,7 @@
 #include "ov5640.h"
 #include "ch.h"
 #include "log.h"
-#include "sensors/therm.h"
+#include "sensors/common.h"
 #include "ff.h"
 
 static struct {
@@ -124,8 +124,10 @@ void log_data(void) {
 	ms = ms % 1000;
 	
 	lprintf("%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
-	struct therm_t thermdata = therm_get();
-	lprintf("\t"THERM_HUMAN_STR"\r\n", THERM_T_FIELDS(&thermdata));
+	
+	char log[1024];
+	sensor_hnprintf(log, 1024);
+	lprintf(log);
 	
 #if LOG_MEM
 	f_sync(&(L.fp));
@@ -155,10 +157,7 @@ void log_image(void) {
 void log_log(int level, const char *file, int line, const char *fmt, ...) {
   /* Acquire lock */
 	chMtxLock(&(L.mtx));
-
   /* Get current time */
-
-  /* Log to stderr */
 	long int ms = log_ms();
 	long int s = (ms / 1000) % 60;
 	long int m = (ms / (60 * 1000)) % 60;

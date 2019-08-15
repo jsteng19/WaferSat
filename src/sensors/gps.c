@@ -5,15 +5,15 @@
 #include "string.h"
 #include "log.h"
  
-static volatile struct gps_data_t gps_protected;
+static volatile struct gps_t gps_protected;
 static mutex_t gps_mtx;
 
 /**
 * @brief			Thread safe write of stored values.
 * @param data		Pointer to gps data struct
-* @see				struct gps_data_t
+* @see				struct gps_t
 */
-static void gps_set(struct gps_data_t *data) {
+static void gps_set(struct gps_t *data) {
 	chMtxLock(&gps_mtx);
 	chSysLock();
 	gps_protected = gps_data_cpy(data);
@@ -25,10 +25,10 @@ static void gps_set(struct gps_data_t *data) {
 * @brief		Thread safe read of stored values.
 * @return		Stored struct.
 */
-struct gps_data_t gps_get() {
+struct gps_t gps_get() {
 	chMtxLock(&gps_mtx);
 	chSysLock();
-	struct gps_data_t data = gps_data_cpy(&gps_protected);
+	struct gps_t data = gps_data_cpy(&gps_protected);
 	chSysUnlock();
 	chMtxUnlock(&gps_mtx);
 	return data;
@@ -83,16 +83,16 @@ static enum SensorErr gps_checksum(char* buf) {
 * @return		Error code and type of message parsed
 * 	if there is a parsing error, leave the GPS data untouched
 */
-static enum SensorErr gps_parse(char *buf, struct gps_data_t *data) {
+static enum SensorErr gps_parse(char *buf, struct gps_t *data) {
 	enum SensorErr cs = gps_checksum(buf);
 	if(cs != SENSOR_OK) {
 		return cs;
 	}
-	struct gps_data_t test = gps_data_init();
+	struct gps_t test = gps_data_init();
 	int found = gps_scan_gga(buf, &test);
 	if(found == 9) {
 		gps_scan_gga(buf, data);
-		data->ms = log_time();
+		data->ms = log_ms();
 		return SENSOR_OK;
 	}
 	found = gps_scan_zda(buf, &test);
@@ -108,7 +108,7 @@ static THD_FUNCTION(gps_serial_fn, args) {
 	while(true) {
 		// TODO use events instead of continuous poll
 		char line[GPS_MSG_SIZE];
-		struct gps_data_t data = gps_get();
+		struct gps_t data = gps_get();
 		enum SensorErr err = gps_parse(line, &data);
 		if(err == SENSOR_OK) {
 			gps_set(&data);
@@ -127,7 +127,7 @@ enum SensorErr gps_init(void) {
 	palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
 	sdStart(&SD_GPS, &gps_conf);
 	chMtxObjectInit(&gps_mtx);
-	struct gps_data_t data = gps_data_init();
+	struct gps_t data = gps_data_init();
 	gps_set(&data);
 	gps_serial_thd = chThdCreateStatic(gps_serial_wa, sizeof(gps_serial_wa),
 		NORMALPRIO, gps_serial_fn, NULL);

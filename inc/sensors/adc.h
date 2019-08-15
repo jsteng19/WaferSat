@@ -19,7 +19,7 @@ struct adc_t {
 	enum SensorErr err; /**< Stores the ADC error state */
 };
 #define adc_t_init() ((struct adc_t){0, 0, SENSOR_OK})
-#define adc_t_fields(dptr) ((dptr)->vbat), ((dptr)->therm), ((dptr)->err)
+#define ADC_T_FIELDS(dptr) ((dptr)->vbat), ((dptr)->therm), ((dptr)->err)
 #define ADC_CSV_STR "%u,%u,%u"
 #define ADC_HUMAN_STR "vbat:%u therm:%u err:%u"
 

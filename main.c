@@ -23,13 +23,11 @@
 #include "ov5640.h"
 #include "stdio.h"
 #include "chprintf.h"
-#include "sensors/gps.h"
 #include "log.h"
 #include "ff.h"
 #include "pi2c.h"
 
 int main(void) {
-	int init_err = 0;
 	halInit();
 	chSysInit();
 	log_init();

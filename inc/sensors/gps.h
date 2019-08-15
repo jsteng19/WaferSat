@@ -22,11 +22,14 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 #define gps_getc() sdGetTimeout(&SD_GPS, GPS_TIMEOUT)
 #define gps_putc(c) sdPutTimeout(&SD_GPS, c, GPS_TIMEOUT)
 // Scan definitions for GPS message types
-#define gps_data_fields(data) 	(data)->dd, (data)->mm, (data)-> yyyy, \
+#define gps_data_fields(data) 	(data)->dd, (data)->mm, (data)->yyyy, \
 	(data)->time, (data)->lat, (data)->ns, \
 	(data)->lon, (data)->ew, (data)->alt, \
 	(data)->fix, (data)->satellites, \
 	(data)->dilution, (data)->ms, (data)->err
+
+// FIXME rename macros in gps.c and h instead of hiding them
+#define GPS_T_FIELDS gps_data_fields
 
 /*
 	$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47
@@ -64,7 +67,7 @@ static const uint8_t end_seq[] = {0x0D, 0x0A};
 #define GPS_CSV_STR "%u,%u,%u,%f,%f,%c,%f,%c,%f,%u,%u,%f,%lu,%u"
 		 
 // Returns a new struct with values from the one passed in
-#define gps_data_cpy(data) ((struct gps_data_t){ gps_data_fields(data) })
+#define gps_data_cpy(data) ((struct gps_t){ gps_data_fields(data) })
 
 #include "sensors/common.h"
 
@@ -80,11 +83,11 @@ enum gps_fix_t {
 };
 
 /**
- * @struct  gps_data_t
+ * @struct  gps_t
  * @brief   Stores Global Positioning System (GPS) data
  * @note    Time is in UTC
  */
-struct gps_data_t {
+struct gps_t {
 	//TODO we can probably get even more 
 	// ddmmyyyy
 	uint8_t dd;								/**< Day */
@@ -103,7 +106,7 @@ struct gps_data_t {
 	uint32_t ms;							/**< time of last position update*/
 	enum SensorErr err;
 };
-#define gps_data_init() ((struct gps_data_t){0, 0, 0, 0.0, 0.0, '0', 0.0, '0', \
+#define gps_data_init() ((struct gps_t){0, 0, 0, 0.0, 0.0, '0', 0.0, '0', \
 	0.0, GPS_FIX_NONE, 0, 0.0, 0, SENSOR_OK})
 
 // TODO remove GPS error enum
@@ -114,6 +117,6 @@ struct gps_data_t {
 #define GPS_MSG_MSK (GPS_ZDA | GPS_GGA)
 
 enum SensorErr gps_init(void);
-struct gps_data_t gps_get(void);
+struct gps_t gps_get(void);
 
 #endif
