@@ -17,7 +17,6 @@ void adccb(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 	(void)adcp;
 	(void)buffer;
 	(void)n;
-	log_trace("Succesfully completed conversion!");
 }
 
 /*

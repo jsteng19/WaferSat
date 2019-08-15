@@ -87,6 +87,7 @@ struct therm_t therm_get(void)
 		 if(!I2C_read16(THERM_ADDR | (1 & 0x07), THERM_TEMP_REG, &val)) {
 			data.therm_1 =  SENSOR_INV_DATA;
 			data.err |= SENSOR_COMM_ERR;
+			log_error("Failed to communicate with THERM ID 1!");
 		} else {
 			// convert .0625C/cnt to 0.01C/cnt
 			data.therm_1 = (val >> 4) * (25 / 4);

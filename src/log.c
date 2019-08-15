@@ -30,9 +30,9 @@
 #include "chprintf.h"
 #include "ov5640.h"
 #include "ch.h"
-#include "log.h"
 #include "sensors/common.h"
 #include "ff.h"
+#include "log.h"
 
 static struct {
 	mutex_t mtx;
@@ -51,7 +51,6 @@ static const char *level_colors[] = {
 	"\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
 };
 #endif
-
 #if LOG_MEM && LOG_SERIAL
 #define lprintf(...) do{ \
 		 chprintf((BaseSequentialStream*) &LOG_SD, __VA_ARGS__); \
@@ -116,6 +115,10 @@ void log_set_level(int level) {
 }
 
 void log_data(void) {
+ 
+	char log[1024];
+	sensor_hnprintf(log, 1024);
+	
 	chMtxLock(&(L.mtx));
 	long int ms = log_ms();
 	long int s = (ms / 1000) % 60;
@@ -124,18 +127,18 @@ void log_data(void) {
 	ms = ms % 1000;
 	
 	lprintf("%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
-	
-	char log[1024];
-	sensor_hnprintf(log, 1024);
 	lprintf(log);
+	lprintf("\r\n");
 	
 #if LOG_MEM
 	f_sync(&(L.fp));
 #endif /* LOG_MEM */
+	chMtxUnlock(&(L.mtx));
 }
 
 void log_image(void) {
 #if LOG_MEM
+	chMtxLock(&(L.mtx));
 	uint32_t time_s = log_ms()/1000;
 	char image_filename[MAX_FILENAME];
 	chsnprintf(image_filename, MAX_FILENAME, "%s/img%d.jpg", L.log_dirname, time_s);

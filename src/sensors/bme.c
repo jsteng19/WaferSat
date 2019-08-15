@@ -75,6 +75,7 @@ enum SensorErr bme_init(void)
 	err |= I2C_write8(BME_ADDR, BME_REGISTER_CONTROL, 0x3F) ?
 		SENSOR_COMM_ERR : SENSOR_OK;
 	if(err != SENSOR_OK) {
+		// FIXME this always comes true even when we do read from BME
 		log_error("Failed to read calibration values from BME!");
 		return err;
 	}

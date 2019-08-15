@@ -11,7 +11,7 @@
 #include "chprintf.h"
 
 void pi2cInit(void);
-
+ 
 bool I2C_write8(uint8_t address, uint8_t reg, uint8_t value);
 bool I2C_writeN(uint8_t address, uint8_t *txbuf, uint32_t length);
 bool I2C_read8(uint8_t address, uint8_t reg, uint8_t *val);

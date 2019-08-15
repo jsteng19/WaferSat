@@ -26,25 +26,23 @@
 #include "log.h"
 #include "ff.h"
 #include "pi2c.h"
+#include "sensors/common.h"
 
 int main(void) {
 	halInit();
 	chSysInit();
 	log_init();
+	sensor_init();
+
+	uint8_t addresses[127];
+	uint8_t num = I2C_scan(addresses);
+	for(uint8_t i = 0; i < num; i++) {
+		log_info("Found I2C device at address 0x%02X", addresses[i]);
+	}
+
 
 	while (true) {
 		log_data();
-		 
-		char log[1024];
-		char* ptr = log;
-		ptr += snprintf(ptr, log + 1024 - ptr, "I2C Scan:");
-		uint8_t addresses[127];
-		uint8_t numd = I2C_scan(addresses);
-		for(int i = 0; i < numd; i++) {
-			ptr += snprintf(ptr, log + 1024 - ptr, " %02X", addresses[i]);
-		}
-		log_debug(log);
-		 
 		LED_OK();
 		chThdSleepMilliseconds(1000);
 		LED_CLEAR();
