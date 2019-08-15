@@ -36,11 +36,11 @@ static struct {
 } calib;
 
 #define reg16(r) (I2C_read16_LE( \
-	BME_ADDR, BME_REGISTER_ ## r, (uint16_t*) &calib.r) == 0 ? \
-	SENSOR_COMM_ERR : SENSOR_OK)
+	BME_ADDR, BME_REGISTER_ ## r, (uint16_t*) &calib.r) ? \
+	SENSOR_OK : SENSOR_COMM_ERR)
 #define reg8(r) (I2C_read8( \
-	BME_ADDR, BME_REGISTER_ ## r, (uint8_t*) &calib.r) == 0 ? \
-	SENSOR_COMM_ERR : SENSOR_OK)
+	BME_ADDR, BME_REGISTER_ ## r, (uint8_t*) &calib.r) ? \
+	SENSOR_OK : SENSOR_COMM_ERR)
 enum SensorErr bme_init(void)
 {
 	enum SensorErr err = SENSOR_OK;
@@ -71,11 +71,10 @@ enum SensorErr bme_init(void)
 	// Set before CONTROL (DS 5.4.3)
 	//Register setting from Adafruit lib, I’m leaving it alone.
 	err |= I2C_write8(BME_ADDR, BME_REGISTER_CONTROLHUMID, 0x03) ?
-		SENSOR_COMM_ERR : SENSOR_OK;
+		SENSOR_OK : SENSOR_COMM_ERR;
 	err |= I2C_write8(BME_ADDR, BME_REGISTER_CONTROL, 0x3F) ?
-		SENSOR_COMM_ERR : SENSOR_OK;
+		SENSOR_OK : SENSOR_COMM_ERR;
 	if(err != SENSOR_OK) {
-		// FIXME this always comes true even when we do read from BME
 		log_error("Failed to read calibration values from BME!");
 		return err;
 	}
@@ -207,7 +206,7 @@ struct bme_t bme_get(void)
 {
 	struct bme_t data = bme_t_init();
 	uint8_t val = 0;
-	if(I2C_read8(BME_ADDR, BME_REGISTER_CHIPID, &val) == 0) {
+	if(!I2C_read8(BME_ADDR, BME_REGISTER_CHIPID, &val)) {
 		data.err |= SENSOR_COMM_ERR;
 		log_error("Failed to communicate with BME chip!");
 		return data;

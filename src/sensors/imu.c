@@ -50,23 +50,23 @@ struct imu_t imu_get(void)
 	// TODO Figure out units and document
 	uint16_t val;
 	struct imu_t data = imu_t_init();
-	if(!I2C_read16(IMU_ADDR, IMU_ACCEL_XOUT_H, &val)) {
+	if(I2C_read16(IMU_ADDR, IMU_ACCEL_XOUT_H, &val)) {
+		data.x = (int16_t) val * 1000 / 16384;
+	} else {
 		data.err |= SENSOR_COMM_ERR;
 		data.x = SENSOR_INV_DATA;
-	} else {
-		data.x = (int16_t) val * 1000 / 16384;
 	}
-	if(!I2C_read16(IMU_ADDR, IMU_ACCEL_YOUT_H, &val)) {
+	if(I2C_read16(IMU_ADDR, IMU_ACCEL_YOUT_H, &val)) {
+		data.y = (int16_t) val * 1000 / 16384;
+	} else {
 		data.err |= SENSOR_COMM_ERR;
 		data.y = SENSOR_INV_DATA;
-	} else {
-		data.y = (int16_t) val * 1000 / 16384;
 	}
-	if(!I2C_read16(IMU_ADDR, IMU_ACCEL_ZOUT_H, &val)) {
+	if(I2C_read16(IMU_ADDR, IMU_ACCEL_ZOUT_H, &val)) {
+		data.z = (int16_t) val * 1000 / 16384;
+	} else {
 		data.err |= SENSOR_COMM_ERR;
 		data.z = SENSOR_INV_DATA;
-	} else {
-		data.z = (int16_t) val * 1000 / 16384;
 	}
 	log_trace("Succesfully read IMU data " IMU_HUMAN_STR, IMU_T_FIELDS(&data));
 	return data;

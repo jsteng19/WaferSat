@@ -28,14 +28,15 @@ enum SensorErr therm_init(void)
 {
 	enum SensorErr err = SENSOR_OK;
 	for(uint8_t id = 0; id < 2; id++) {
-		if(I2C_write8(THERM_ADDR | (id & 0x07),
-						THERM_CONTR_REG,
-						THERM_CONSECUTIVE_FAULTS_6  | THERM_RESOLUTION_12_BIT )) {
-			err |= SENSOR_COMM_ERR;
-			log_error("Unable to initialize therm sensor with ID %u!", id);
-		} else {
+		if(I2C_write8(
+			THERM_ADDR | (id & 0x07), THERM_CONTR_REG,
+			THERM_CONSECUTIVE_FAULTS_6  | THERM_RESOLUTION_12_BIT
+		)) {
 			log_trace("Successfully initialized therm sensor with ID %u!", id);
 			err |= SENSOR_OK;
+		} else {
+			err |= SENSOR_COMM_ERR;
+			log_error("Unable to initialize therm sensor with ID %u!", id);
 		}
 	}
 	return err;
@@ -57,14 +58,15 @@ static enum SensorErr therm_status(uint8_t id)
 	if(I2C_read8(THERM_ADDR | (id & 0x07), THERM_CONTR_REG, &val)) {
 		return SENSOR_OK;
 	} else {
-	return SENSOR_COMM_ERR;
+		log_error("Failed to communicate with THERM ID %u", id);
+		return SENSOR_COMM_ERR;
 	}
 }
 
 /**
  * @brief	Gets temperature data from the two temperature sensors
  * @note	If a sensor is in an error state, the reading will be 0
- * 
+ *
  * @return	A structure containing the temperatures and an error state 
  * @see		therm_t
  */
@@ -72,25 +74,25 @@ struct therm_t therm_get(void)
 {
 	struct therm_t data = therm_t_init();
 	
-	if(therm_status(0)) {
+	if(therm_status(0) == SENSOR_OK) {
 		 uint16_t val;
-		 if(!I2C_read16(THERM_ADDR | (0 & 0x07), THERM_TEMP_REG, &val)) {
-			data.therm_0 =  SENSOR_INV_DATA;
-			data.err |= SENSOR_COMM_ERR;
-		} else {
+		 if(I2C_read16(THERM_ADDR | (0 & 0x07), THERM_TEMP_REG, &val)) {
 			// convert .0625C/cnt to 0.01C/cnt
 			data.therm_0 = (val >> 4) * (25 / 4);
+		} else {
+			data.therm_0 =  SENSOR_INV_DATA;
+			data.err |= SENSOR_COMM_ERR;
 		}
 	}
-	if(therm_status(1)) {
+	if(therm_status(1) == SENSOR_OK) {
 		 uint16_t val;
-		 if(!I2C_read16(THERM_ADDR | (1 & 0x07), THERM_TEMP_REG, &val)) {
+		 if(I2C_read16(THERM_ADDR | (1 & 0x07), THERM_TEMP_REG, &val)) {
+			// convert .0625C/cnt to 0.01C/cnt
+			data.therm_1 = (val >> 4) * (25 / 4);
+		} else {
 			data.therm_1 =  SENSOR_INV_DATA;
 			data.err |= SENSOR_COMM_ERR;
 			log_error("Failed to communicate with THERM ID 1!");
-		} else {
-			// convert .0625C/cnt to 0.01C/cnt
-			data.therm_1 = (val >> 4) * (25 / 4);
 		}
 	}
 	

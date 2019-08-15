@@ -34,13 +34,6 @@ int main(void) {
 	log_init();
 	sensor_init();
 
-	uint8_t addresses[127];
-	uint8_t num = I2C_scan(addresses);
-	for(uint8_t i = 0; i < num; i++) {
-		log_info("Found I2C device at address 0x%02X", addresses[i]);
-	}
-
-
 	while (true) {
 		log_data();
 		LED_OK();

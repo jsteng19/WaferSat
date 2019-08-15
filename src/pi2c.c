@@ -5,6 +5,7 @@
 #include "ch.h"
 #include "hal.h"
 #include "pi2c.h"
+#include "log.h"
 
 #ifdef BOARD_WAFERSAT_3IN
   #define I2C_DRIVER	(&I2CD2)
@@ -36,9 +37,11 @@ static bool I2C_transmit(uint8_t addr, uint8_t *txbuf, uint32_t txbytes, uint8_t
 
 	if(i2c_status == MSG_TIMEOUT) { // Restart I2C at timeout
 	  // chprintf((BaseSequentialStream *)&SD1,"I2C  > TIMEOUT (ADDR 0x%02x)\r\n", addr);
+		log_warn("I2C timeout on address 0x%02X", addr);
 		error = 0x1;
 	} else if(i2c_status == MSG_RESET) {
 	  // chprintf((BaseSequentialStream *)&SD1,"I2C  > RESET (ADDR 0x%02x)\r\n", addr);
+		log_warn("I2C Message Reset on address 0x%02X", addr);
 		error = 0x0;
 	} else {
 		error = 0x0;

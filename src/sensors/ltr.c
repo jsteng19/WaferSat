@@ -18,10 +18,10 @@
 
 enum SensorErr ltr_init(void){
 	enum SensorErr err = SENSOR_OK;
-	err |= I2C_write8(LTR_ADDR, LTR_CONTR_REG, LTR_GAIN_1X | LTR_ACTIVE) == 0 ?
+	err |= I2C_write8(LTR_ADDR, LTR_CONTR_REG, LTR_GAIN_1X | LTR_ACTIVE) ?
 		SENSOR_OK : SENSOR_COMM_ERR;
 	err |= I2C_write8(LTR_ADDR, LTR_MEAS_RATE_REG, LTR_INT_400 | LTR_RATE_500)
-		== 0 ? SENSOR_OK : SENSOR_COMM_ERR;
+		? SENSOR_OK : SENSOR_COMM_ERR;
 	chThdSleepMilliseconds(10);
 	if(err & SENSOR_COMM_ERR) {
 		log_error("Failed to communicate with LTR!");
@@ -39,15 +39,14 @@ struct ltr_t ltr_get(void) {
 	uint8_t val;
 	if(I2C_read8(LTR_ADDR, LTR_MANUFAC_ID, &val)) {
 		data.err |= (val == 0x05) ? SENSOR_OK : SENSOR_INV_RESP;
-		return data;
 	} else {
 		data.err |= SENSOR_COMM_ERR;
 		return data;
 	}
 
-	data.err |= I2C_read16(LTR_ADDR, LTR_DATA_CH0_LOW, &(data.ch0)) == 0 ?
+	data.err |= I2C_read16(LTR_ADDR, LTR_DATA_CH0_LOW, &(data.ch0)) ?
 		SENSOR_OK : SENSOR_COMM_ERR;
-	data.err |= I2C_read16(LTR_ADDR, LTR_DATA_CH1_LOW, &(data.ch1)) == 0 ?
+	data.err |= I2C_read16(LTR_ADDR, LTR_DATA_CH1_LOW, &(data.ch1)) ?
 		SENSOR_OK : SENSOR_COMM_ERR;
 	data.ch0 = swap_byte(data.ch0);
 	data.ch1 = swap_byte(data.ch1);
