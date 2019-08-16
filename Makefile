@@ -145,6 +145,7 @@ CSRC = $(STARTUPSRC) \
        src/sensors/bme.c \
        src/sensors/ltr.c \
        src/sensors/common.c \
+       src/radio/si.c \
        src/sd.c \
        src/sensors/gps.c
 # Include paths that ChibiStudio does in the background

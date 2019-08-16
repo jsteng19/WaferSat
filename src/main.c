@@ -27,15 +27,21 @@
 #include "ff.h"
 #include "pi2c.h"
 #include "sensors/common.h"
+#include "radio/si.h"
 
 int main(void) {
 	halInit();
 	chSysInit();
 	log_init();
 	sensor_init();
+	si_err_t error = si_init();
+	log_info("Initialized with err %u.", error);
 
 	while (true) {
 		log_data();
+		const char *test = "Hello world!";
+		si_tx(test, 12);
+		log_info("Transmitted with err %u.", error);
 		LED_OK();
 		chThdSleepMilliseconds(1000);
 		LED_CLEAR();
