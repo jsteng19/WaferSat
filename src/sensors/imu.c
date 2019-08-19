@@ -51,22 +51,47 @@ struct imu_t imu_get(void)
 	uint16_t val;
 	struct imu_t data = imu_t_init();
 	if(I2C_read16(IMU_ADDR, IMU_ACCEL_XOUT_H, &val)) {
-		data.x = (int16_t) val * 1000 / 16384;
+		data.ax = ((int16_t) val) * IMU_ACCEL_SCALE;
 	} else {
 		data.err |= SENSOR_COMM_ERR;
-		data.x = SENSOR_INV_DATA;
+		data.ax = SENSOR_INV_DATA;
 	}
 	if(I2C_read16(IMU_ADDR, IMU_ACCEL_YOUT_H, &val)) {
-		data.y = (int16_t) val * 1000 / 16384;
+		data.ay = ((int16_t) val) * IMU_ACCEL_SCALE;
 	} else {
 		data.err |= SENSOR_COMM_ERR;
-		data.y = SENSOR_INV_DATA;
+		data.ay = SENSOR_INV_DATA;
 	}
 	if(I2C_read16(IMU_ADDR, IMU_ACCEL_ZOUT_H, &val)) {
-		data.z = (int16_t) val * 1000 / 16384;
+		data.az = ((int16_t) val) * IMU_ACCEL_SCALE;
 	} else {
 		data.err |= SENSOR_COMM_ERR;
-		data.z = SENSOR_INV_DATA;
+		data.az = SENSOR_INV_DATA;
+	}
+	if(I2C_read16(IMU_ADDR, IMU_GYRO_XOUT_H, &val)) {
+		data.gx = ((int16_t) val) * IMU_GYRO_SCALE;
+	} else {
+		data.err |= SENSOR_COMM_ERR;
+		data.gx = SENSOR_INV_DATA;
+	}
+	if(I2C_read16(IMU_ADDR, IMU_GYRO_YOUT_H, &val)) {
+		data.gy = ((int16_t) val) * IMU_GYRO_SCALE;
+	} else {
+		data.err |= SENSOR_COMM_ERR;
+		data.gy = SENSOR_INV_DATA;
+	}
+	if(I2C_read16(IMU_ADDR, IMU_GYRO_ZOUT_H, &val)) {
+		data.gz = ((int16_t) val) * IMU_GYRO_SCALE;
+	} else {
+		data.err |= SENSOR_COMM_ERR;
+		data.gz = SENSOR_INV_DATA;
+	}
+	if(I2C_read16(IMU_ADDR, IMU_THERM_OUT_H, &val)) {
+		data.therm = (((float) val - IMU_THERM_OFFSET) * IMU_THERM_SCALE)
+						+ IMU_THERM_OFFSET;
+	} else {
+		data.err |= SENSOR_COMM_ERR;
+		data.therm = SENSOR_INV_DATA;
 	}
 	log_trace("Succesfully read IMU data " IMU_HUMAN_STR, IMU_T_FIELDS(&data));
 	return data;

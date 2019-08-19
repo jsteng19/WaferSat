@@ -26,6 +26,27 @@
 #define IMU_ACCEL_ZOUT_H			0x3f
 #define IMU_ACCEL_ZOUT_L			0x40
 
+#define IMU_ACCEL_SCALE				(1.0f / 16384.0f)
+
+#define IMU_THERM_OUT_H				0x41
+#define IMU_THERM_OUT_L				0x42
+ 
+// FIXME this scale seems to be problematic
+#define IMU_THERM_SCALE				(1.0f / 333.87f)
+#define IMU_THERM_OFFSET			21.0f
+ 
+#define IMU_GYRO_XOUT_H				0x41
+#define IMU_GYRO_XOUT_L				0x42
+
+#define IMU_GYRO_YOUT_H				0x43
+#define IMU_GYRO_YOUT_L				0x44
+
+#define IMU_GYRO_ZOUT_H				0x45
+#define IMU_GYRO_ZOUT_L				0x46
+ 
+// FIXME scaling is questionable
+#define IMU_GYRO_SCALE				(1.0f / 131.0f)
+
 #define IMU_ACK_ID					0x71
 
 #include "common.h"
@@ -36,15 +57,21 @@
  * @note	    Units unknown
  */
 struct imu_t {
-	int16_t x;		/**< Acceleration in the x direction */
-	int16_t y;		/**< Acceleration in the y direction */
-	int16_t z;		/**< Acceleration in the z direction */
+	float ax;		/**< Acceleration in the x direction in m/s^2 */
+	float ay;		/**< Acceleration in the y direction in m/s^2 */
+	float az;		/**< Acceleration in the z direction in m/s^2 */
+	float gx;		/**< rotation degrees/s in the x direction */
+	float gy;		/**< rotation degrees/s in the y direction */
+	float gz;		/**< rotation degrees/s in the z direction */
+	float therm;	/**< temperature in C */
 	enum SensorErr err;	/**< Error state */
 };
-#define IMU_HUMAN_STR "x:%i y:%i z:%i err:%u"
-#define IMU_CSV_STR "%i,%i,%i,%u"
-#define IMU_T_FIELDS(dptr) ((dptr)->x), ((dptr)->y), ((dptr)->z), ((dptr)->err)
-#define imu_t_init() ((struct imu_t){0, 0, 0, SENSOR_OK})
+#define IMU_HUMAN_STR "ax:%f ay:%f az:%f gx:%f gy:%f gz:%f therm:%f err:%u"
+#define IMU_CSV_STR "%f,%f,%f,%f,%f,%f,%f,%u"
+#define IMU_T_FIELDS(dptr) ((dptr)->ax), ((dptr)->ay), ((dptr)->az), \
+	((dptr)->gx), ((dptr)->gy), ((dptr)->gz), ((dptr)->therm), ((dptr)->err)
+#define imu_t_init() ((struct imu_t){0.0, 0.0, 0.0, 0.0, 0.0, \
+	0.0, 0.0, SENSOR_OK})
 
 enum SensorErr imu_init(void);
 struct imu_t imu_get(void);
