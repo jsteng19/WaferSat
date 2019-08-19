@@ -25,6 +25,7 @@
 #include "chprintf.h"
 #include "log.h"
 #include "ff.h"
+#include "wdg.h"
 #include "pi2c.h"
 #include "sensors/common.h"
 #include "radio/si.h"
@@ -34,17 +35,16 @@ int main(void) {
 	chSysInit();
 	log_init();
 	sensor_init();
+	wdg_init();
 	si_err_t error = si_init();
 	log_info("Initialized with err %u.", error);
 
 	while (true) {
 		log_data();
-		const char *test = "Hello world!";
-		si_tx(test, 12);
-		log_info("Transmitted with err %u.", error);
 		LED_OK();
-		chThdSleepMilliseconds(1000);
+		chThdSleepMilliseconds(500);
 		LED_CLEAR();
-		chThdSleepMilliseconds(1000);
+		chThdSleepMilliseconds(500);
+		wdg_reset();
 	}
 }
