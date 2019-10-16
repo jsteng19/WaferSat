@@ -33,6 +33,7 @@
 int main(void) {
 	halInit();
 	chSysInit();
+	sd_init();
 	log_init();
 	sensor_init();
 	wdg_init();

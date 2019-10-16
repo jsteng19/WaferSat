@@ -28,6 +28,7 @@
 #include "string.h"
 #include "sd.h"
 #include "chprintf.h"
+#include "memstreams.h"
 #include "ov5640.h"
 #include "ch.h"
 #include "sensors/common.h"
@@ -51,18 +52,19 @@ static const char *level_colors[] = {
 	"\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
 };
 #endif
-#if LOG_MEM && LOG_SERIAL
-#define lprintf(...) do{ \
-		 chprintf((BaseSequentialStream*) &LOG_SD, __VA_ARGS__); \
-		 f_printf(&(L.fp), __VA_ARGS__); \
-	} while(0)
-#elif LOG_MEM /* && !LOG_SERIAL */
-#define lprintf(...) f_printf(&(L.fp), __VA_ARGS__)
-#elif LOG_SERIAL /* && !LOG_MEM */
-#define lprintf(...) chprintf((BaseSequentialStream*) &LOG_SD, __VA_ARGS__)
-#else /* !LOG_MEM && !LOG_SERIAL */
-#define lprintf(...) do{ } while(0)
-#endif /* LOG_MEM && LOG_SERIAL */
+
+#if LOG_SERIAL
+#define ser_printf(...) chprintf((BaseSequentialStream*) &LOG_SD, __VA_ARGS__)
+#else /* if !LOG_SERIAL */
+#define ser_printf(...) do{ } while (0)
+#endif /* LOG_SERIAL */
+ 
+// we have to do this bc f_printf uses DIFFERENT FUCKING FORMAT SPECS
+#if LOG_MEM
+#define mem_printf(...) f_printf(&(L.fp), __VA_ARGS__)
+#else /* if !LOG_MEM */
+#define mem_printf(...) do{ } while (0)
+#endif /* LOG_SERIAL */
 
 void log_init(void) {
 	chMtxObjectInit(&(L.mtx));
@@ -106,6 +108,8 @@ void log_init(void) {
 	sdStart(&LOG_SD, &LOG_CFG);
 #endif /* LOG_SERIAL */
 
+	// Remove FIXME
+	// Remove
 	log_set_level(LOG_LEVEL);
 }
 
@@ -126,9 +130,14 @@ void log_data(void) {
 	long int h = ms / (3600 * 1000);
 	ms = ms % 1000;
 	
-	lprintf("%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
-	lprintf(log);
-	lprintf("\r\n");
+	char header[128];
+	chsnprintf(header, 128, "%li:%02li:%02li.%03li DATA:\r\n", h, m, s, ms);
+	ser_printf(header);
+	ser_printf(log);
+	ser_printf("\r\n");
+	mem_printf(header);
+	mem_printf(log);
+	mem_printf("\r\n");
 	
 #if LOG_MEM
 	f_sync(&(L.fp));
@@ -167,38 +176,38 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 	long int h = ms / (3600 * 1000);
 	ms = ms % 1000;
 	va_list args;
-	 
+
+	char header[128];
+	chsnprintf(header, 1024, "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t",
+			h, m, s, ms, level_names[level], file, line);
+// From implementation of chsnprintf in chibios
+	char log_msg[1024];
+	MemoryStream memstream;
+	BaseSequentialStream *chp;
+	msObjectInit(&memstream, (uint8_t*) log_msg, 1024 - 1, 0);
+	chp = (BaseSequentialStream*)(void*) &memstream;
+	va_start(args, fmt); 
+	int len = chvprintf(chp, fmt, args);
+	va_end(args);
+	log_msg[memstream.eos] = '\0';
+// end implementation
+	if (len > 1024) {
+		chsnprintf(log_msg, 1024, "ERROR: log buffer overflow!");
+	}
+
 #if LOG_SERIAL
 	if (level >= L.level) {
-#if LOG_USE_COLOR
-		chprintf(
-			(BaseSequentialStream*) &SD1,
-			"%li:%02li:%02li.%03li\t%-5s\x1b[0m \x1b[90m%\ts:%d:\x1b[0m\t",
-			h, m, s, ms, level_colors[level], level_names[level], file, line
-		);
-#else /* !LOG_USE_COLOR */
-		chprintf((BaseSequentialStream*) &SD1,
-			"%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t",
-			h, m, s, ms, level_names[level], file, line
-		);
-#endif /* LOG_USE_COLOR */
-		va_start(args, fmt);
-		chvprintf((BaseSequentialStream*) &SD1, fmt, args);
-		va_end(args);
-		chprintf((BaseSequentialStream*) &SD1, "\n\r");
+		ser_printf(header);
+		ser_printf(log_msg);
+		ser_printf("\r\n");
 	}
 #endif /* LOG_SERIAL */
 
   /* Log to file */
 #if LOG_MEM
-    f_printf(
-		&(L.fp), "%li:%02li:%02li.%03li\t%-5s\t%s:%d:\t",
-		h, m, s, ms, level_names[level], file, line
-	);
-    va_start(args, fmt);
-    f_vprintf(&(L.fp), fmt, args);
-    va_end(args);
-    f_printf(&(L.fp), "\n");
+    mem_printf(header);
+    mem_printf(log_msg);
+    mem_printf("\r\n");
     f_sync(&(L.fp));
 #endif /* LOG_MEM */
 
