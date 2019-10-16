@@ -1,8 +1,8 @@
 # List of all the board related files.
-BOARDSRC = ./WAFERSAT_TEST_FIXTURE/board.c
+BOARDSRC = ./conf/WAFERSAT_4IN/board.c
 
 # Required include directories
-BOARDINC = ./WAFERSAT_TEST_FIXTURE
+BOARDINC = ./conf/WAFERSAT_4IN
 
 # Shared variables
 ALLCSRC += $(BOARDSRC)
