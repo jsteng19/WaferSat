@@ -63,7 +63,7 @@ static const char *level_colors[] = {
 #if LOG_MEM
 #define mem_printf(...) f_printf(&(L.fp), __VA_ARGS__)
 #else /* if !LOG_MEM */
-#define mem_printf(...) do{ } while (0)
+#define mem_printf(...) (0)
 #endif /* LOG_SERIAL */
 
 void log_init(void) {
@@ -89,18 +89,18 @@ void log_init(void) {
 	FRESULT f_err;
 	f_err = f_open(&(L.fp), log_filename, FA_CREATE_NEW);
 	if(f_err) {
-		LED_ERR();
+		LED_FATAL();
 		//TODO error handling system
 		// return f_err;
 	}
 	f_err = f_close(&(L.fp));
 	if(f_err) {
-		LED_ERR();
+		LED_FATAL();
 		// return f_err;
 	}
 	f_err = f_open(&(L.fp), log_filename, FA_WRITE);
 	if(f_err) {
-		LED_ERR();
+		LED_FATAL();
 		// return f_err;
 	}
 #endif /* LOG_MEM */
@@ -118,8 +118,7 @@ void log_set_level(int level) {
 	L.level = level;
 }
 
-void log_data(void) {
- 
+uint8_t log_data(void) {
 	char log[1024];
 	sensor_hnprintf(log, 1024);
 	
@@ -135,17 +134,20 @@ void log_data(void) {
 	ser_printf(header);
 	ser_printf(log);
 	ser_printf("\r\n");
-	mem_printf(header);
-	mem_printf(log);
-	mem_printf("\r\n");
-	
+	uint8_t status = 0x00;
+	status |= mem_printf(header) ? 0 : 1;
+	status |= mem_printf(log) ? 0 : (1 << 1);
+	status |= mem_printf("\r\n") ? 0 : (1 << 2);
+
 #if LOG_MEM
 	f_sync(&(L.fp));
 #endif /* LOG_MEM */
 	chMtxUnlock(&(L.mtx));
+
+	return status;
 }
 
-void log_image(void) {
+uint8_t log_image(void) {
 #if LOG_MEM
 	chMtxLock(&(L.mtx));
 	uint32_t time_s = log_ms()/1000;
@@ -164,11 +166,12 @@ void log_image(void) {
 		log_trace("Succesfully saved image to file %s.", image_filename);
 	} else {
 		log_error("Failed to save image with error code %u!", err);
+		return err;
 	}
 #else /* !LOG_MEM */
 	log_warn("Did not save camera data because logging to memory is disabled!");
 #endif /* LOG_MEM */
-	return;
+	return 0;
 }
   
 void log_log(int level, const char *file, int line, const char *fmt, ...) {

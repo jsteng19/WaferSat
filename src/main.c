@@ -52,17 +52,27 @@ int main(void) {
 	while (true) {
 
 		if((count % 60) == 0) {
-			log_data();
+			uint8_t err = 0;
+			err += log_data();
 			struct ltr_t light = ltr_get();
 			if(light.ch0 > 50 || light.ch1 > 50 || (count % 3600) == 0) {
-				log_image();
+				err += log_image();
 			}
 			count = 0;
+			wdg_reset();
+			if(err) {
+				LED_ERR();
+			}
+			else {
+				LED_OK();
+			}
+		}
+		else {
+			LED_INFO();
 		}
 
 		count++;
 
-		LED_OK();
 		chThdSleepMilliseconds(500);
 		LED_CLEAR();
 		chThdSleepMilliseconds(500);

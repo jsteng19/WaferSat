@@ -26,12 +26,12 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 
 
 #define LED_OK() palSetPad(GPIOD, GPIOD_LED_GREEN)
-#define LED_WARN() palSetPad(GPIOD, GPIOD_LED_BLUE)
+#define LED_INFO() palSetPad(GPIOD, GPIOD_LED_BLUE)
+#define LED_WARN() do{ palSetPad(GPIOD, GPIOD_LED_BLUE); palSetPad(GPIOD, GPIOD_LED_GREEN); } while(0)
 #define LED_ERR() do { \
-		 palSetPad(GPIOD, GPIOD_LED_BLUE); \
-		 palSetPad(GPIOD, GPIOD_LED_GREEN); \
+		 palSetPad(GPIOD, GPIOD_LED_RED); \
 	 } while(0)
-#define LED_FATAL() palClearPad(GPIOD, GPIOD_LED_RED)
+#define LED_FATAL() do { palSetPad(GPIOD, GPIOD_LED_RED); } while(1)
 #define LED_CLEAR() do { \
 		 palClearPad(GPIOD, GPIOD_LED_RED); \
 		 palClearPad(GPIOD, GPIOD_LED_BLUE); \
@@ -62,7 +62,7 @@ static const SerialConfig LOG_CFG = {38400, 0, 0, 0};
 void log_init(void);
 void log_set_level(int level);
 void log_log(int level, const char *file, int line, const char *fmt, ...);
-void log_image(void);
-void log_data(void);
+uint8_t log_image(void);
+uint8_t log_data(void);
 
 #endif
