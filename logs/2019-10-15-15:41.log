@@ -1,0 +1,64 @@
+:120034.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9614 err:0
+
+0:00:09.665	TRACE	src/main.c:49:	Reset watchdog.
+
+0:00:09.728	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4737 therm:2135 err:0
+
+0:00:09.865	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120034.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9614 err:0
+
+0:00:09.916	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2329 press:998593 hum:50 alt:242 err:0
+
+0:00:09.959	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.008056640 ay:0.045410156 az:1.005371093 gx:13.557251930 gy:-0.343511462 gz:-0.061068702 therm:26.208614349 err:0
+
+0:00:10.008	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1175 ch1:609 err:0
+
+0:00:10.034	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2130 therm1:2112 err:0
+
+0:00:10.056 DATA:
+
+	vbat:4737 therm:2135 err:0
+
+	therm:2329 press:998593 hum:50 alt:242 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120034.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:9614 err:0
+
+	ax:-0.008057 ay:0.045410 az:1.005371 gx:13.557252 gy:-0.343511 gz:-0.061069 therm:26.208614 err:0
+
+	ch0:1175 ch1:609 err:0
+
+	therm0:2130 therm1:2112 err:0
+
+0:00:10.614	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120035.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:10614 err:0
+
+0:00:10.865	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120035.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:10614 err:0
+
+0:00:11.154	TRACE	src/main.c:49:	Reset watchdog.
+
+0:00:11.213	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4721 therm:2135 err:0
+
+0:00:11.353	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2330 press:998591 hum:50 alt:244 err:0
+
+0:00:11.391	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.008544921 ay:0.049316406 az:1.004638671 gx:13.435114860 gy:-0.625954210 gz:0.183206111 therm:26.208614349 err:0
+
+0:00:11.440	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1175 ch1:609 err:0
+
+0:00:11.466	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2130 therm1:2112 err:0
+
+0:00:11.488 DATA:
+
+	vbat:4721 therm:2135 err:0
+
+	therm:2330 press:998591 hum:50 alt:244 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120035.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:10614 err:0
+
+	ax:-0.008545 ay:0.049316 az:1.004639 gx:13.435115 gy:-0.625954 gz:0.183206 therm:26.208614 err:0
+
+	ch0:1175 ch1:609 err:0
+
+	therm0:2130 therm1:2112 err:0
+
+0:00:11.614	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120036.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:11614 err:0
+
+0:00:11.865	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120036.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:11614 err:0
+

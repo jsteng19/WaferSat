@@ -40,7 +40,6 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 #define log_ms() TIME_I2MS(chVTGetSystemTime())
 
 
-//TODO TEST MEM
 #define LOG_MEM 1
 #define LOG_SERIAL 1
 

@@ -1,0 +1,3650 @@
+0:00:00.450	TRACE	src/sensors/adc.c:52:	Succesfully initialized ADC (empty function)
+
+0:00:00.511	TRACE	src/sensors/bme.c:81:	Successfully initialized BME!
+
+0:00:00.577	TRACE	src/sensors/gps.c:138:	Successfully initialized GPS Serial Driver!
+
+0:00:00.598	TRACE	src/sensors/imu.c:33:	Successfully intialized IMU.
+
+0:00:00.627	TRACE	src/sensors/ltr.c:29:	Succesfully initialized LTR.
+
+0:00:00.644	TRACE	src/sensors/therm.c:35:	Successfully initialized therm sensor with ID 0!
+
+0:00:00.668	TRACE	src/sensors/therm.c:35:	Successfully initialized therm sensor with ID 1!
+
+0:00:00.873	WARN 	src/pi2c.c:44:	I2C Message Reset on address 0x3C
+
+0:00:01.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:0 mm:0 yyyy:0 time:120128.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:1071 err:0
+
+0:00:01.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120128.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:1071 err:0
+
+0:00:01.995	INFO 	src/main.c:45:	Initialized with err 0.
+
+0:00:02.058	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4866 therm:2102 err:0
+
+0:00:02.081	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120129.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:2070 err:0
+
+0:00:02.200	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2439 press:997094 hum:45 alt:226 err:0
+
+0:00:02.243	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.021728515 ay:0.064697265 az:1.011474609 gx:15.755724906 gy:-0.106870226 gz:0.183206111 therm:26.975379943 err:0
+
+0:00:02.294	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:570 err:0
+
+0:00:02.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120129.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:2070 err:0
+
+0:00:02.374	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2178 therm1:2208 err:0
+
+0:00:02.403 DATA:
+
+	vbat:4866 therm:2102 err:0
+
+	therm:2439 press:997094 hum:45 alt:226 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120129.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:2070 err:0
+
+	ax:-0.021729 ay:0.064697 az:1.011475 gx:15.755725 gy:-0.106870 gz:0.183206 therm:26.975380 err:0
+
+	ch0:1103 ch1:570 err:0
+
+	therm0:2178 therm1:2208 err:0
+
+0:00:07.546	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120130.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:3070 err:0
+
+0:00:07.601	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:08.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120135.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:3070 err:0
+
+0:00:08.618	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:08.678	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2360 err:0
+
+0:00:08.822	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2439 press:997140 hum:45 alt:187 err:0
+
+0:00:08.863	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.028320312 ay:0.064208984 az:1.005371093 gx:15.877862930 gy:-0.419847339 gz:-0.114503815 therm:26.975379943 err:0
+
+0:00:08.914	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:571 err:0
+
+0:00:08.942	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2184 therm1:2208 err:0
+
+0:00:08.968 DATA:
+
+	vbat:4842 therm:2360 err:0
+
+	therm:2439 press:997140 hum:45 alt:187 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120135.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:3070 err:0
+
+	ax:-0.028320 ay:0.064209 az:1.005371 gx:15.877863 gy:-0.419847 gz:-0.114504 therm:26.975380 err:0
+
+	ch0:1101 ch1:571 err:0
+
+	therm0:2184 therm1:2208 err:0
+
+0:00:14.112	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120136.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9113 err:0
+
+0:00:14.167	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:14.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120141.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9113 err:0
+
+0:00:15.072	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120142.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:15072 err:0
+
+0:00:15.184	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:15.245	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2328 err:0
+
+0:00:15.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120142.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:15072 err:0
+
+0:00:15.387	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2442 press:997118 hum:45 alt:206 err:0
+
+0:00:15.430	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.028320312 ay:0.067626953 az:1.006347656 gx:16.122137069 gy:-0.664122164 gz:0.022900763 therm:27.310840606 err:0
+
+0:00:15.481	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:571 err:0
+
+0:00:15.509	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2184 therm1:2214 err:0
+
+0:00:15.533 DATA:
+
+	vbat:4842 therm:2328 err:0
+
+	therm:2442 press:997118 hum:45 alt:206 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120142.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:15072 err:0
+
+	ax:-0.028320 ay:0.067627 az:1.006348 gx:16.122137 gy:-0.664122 gz:0.022901 therm:27.310841 err:0
+
+	ch0:1102 ch1:571 err:0
+
+	therm0:2184 therm1:2214 err:0
+
+0:00:15.730	TRACE	src/log.c:164:	Succesfully saved image to file test37/img15.jpg.
+
+0:00:16.072	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120143.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:16072 err:0
+
+0:00:16.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120143.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:16072 err:0
+
+0:00:16.750	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:16.810	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2360 err:0
+
+0:00:16.952	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2443 press:997128 hum:45 alt:197 err:0
+
+0:00:16.995	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.031982421 ay:0.062744140 az:0.997558593 gx:16.366413116 gy:-0.305343508 gz:0.282442748 therm:27.119148254 err:0
+
+0:00:17.046	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:569 err:0
+
+0:00:17.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120144.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:17071 err:0
+
+0:00:17.127	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2190 therm1:2214 err:0
+
+0:00:17.151 DATA:
+
+	vbat:4833 therm:2360 err:0
+
+	therm:2443 press:997128 hum:45 alt:197 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120143.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:16072 err:0
+
+	ax:-0.031982 ay:0.062744 az:0.997559 gx:16.366413 gy:-0.305344 gz:0.282443 therm:27.119148 err:0
+
+	ch0:1104 ch1:569 err:0
+
+	therm0:2190 therm1:2214 err:0
+
+0:00:22.297	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120145.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:18071 err:0
+
+0:00:22.350	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:23.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120150.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:18071 err:0
+
+0:00:23.376	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:23.438	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2360 err:0
+
+0:00:23.580	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2446 press:997089 hum:45 alt:230 err:0
+
+0:00:23.621	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.017578125 ay:0.062988281 az:1.004394531 gx:15.755724906 gy:-0.465648859 gz:0.022900763 therm:27.167070388 err:0
+
+0:00:23.672	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:572 err:0
+
+0:00:23.702	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2190 therm1:2214 err:0
+
+0:00:23.726 DATA:
+
+	vbat:4850 therm:2360 err:0
+
+	therm:2446 press:997089 hum:45 alt:230 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120150.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:18071 err:0
+
+	ax:-0.017578 ay:0.062988 az:1.004395 gx:15.755725 gy:-0.465649 gz:0.022901 therm:27.167070 err:0
+
+	ch0:1102 ch1:572 err:0
+
+	therm0:2190 therm1:2214 err:0
+
+0:00:28.876	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120151.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:24071 err:0
+
+0:00:28.932	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:29.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120156.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:24071 err:0
+
+0:00:29.948	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:30.011	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2392 err:0
+
+0:00:30.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120157.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:30071 err:0
+
+0:00:30.153	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2450 press:997112 hum:45 alt:211 err:0
+
+0:00:30.193	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.020507812 ay:0.062744140 az:1.005371093 gx:16.244274139 gy:-0.511450409 gz:-0.175572514 therm:27.023302078 err:0
+
+0:00:30.247	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:570 err:0
+
+0:00:30.275	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2190 therm1:2220 err:0
+
+0:00:30.299 DATA:
+
+	vbat:4850 therm:2392 err:0
+
+	therm:2450 press:997112 hum:45 alt:211 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120157.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:30071 err:0
+
+	ax:-0.020508 ay:0.062744 az:1.005371 gx:16.244274 gy:-0.511450 gz:-0.175573 therm:27.023302 err:0
+
+	ch0:1104 ch1:570 err:0
+
+	therm0:2190 therm1:2220 err:0
+
+0:00:30.400	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120157.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:30071 err:0
+
+0:00:30.551	TRACE	src/log.c:164:	Succesfully saved image to file test37/img30.jpg.
+
+0:00:31.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120158.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:31071 err:0
+
+0:00:31.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120158.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:31071 err:0
+
+0:00:31.571	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:31.631	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2392 err:0
+
+0:00:31.775	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2450 press:997094 hum:45 alt:226 err:0
+
+0:00:31.815	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024658203 ay:0.062988281 az:0.996826171 gx:16.244274139 gy:-0.503816783 gz:-0.160305351 therm:27.167070388 err:0
+
+0:00:31.866	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:571 err:0
+
+0:00:31.894	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2196 therm1:2220 err:0
+
+0:00:31.921 DATA:
+
+	vbat:4842 therm:2392 err:0
+
+	therm:2450 press:997094 hum:45 alt:226 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120158.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:31071 err:0
+
+	ax:-0.024658 ay:0.062988 az:0.996826 gx:16.244274 gy:-0.503817 gz:-0.160305 therm:27.167070 err:0
+
+	ch0:1102 ch1:571 err:0
+
+	therm0:2196 therm1:2220 err:0
+
+0:00:37.066	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120159.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:31071 err:0
+
+0:00:37.124	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:37.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120204.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:31071 err:0
+
+0:00:38.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120205.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:38071 err:0
+
+0:00:38.140	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:38.201	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2425 err:0
+
+0:00:38.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120205.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:38071 err:0
+
+0:00:38.375	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2454 press:997067 hum:45 alt:249 err:0
+
+0:00:38.420	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026123046 ay:0.064697265 az:0.997802734 gx:16.366413116 gy:-0.320610702 gz:0.007633587 therm:27.358762741 err:0
+
+0:00:38.471	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:571 err:0
+
+0:00:38.499	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2196 therm1:2226 err:0
+
+0:00:38.523 DATA:
+
+	vbat:4833 therm:2425 err:0
+
+	therm:2454 press:997067 hum:45 alt:249 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120205.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:38071 err:0
+
+	ax:-0.026123 ay:0.064697 az:0.997803 gx:16.366413 gy:-0.320611 gz:0.007634 therm:27.358763 err:0
+
+	ch0:1103 ch1:571 err:0
+
+	therm0:2196 therm1:2226 err:0
+
+0:00:43.672	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120206.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:39071 err:0
+
+0:00:43.730	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:44.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120211.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:39071 err:0
+
+0:00:44.746	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:44.807	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2425 err:0
+
+0:00:44.949	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2457 press:997113 hum:45 alt:210 err:0
+
+0:00:44.991	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027343750 ay:0.066650390 az:1.000732421 gx:15.755724906 gy:-0.427480906 gz:-0.091603055 therm:27.262916564 err:0
+
+0:00:45.043	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:575 err:0
+
+0:00:45.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120212.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:45070 err:0
+
+0:00:45.125	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2202 therm1:2226 err:0
+
+0:00:45.149 DATA:
+
+	vbat:4833 therm:2425 err:0
+
+	therm:2457 press:997113 hum:45 alt:210 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120211.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:39071 err:0
+
+	ax:-0.027344 ay:0.066650 az:1.000732 gx:15.755725 gy:-0.427481 gz:-0.091603 therm:27.262917 err:0
+
+	ch0:1103 ch1:575 err:0
+
+	therm0:2202 therm1:2226 err:0
+
+0:00:45.347	TRACE	src/log.c:164:	Succesfully saved image to file test37/img45.jpg.
+
+0:00:46.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120213.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:45070 err:0
+
+0:00:46.375	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:46.438	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4858 therm:2425 err:0
+
+0:00:46.580	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2457 press:997069 hum:45 alt:247 err:0
+
+0:00:46.622	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.020751953 ay:0.069335937 az:1.005859375 gx:16.122137069 gy:-0.877862572 gz:0.083969466 therm:27.167070388 err:0
+
+0:00:46.674	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1113 ch1:575 err:0
+
+0:00:46.704	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2202 therm1:2226 err:0
+
+0:00:46.728 DATA:
+
+	vbat:4858 therm:2425 err:0
+
+	therm:2457 press:997069 hum:45 alt:247 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120213.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:45070 err:0
+
+	ax:-0.020752 ay:0.069336 az:1.005859 gx:16.122137 gy:-0.877863 gz:0.083969 therm:27.167070 err:0
+
+	ch0:1113 ch1:575 err:0
+
+	therm0:2202 therm1:2226 err:0
+
+0:00:51.879	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120214.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:47070 err:0
+
+0:00:51.934	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:52.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120219.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:47070 err:0
+
+0:00:52.953	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:53.013	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2425 err:0
+
+0:00:53.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120220.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:53071 err:0
+
+0:00:53.155	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2462 press:997084 hum:44 alt:234 err:0
+
+0:00:53.196	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023193359 ay:0.064208984 az:0.994140625 gx:16.244274139 gy:-0.725190818 gz:-0.137404575 therm:27.119148254 err:0
+
+0:00:53.247	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1112 ch1:495 err:0
+
+0:00:53.277	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2202 therm1:2232 err:0
+
+0:00:53.302 DATA:
+
+	vbat:4842 therm:2425 err:0
+
+	therm:2462 press:997084 hum:44 alt:234 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120220.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:53071 err:0
+
+	ax:-0.023193 ay:0.064209 az:0.994141 gx:16.244274 gy:-0.725191 gz:-0.137405 therm:27.119148 err:0
+
+	ch0:1112 ch1:495 err:0
+
+	therm0:2202 therm1:2232 err:0
+
+0:00:53.400	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120220.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:53071 err:0
+
+0:00:58.507	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120221.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:54071 err:0
+
+0:00:58.562	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:00:59.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120226.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:54071 err:0
+
+0:00:59.579	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:59.638	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4987 therm:2360 err:0
+
+0:00:59.781	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2465 press:997081 hum:44 alt:237 err:0
+
+0:00:59.820	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022216796 ay:0.063720703 az:1.002685546 gx:16.244274139 gy:-0.564885497 gz:-0.129770994 therm:27.167070388 err:0
+
+0:00:59.874	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:946 ch1:505 err:0
+
+0:00:59.901	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2202 therm1:2232 err:0
+
+0:00:59.926 DATA:
+
+	vbat:4987 therm:2360 err:0
+
+	therm:2465 press:997081 hum:44 alt:237 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120226.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:54071 err:0
+
+	ax:-0.022217 ay:0.063721 az:1.002686 gx:16.244274 gy:-0.564885 gz:-0.129771 therm:27.167070 err:0
+
+	ch0:946 ch1:505 err:0
+
+	therm0:2202 therm1:2232 err:0
+
+0:01:00.125	TRACE	src/log.c:164:	Succesfully saved image to file test37/img60.jpg.
+
+0:01:00.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120227.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:54071 err:0
+
+0:01:01.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120228.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:61070 err:0
+
+0:01:01.145	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:01.205	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2425 err:0
+
+0:01:01.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120228.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:61070 err:0
+
+0:01:01.377	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2467 press:997072 hum:44 alt:245 err:0
+
+0:01:01.418	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.021728515 ay:0.059570312 az:0.993652343 gx:16.122137069 gy:-0.633587777 gz:0.137404575 therm:27.310840606 err:0
+
+0:01:01.469	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:964 ch1:572 err:0
+
+0:01:01.497	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2202 therm1:2232 err:0
+
+0:01:01.521 DATA:
+
+	vbat:4833 therm:2425 err:0
+
+	therm:2467 press:997072 hum:44 alt:245 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120228.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:61070 err:0
+
+	ax:-0.021729 ay:0.059570 az:0.993652 gx:16.122137 gy:-0.633588 gz:0.137405 therm:27.310841 err:0
+
+	ch0:964 ch1:572 err:0
+
+	therm0:2202 therm1:2232 err:0
+
+0:01:06.669	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120229.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:62071 err:0
+
+0:01:06.727	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:07.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120234.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:62071 err:0
+
+0:01:07.743	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:07.804	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2392 err:0
+
+0:01:07.946	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2470 press:997091 hum:44 alt:229 err:0
+
+0:01:07.988	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.020751953 ay:0.069824218 az:0.999267578 gx:15.755724906 gy:-0.427480906 gz:0.030534351 therm:27.454608917 err:0
+
+0:01:08.039	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1113 ch1:571 err:0
+
+0:01:08.067	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2208 therm1:2238 err:0
+
+0:01:08.092	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120235.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:68071 err:0
+
+0:01:08.148 DATA:
+
+	vbat:4825 therm:2392 err:0
+
+	therm:2470 press:997091 hum:44 alt:229 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120234.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:62071 err:0
+
+	ax:-0.020752 ay:0.069824 az:0.999268 gx:15.755725 gy:-0.427481 gz:0.030534 therm:27.454609 err:0
+
+	ch0:1113 ch1:571 err:0
+
+	therm0:2208 therm1:2238 err:0
+
+0:01:13.295	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120236.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:69071 err:0
+
+0:01:13.350	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:14.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120241.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:69071 err:0
+
+0:01:14.377	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:14.438	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2392 err:0
+
+0:01:14.580	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2472 press:997106 hum:44 alt:216 err:0
+
+0:01:14.620	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.033935546 ay:0.071533203 az:1.001953125 gx:16.244274139 gy:-0.717557251 gz:0.099236644 therm:27.454608917 err:0
+
+0:01:14.671	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:568 err:0
+
+0:01:14.701	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2208 therm1:2238 err:0
+
+0:01:14.726 DATA:
+
+	vbat:4842 therm:2392 err:0
+
+	therm:2472 press:997106 hum:44 alt:216 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120241.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:69071 err:0
+
+	ax:-0.033936 ay:0.071533 az:1.001953 gx:16.244274 gy:-0.717557 gz:0.099237 therm:27.454609 err:0
+
+	ch0:1104 ch1:568 err:0
+
+	therm0:2208 therm1:2238 err:0
+
+0:01:19.874	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120242.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:75070 err:0
+
+0:01:19.930	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:20.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120247.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:75070 err:0
+
+0:01:20.946	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:21.007	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2457 err:0
+
+0:01:21.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120248.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:81071 err:0
+
+0:01:21.149	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2475 press:997083 hum:44 alt:235 err:0
+
+0:01:21.189	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027587890 ay:0.063476562 az:1.002197265 gx:16.366413116 gy:-0.244274809 gz:-0.053435113 therm:27.454608917 err:0
+
+0:01:21.243	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:569 err:0
+
+0:01:21.271	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2208 therm1:2238 err:0
+
+0:01:21.295 DATA:
+
+	vbat:4833 therm:2457 err:0
+
+	therm:2475 press:997083 hum:44 alt:235 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120248.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:81071 err:0
+
+	ax:-0.027588 ay:0.063477 az:1.002197 gx:16.366413 gy:-0.244275 gz:-0.053435 therm:27.454609 err:0
+
+	ch0:1101 ch1:569 err:0
+
+	therm0:2208 therm1:2238 err:0
+
+0:01:21.396	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120248.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:81071 err:0
+
+0:01:21.548	TRACE	src/log.c:164:	Succesfully saved image to file test37/img81.jpg.
+
+0:01:22.072	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120249.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:82072 err:0
+
+0:01:22.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120249.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:82072 err:0
+
+0:01:22.570	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:22.630	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2425 err:0
+
+0:01:22.772	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2477 press:997113 hum:44 alt:210 err:0
+
+0:01:22.812	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.030273437 ay:0.066406250 az:1.002441406 gx:16.732824325 gy:-0.625954210 gz:0.114503815 therm:27.262916564 err:0
+
+0:01:22.863	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:570 err:0
+
+0:01:22.891	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2208 therm1:2244 err:0
+
+0:01:22.917 DATA:
+
+	vbat:4825 therm:2425 err:0
+
+	therm:2477 press:997113 hum:44 alt:210 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120249.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:82072 err:0
+
+	ax:-0.030273 ay:0.066406 az:1.002441 gx:16.732824 gy:-0.625954 gz:0.114504 therm:27.262917 err:0
+
+	ch0:1101 ch1:570 err:0
+
+	therm0:2208 therm1:2244 err:0
+
+0:01:28.062	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120250.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:82072 err:0
+
+0:01:28.120	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:28.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120255.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:82072 err:0
+
+0:01:29.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120256.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:89071 err:0
+
+0:01:29.136	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:29.218	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2425 err:0
+
+0:01:29.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120256.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:89071 err:0
+
+0:01:29.395	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2478 press:997058 hum:44 alt:0 err:0
+
+0:01:29.460	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023681640 ay:0.065917968 az:0.990234375 gx:16.366413116 gy:-0.526717543 gz:-0.152671754 therm:27.454608917 err:0
+
+0:01:29.514	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:569 err:0
+
+0:01:29.545	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2208 therm1:2244 err:0
+
+0:01:29.573 DATA:
+
+	vbat:4825 therm:2425 err:0
+
+	therm:2478 press:997058 hum:44 alt:0 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120256.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:89071 err:0
+
+	ax:-0.023682 ay:0.065918 az:0.990234 gx:16.366413 gy:-0.526718 gz:-0.152672 therm:27.454609 err:0
+
+	ch0:1101 ch1:569 err:0
+
+	therm0:2208 therm1:2244 err:0
+
+0:01:34.745	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120257.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:90071 err:0
+
+0:01:34.847	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:35.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120302.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:90071 err:0
+
+0:01:35.884	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:35.965	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2425 err:0
+
+0:01:36.072	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120303.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:96072 err:0
+
+0:01:36.150	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2482 press:997054 hum:44 alt:4 err:0
+
+0:01:36.192	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026367187 ay:0.066406250 az:0.999267578 gx:16.610687255 gy:-0.595419824 gz:-0.282442748 therm:27.502531051 err:0
+
+0:01:36.247	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:571 err:0
+
+0:01:36.283	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2208 therm1:2244 err:0
+
+0:01:36.310 DATA:
+
+	vbat:4842 therm:2425 err:0
+
+	therm:2482 press:997054 hum:44 alt:4 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120303.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:96072 err:0
+
+	ax:-0.026367 ay:0.066406 az:0.999268 gx:16.610687 gy:-0.595420 gz:-0.282443 therm:27.502531 err:0
+
+	ch0:1101 ch1:571 err:0
+
+	therm0:2208 therm1:2244 err:0
+
+0:01:36.414	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120303.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:96072 err:0
+
+0:01:41.523	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120304.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:97072 err:0
+
+0:01:41.584	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:42.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120309.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:97072 err:0
+
+0:01:42.605	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:42.669	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:5091 therm:2489 err:0
+
+0:01:42.814	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2485 press:997105 hum:44 alt:217 err:0
+
+0:01:42.859	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027343750 ay:0.065429687 az:0.995117187 gx:16.610687255 gy:-0.328244268 gz:-0.129770994 therm:27.454608917 err:0
+
+0:01:42.918	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:571 err:0
+
+0:01:42.950	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2214 therm1:2250 err:0
+
+0:01:42.979 DATA:
+
+	vbat:5091 therm:2489 err:0
+
+	therm:2485 press:997105 hum:44 alt:217 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120309.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:97072 err:0
+
+	ax:-0.027344 ay:0.065430 az:0.995117 gx:16.610687 gy:-0.328244 gz:-0.129771 therm:27.454609 err:0
+
+	ch0:1104 ch1:571 err:0
+
+	therm0:2214 therm1:2250 err:0
+
+0:01:43.086	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120310.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:103071 err:0
+
+0:01:48.196	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120310.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:103071 err:0
+
+0:01:48.265	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:48.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120315.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:103071 err:0
+
+0:01:49.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120316.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:109070 err:0
+
+0:01:49.286	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:49.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120316.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:109070 err:0
+
+0:01:49.379	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2457 err:0
+
+0:01:49.525	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2488 press:997049 hum:44 alt:8 err:0
+
+0:01:49.595	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027343750 ay:0.058349609 az:0.995117187 gx:16.732824325 gy:-0.412213742 gz:-0.007633587 therm:27.694223403 err:0
+
+0:01:49.650	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:570 err:0
+
+0:01:49.681	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2214 therm1:2250 err:0
+
+0:01:49.708 DATA:
+
+	vbat:4825 therm:2457 err:0
+
+	therm:2488 press:997049 hum:44 alt:8 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120316.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:109070 err:0
+
+	ax:-0.027344 ay:0.058350 az:0.995117 gx:16.732824 gy:-0.412214 gz:-0.007634 therm:27.694223 err:0
+
+	ch0:1105 ch1:570 err:0
+
+	therm0:2214 therm1:2250 err:0
+
+0:01:54.871	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120317.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:110070 err:0
+
+0:01:54.937	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:01:55.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120322.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:110070 err:0
+
+0:01:55.958	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:56.022	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4632 therm:2457 err:0
+
+0:01:56.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120323.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:116071 err:0
+
+0:01:56.168	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2489 press:997061 hum:44 alt:254 err:0
+
+0:01:56.211	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026367187 ay:0.064208984 az:0.987060546 gx:16.610687255 gy:-0.511450409 gz:-0.213740453 therm:27.550453186 err:0
+
+0:01:56.265	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:569 err:0
+
+0:01:56.302	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2214 therm1:2256 err:0
+
+0:01:56.329	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120323.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:116071 err:0
+
+0:01:56.385 DATA:
+
+	vbat:4632 therm:2457 err:0
+
+	therm:2489 press:997061 hum:44 alt:254 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120323.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:116071 err:0
+
+	ax:-0.026367 ay:0.064209 az:0.987061 gx:16.610687 gy:-0.511450 gz:-0.213740 therm:27.550453 err:0
+
+	ch0:1103 ch1:569 err:0
+
+	therm0:2214 therm1:2256 err:0
+
+0:02:01.543	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120324.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:117072 err:0
+
+0:02:01.621	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:02.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120329.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:117072 err:0
+
+0:02:02.672	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:02.752	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2457 err:0
+
+0:02:02.900	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2493 press:997043 hum:44 alt:13 err:0
+
+0:02:02.946	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023925781 ay:0.068847656 az:1.011230468 gx:16.366413116 gy:-0.465648859 gz:0.305343508 therm:27.502531051 err:0
+
+0:02:03.023	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:571 err:0
+
+0:02:03.054	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2220 therm1:2256 err:0
+
+0:02:03.081	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120330.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:123071 err:0
+
+0:02:03.159 DATA:
+
+	vbat:4842 therm:2457 err:0
+
+	therm:2493 press:997043 hum:44 alt:13 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120329.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:117072 err:0
+
+	ax:-0.023926 ay:0.068848 az:1.011230 gx:16.366413 gy:-0.465649 gz:0.305344 therm:27.502531 err:0
+
+	ch0:1103 ch1:571 err:0
+
+	therm0:2220 therm1:2256 err:0
+
+0:02:08.327	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120331.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:123071 err:0
+
+0:02:08.428	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:09.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120336.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:123071 err:0
+
+0:02:09.464	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:09.545	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4858 therm:2457 err:0
+
+0:02:09.712	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2495 press:997078 hum:44 alt:240 err:0
+
+0:02:09.756	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024414062 ay:0.065917968 az:1.007568359 gx:16.610687255 gy:-0.496183216 gz:0.022900763 therm:27.310840606 err:0
+
+0:02:09.810	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1108 ch1:570 err:0
+
+0:02:09.840	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2220 therm1:2256 err:0
+
+0:02:09.890 DATA:
+
+	vbat:4858 therm:2457 err:0
+
+	therm:2495 press:997078 hum:44 alt:240 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120336.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:123071 err:0
+
+	ax:-0.024414 ay:0.065918 az:1.007568 gx:16.610687 gy:-0.496183 gz:0.022901 therm:27.310841 err:0
+
+	ch0:1108 ch1:570 err:0
+
+	therm0:2220 therm1:2256 err:0
+
+0:02:15.060	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120337.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:123071 err:0
+
+0:02:15.163	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:15.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120342.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:123071 err:0
+
+0:02:16.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120343.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:136071 err:0
+
+0:02:16.200	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:16.264	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:5011 therm:2425 err:0
+
+0:02:16.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120343.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:136071 err:0
+
+0:02:16.409	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2499 press:997105 hum:44 alt:217 err:0
+
+0:02:16.476	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.028320312 ay:0.064453125 az:1.007812500 gx:16.732824325 gy:-0.435114502 gz:0.114503815 therm:27.454608917 err:0
+
+0:02:16.547	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:569 err:0
+
+0:02:16.596	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2220 therm1:2262 err:0
+
+0:02:16.641 DATA:
+
+	vbat:5011 therm:2425 err:0
+
+	therm:2499 press:997105 hum:44 alt:217 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120343.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:136071 err:0
+
+	ax:-0.028320 ay:0.064453 az:1.007812 gx:16.732824 gy:-0.435115 gz:0.114504 therm:27.454609 err:0
+
+	ch0:1103 ch1:569 err:0
+
+	therm0:2220 therm1:2262 err:0
+
+0:02:21.835	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120344.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:137071 err:0
+
+0:02:21.920	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:22.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120349.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:137071 err:0
+
+0:02:22.956	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:23.020	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4801 therm:2489 err:0
+
+0:02:23.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120350.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:143070 err:0
+
+0:02:23.164	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2501 press:997067 hum:44 alt:249 err:0
+
+0:02:23.224	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025146484 ay:0.065917968 az:0.999023437 gx:16.610687255 gy:-0.633587777 gz:-0.022900763 therm:27.454608917 err:0
+
+0:02:23.297	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:568 err:0
+
+0:02:23.343	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120350.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:143070 err:0
+
+0:02:23.399	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2220 therm1:2262 err:0
+
+0:02:23.426 DATA:
+
+	vbat:4801 therm:2489 err:0
+
+	therm:2501 press:997067 hum:44 alt:249 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120350.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:143070 err:0
+
+	ax:-0.025146 ay:0.065918 az:0.999023 gx:16.610687 gy:-0.633588 gz:-0.022901 therm:27.454609 err:0
+
+	ch0:1104 ch1:568 err:0
+
+	therm0:2220 therm1:2262 err:0
+
+0:02:28.624	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120351.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:144071 err:0
+
+0:02:28.703	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:29.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120356.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:144071 err:0
+
+0:02:29.740	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:29.803	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4882 therm:2457 err:0
+
+0:02:29.948	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2502 press:997074 hum:43 alt:243 err:0
+
+0:02:29.992	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.037109375 ay:0.072265625 az:1.010498046 gx:16.732824325 gy:-0.709923684 gz:0.236641228 therm:27.646299362 err:0
+
+0:02:30.061	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:568 err:0
+
+0:02:30.101	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120357.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:150071 err:0
+
+0:02:30.156	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2220 therm1:2262 err:0
+
+0:02:30.223 DATA:
+
+	vbat:4882 therm:2457 err:0
+
+	therm:2502 press:997074 hum:43 alt:243 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120356.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:144071 err:0
+
+	ax:-0.037109 ay:0.072266 az:1.010498 gx:16.732824 gy:-0.709924 gz:0.236641 therm:27.646299 err:0
+
+	ch0:1103 ch1:568 err:0
+
+	therm0:2220 therm1:2262 err:0
+
+0:02:30.346	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120357.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:150071 err:0
+
+0:02:35.523	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120358.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:151071 err:0
+
+0:02:35.619	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:36.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120403.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:151071 err:0
+
+0:02:36.657	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:36.719	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4906 therm:2457 err:0
+
+0:02:36.864	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2504 press:997048 hum:43 alt:9 err:0
+
+0:02:36.906	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025390625 ay:0.066406250 az:0.962890625 gx:17.099237442 gy:-0.809160292 gz:-0.709923684 therm:27.550453186 err:0
+
+0:02:36.983	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:570 err:0
+
+0:02:37.031	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2226 therm1:2268 err:0
+
+0:02:37.058 DATA:
+
+	vbat:4906 therm:2457 err:0
+
+	therm:2504 press:997048 hum:43 alt:9 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120403.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:151071 err:0
+
+	ax:-0.025391 ay:0.066406 az:0.962891 gx:17.099237 gy:-0.809160 gz:-0.709924 therm:27.550453 err:0
+
+	ch0:1103 ch1:570 err:0
+
+	therm0:2226 therm1:2268 err:0
+
+0:02:37.179	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120404.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:157071 err:0
+
+0:02:42.306	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120405.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:158071 err:0
+
+0:02:42.407	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:43.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120410.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:158071 err:0
+
+0:02:43.445	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:43.526	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4640 therm:2457 err:0
+
+0:02:43.689	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2505 press:997082 hum:43 alt:236 err:0
+
+0:02:43.756	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022949218 ay:0.063476562 az:0.996337890 gx:16.244274139 gy:-0.381679385 gz:0.000000000 therm:27.502531051 err:0
+
+0:02:43.810	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:569 err:0
+
+0:02:43.841	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2226 therm1:2268 err:0
+
+0:02:43.868 DATA:
+
+	vbat:4640 therm:2457 err:0
+
+	therm:2505 press:997082 hum:43 alt:236 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120410.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:158071 err:0
+
+	ax:-0.022949 ay:0.063477 az:0.996338 gx:16.244274 gy:-0.381679 gz:0.000000 therm:27.502531 err:0
+
+	ch0:1104 ch1:569 err:0
+
+	therm0:2226 therm1:2268 err:0
+
+0:02:49.044	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120411.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:158071 err:0
+
+0:02:49.123	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:49.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120416.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:158071 err:0
+
+0:02:50.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120417.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:170070 err:0
+
+0:02:50.165	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:50.251	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:5107 therm:2489 err:0
+
+0:02:50.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120417.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:170070 err:0
+
+0:02:50.396	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2510 press:997044 hum:43 alt:12 err:0
+
+0:02:50.440	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025146484 ay:0.063964843 az:1.001953125 gx:16.732824325 gy:-0.511450409 gz:0.053435113 therm:27.790067672 err:0
+
+0:02:50.517	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:570 err:0
+
+0:02:50.548	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2226 therm1:2268 err:0
+
+0:02:50.575 DATA:
+
+	vbat:5107 therm:2489 err:0
+
+	therm:2510 press:997044 hum:43 alt:12 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120417.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:170070 err:0
+
+	ax:-0.025146 ay:0.063965 az:1.001953 gx:16.732824 gy:-0.511450 gz:0.053435 therm:27.790068 err:0
+
+	ch0:1103 ch1:570 err:0
+
+	therm0:2226 therm1:2268 err:0
+
+0:02:55.752	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120418.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:171070 err:0
+
+0:02:55.831	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:02:56.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120423.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:171070 err:0
+
+0:02:56.869	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:56.932	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2457 err:0
+
+0:02:57.072	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120424.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:177072 err:0
+
+0:02:57.151	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2511 press:997048 hum:43 alt:9 err:0
+
+0:02:57.212	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023193359 ay:0.063964843 az:1.004882812 gx:17.221374511 gy:-0.503816783 gz:-0.015267175 therm:27.550453186 err:0
+
+0:02:57.266	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:569 err:0
+
+0:02:57.297	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2226 therm1:2274 err:0
+
+0:02:57.348	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120424.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:177072 err:0
+
+0:02:57.422 DATA:
+
+	vbat:4825 therm:2457 err:0
+
+	therm:2511 press:997048 hum:43 alt:9 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120424.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:177072 err:0
+
+	ax:-0.023193 ay:0.063965 az:1.004883 gx:17.221375 gy:-0.503817 gz:-0.015267 therm:27.550453 err:0
+
+	ch0:1104 ch1:569 err:0
+
+	therm0:2226 therm1:2274 err:0
+
+0:03:02.593	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120425.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:178071 err:0
+
+0:03:02.663	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:03.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120430.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:178071 err:0
+
+0:03:03.686	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:03.747	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2489 err:0
+
+0:03:03.889	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2512 press:997046 hum:43 alt:11 err:0
+
+0:03:03.929	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024169921 ay:0.067382812 az:0.999023437 gx:16.854961395 gy:-0.610687017 gz:-0.122137404 therm:27.790067672 err:0
+
+0:03:03.983	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:569 err:0
+
+0:03:04.011	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2232 therm1:2274 err:0
+
+0:03:04.035 DATA:
+
+	vbat:4850 therm:2489 err:0
+
+	therm:2512 press:997046 hum:43 alt:11 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120430.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:178071 err:0
+
+	ax:-0.024170 ay:0.067383 az:0.999023 gx:16.854961 gy:-0.610687 gz:-0.122137 therm:27.790068 err:0
+
+	ch0:1104 ch1:569 err:0
+
+	therm0:2232 therm1:2274 err:0
+
+0:03:04.136	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120431.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:184072 err:0
+
+0:03:09.243	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120431.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:184072 err:0
+
+0:03:09.298	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:10.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120437.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:190071 err:0
+
+0:03:10.318	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:10.327	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120437.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:190071 err:0
+
+0:03:10.386	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4769 therm:2489 err:0
+
+0:03:10.529	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2515 press:997068 hum:43 alt:248 err:0
+
+0:03:10.569	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027587890 ay:0.064697265 az:1.000976562 gx:16.854961395 gy:-0.595419824 gz:0.083969466 therm:27.550453186 err:0
+
+0:03:10.620	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:568 err:0
+
+0:03:10.650	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2226 therm1:2274 err:0
+
+0:03:10.675 DATA:
+
+	vbat:4769 therm:2489 err:0
+
+	therm:2515 press:997068 hum:43 alt:248 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120437.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:190071 err:0
+
+	ax:-0.027588 ay:0.064697 az:1.000977 gx:16.854961 gy:-0.595420 gz:0.083969 therm:27.550453 err:0
+
+	ch0:1104 ch1:568 err:0
+
+	therm0:2226 therm1:2274 err:0
+
+0:03:15.826	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120438.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:191070 err:0
+
+0:03:15.884	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:16.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120443.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:191070 err:0
+
+0:03:16.901	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:16.963	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2457 err:0
+
+0:03:17.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120444.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:197070 err:0
+
+0:03:17.124	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2515 press:997038 hum:43 alt:17 err:0
+
+0:03:17.166	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.030273437 ay:0.067871093 az:1.002441406 gx:16.610687255 gy:-0.572519063 gz:0.312977105 therm:27.646299362 err:0
+
+0:03:17.219	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:568 err:0
+
+0:03:17.247	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2232 therm1:2274 err:0
+
+0:03:17.272 DATA:
+
+	vbat:4842 therm:2457 err:0
+
+	therm:2515 press:997038 hum:43 alt:17 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120444.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:197070 err:0
+
+	ax:-0.030273 ay:0.067871 az:1.002441 gx:16.610687 gy:-0.572519 gz:0.312977 therm:27.646299 err:0
+
+	ch0:1103 ch1:568 err:0
+
+	therm0:2232 therm1:2274 err:0
+
+0:03:17.372	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120444.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:197070 err:0
+
+0:03:17.529	TRACE	src/log.c:164:	Succesfully saved image to file test37/img197.jpg.
+
+0:03:18.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120445.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:198070 err:0
+
+0:03:18.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120445.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:198070 err:0
+
+0:03:18.549	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:18.610	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2521 err:0
+
+0:03:18.754	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2516 press:997059 hum:43 alt:0 err:0
+
+0:03:18.793	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027832031 ay:0.064941406 az:0.993896484 gx:16.854961395 gy:-0.366412222 gz:0.251908391 therm:27.646299362 err:0
+
+0:03:18.843	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:570 err:0
+
+0:03:18.871	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2232 therm1:2274 err:0
+
+0:03:18.898 DATA:
+
+	vbat:4833 therm:2521 err:0
+
+	therm:2516 press:997059 hum:43 alt:0 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120445.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:198070 err:0
+
+	ax:-0.027832 ay:0.064941 az:0.993896 gx:16.854961 gy:-0.366412 gz:0.251908 therm:27.646299 err:0
+
+	ch0:1102 ch1:570 err:0
+
+	therm0:2232 therm1:2274 err:0
+
+0:03:24.047	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120446.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:198070 err:0
+
+0:03:24.104	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:24.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120451.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:198070 err:0
+
+0:03:25.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120452.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:205070 err:0
+
+0:03:25.126	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:25.187	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2521 err:0
+
+0:03:25.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120452.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:205070 err:0
+
+0:03:25.375	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2517 press:997077 hum:43 alt:240 err:0
+
+0:03:25.420	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024658203 ay:0.062988281 az:1.001708984 gx:17.587785720 gy:-0.656488537 gz:-0.175572514 therm:27.694223403 err:0
+
+0:03:25.471	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:569 err:0
+
+0:03:25.499	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2232 therm1:2280 err:0
+
+0:03:25.523 DATA:
+
+	vbat:4850 therm:2521 err:0
+
+	therm:2517 press:997077 hum:43 alt:240 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120452.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:205070 err:0
+
+	ax:-0.024658 ay:0.062988 az:1.001709 gx:17.587786 gy:-0.656489 gz:-0.175573 therm:27.694223 err:0
+
+	ch0:1105 ch1:569 err:0
+
+	therm0:2232 therm1:2280 err:0
+
+0:03:30.677	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120453.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:206070 err:0
+
+0:03:30.733	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:31.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120458.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:206070 err:0
+
+0:03:31.752	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:31.812	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:5059 therm:2489 err:0
+
+0:03:31.954	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2519 press:997066 hum:43 alt:250 err:0
+
+0:03:31.997	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026611328 ay:0.063476562 az:0.999755859 gx:16.854961395 gy:-0.480916023 gz:-0.045801527 therm:27.550453186 err:0
+
+0:03:32.048	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:568 err:0
+
+0:03:32.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120459.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:212070 err:0
+
+0:03:32.127	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2232 therm1:2280 err:0
+
+0:03:32.152 DATA:
+
+	vbat:5059 therm:2489 err:0
+
+	therm:2519 press:997066 hum:43 alt:250 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120458.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:206070 err:0
+
+	ax:-0.026611 ay:0.063477 az:0.999756 gx:16.854961 gy:-0.480916 gz:-0.045802 therm:27.550453 err:0
+
+	ch0:1104 ch1:568 err:0
+
+	therm0:2232 therm1:2280 err:0
+
+0:03:37.306	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120500.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:213070 err:0
+
+0:03:37.364	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:38.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120505.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:213070 err:0
+
+0:03:38.380	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:38.443	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2489 err:0
+
+0:03:38.585	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2520 press:997061 hum:43 alt:254 err:0
+
+0:03:38.625	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025634765 ay:0.062744140 az:1.005859375 gx:17.709922790 gy:-0.709923684 gz:-0.083969466 therm:27.790067672 err:0
+
+0:03:38.677	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:569 err:0
+
+0:03:38.705	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2232 therm1:2280 err:0
+
+0:03:38.731 DATA:
+
+	vbat:4850 therm:2489 err:0
+
+	therm:2520 press:997061 hum:43 alt:254 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120505.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:213070 err:0
+
+	ax:-0.025635 ay:0.062744 az:1.005859 gx:17.709923 gy:-0.709924 gz:-0.083969 therm:27.790068 err:0
+
+	ch0:1102 ch1:569 err:0
+
+	therm0:2232 therm1:2280 err:0
+
+0:03:43.883	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120506.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:219071 err:0
+
+0:03:43.941	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:44.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120511.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:219071 err:0
+
+0:03:44.957	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:45.020	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2521 err:0
+
+0:03:45.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120512.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:225070 err:0
+
+0:03:45.162	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2522 press:997070 hum:43 alt:246 err:0
+
+0:03:45.202	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025878906 ay:0.065185546 az:1.002197265 gx:17.099237442 gy:-0.465648859 gz:0.015267175 therm:27.550453186 err:0
+
+0:03:45.255	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:569 err:0
+
+0:03:45.283	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2232 therm1:2280 err:0
+
+0:03:45.308 DATA:
+
+	vbat:4850 therm:2521 err:0
+
+	therm:2522 press:997070 hum:43 alt:246 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120512.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:225070 err:0
+
+	ax:-0.025879 ay:0.065186 az:1.002197 gx:17.099237 gy:-0.465649 gz:0.015267 therm:27.550453 err:0
+
+	ch0:1103 ch1:569 err:0
+
+	therm0:2232 therm1:2280 err:0
+
+0:03:45.408	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120512.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:225070 err:0
+
+0:03:50.517	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120513.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:226070 err:0
+
+0:03:50.574	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:51.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120518.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:226070 err:0
+
+0:03:51.591	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:51.650	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2554 err:0
+
+0:03:51.795	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2525 press:997065 hum:42 alt:250 err:0
+
+0:03:51.835	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025634765 ay:0.063232421 az:1.000732421 gx:16.854961395 gy:-0.641221404 gz:-0.160305351 therm:27.837991714 err:0
+
+0:03:51.887	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:568 err:0
+
+0:03:51.915	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2286 err:0
+
+0:03:51.939 DATA:
+
+	vbat:4842 therm:2554 err:0
+
+	therm:2525 press:997065 hum:42 alt:250 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120518.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:226070 err:0
+
+	ax:-0.025635 ay:0.063232 az:1.000732 gx:16.854961 gy:-0.641221 gz:-0.160305 therm:27.837992 err:0
+
+	ch0:1103 ch1:568 err:0
+
+	therm0:2238 therm1:2286 err:0
+
+0:03:57.094	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120519.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:226070 err:0
+
+0:03:57.151	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:03:57.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120524.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:226070 err:0
+
+0:03:58.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120525.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:238070 err:0
+
+0:03:58.168	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:58.228	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2489 err:0
+
+0:03:58.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120525.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:238070 err:0
+
+0:03:58.375	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2526 press:997042 hum:43 alt:14 err:0
+
+0:03:58.419	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022705078 ay:0.064941406 az:0.997558593 gx:17.465648651 gy:-0.496183216 gz:0.381679385 therm:27.502531051 err:0
+
+0:03:58.471	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:573 err:0
+
+0:03:58.499	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2286 err:0
+
+0:03:58.523 DATA:
+
+	vbat:4825 therm:2489 err:0
+
+	therm:2526 press:997042 hum:43 alt:14 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120525.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:238070 err:0
+
+	ax:-0.022705 ay:0.064941 az:0.997559 gx:17.465649 gy:-0.496183 gz:0.381679 therm:27.502531 err:0
+
+	ch0:1101 ch1:573 err:0
+
+	therm0:2238 therm1:2286 err:0
+
+0:03:58.726	TRACE	src/log.c:164:	Succesfully saved image to file test37/img238.jpg.
+
+0:03:59.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120526.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:239070 err:0
+
+0:03:59.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120526.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:239070 err:0
+
+0:03:59.746	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:59.807	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4785 therm:2554 err:0
+
+0:03:59.949	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2527 press:997048 hum:43 alt:9 err:0
+
+0:03:59.991	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.020263671 ay:0.067382812 az:0.997070312 gx:17.221374511 gy:-0.595419824 gz:-0.206106871 therm:27.646299362 err:0
+
+0:04:00.042	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1113 ch1:569 err:0
+
+0:04:00.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120527.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:240070 err:0
+
+0:04:00.124	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2286 err:0
+
+0:04:00.152 DATA:
+
+	vbat:4785 therm:2554 err:0
+
+	therm:2527 press:997048 hum:43 alt:9 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120526.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:239070 err:0
+
+	ax:-0.020264 ay:0.067383 az:0.997070 gx:17.221375 gy:-0.595420 gz:-0.206107 therm:27.646299 err:0
+
+	ch0:1113 ch1:569 err:0
+
+	therm0:2238 therm1:2286 err:0
+
+0:04:05.304	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120528.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:241070 err:0
+
+0:04:05.362	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:06.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120533.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:241070 err:0
+
+0:04:06.378	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:06.439	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2489 err:0
+
+0:04:06.583	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2529 press:997086 hum:43 alt:233 err:0
+
+0:04:06.624	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025634765 ay:0.068359375 az:1.001220703 gx:17.465648651 gy:-0.633587777 gz:0.076335877 therm:27.790067672 err:0
+
+0:04:06.675	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1106 ch1:568 err:0
+
+0:04:06.703	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2286 err:0
+
+0:04:06.729 DATA:
+
+	vbat:4850 therm:2489 err:0
+
+	therm:2529 press:997086 hum:43 alt:233 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120533.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:241070 err:0
+
+	ax:-0.025635 ay:0.068359 az:1.001221 gx:17.465649 gy:-0.633588 gz:0.076336 therm:27.790068 err:0
+
+	ch0:1106 ch1:568 err:0
+
+	therm0:2238 therm1:2286 err:0
+
+0:04:06.929	TRACE	src/log.c:164:	Succesfully saved image to file test37/img246.jpg.
+
+0:04:07.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120534.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:247070 err:0
+
+0:04:07.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120534.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:247070 err:0
+
+0:04:07.951	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:08.012	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2489 err:0
+
+0:04:08.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120535.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:248070 err:0
+
+0:04:08.156	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2528 press:997072 hum:43 alt:245 err:0
+
+0:04:08.197	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023681640 ay:0.064941406 az:1.004394531 gx:17.465648651 gy:-0.351145029 gz:0.183206111 therm:27.837991714 err:0
+
+0:04:08.249	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:569 err:0
+
+0:04:08.277	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2286 err:0
+
+0:04:08.301 DATA:
+
+	vbat:4825 therm:2489 err:0
+
+	therm:2528 press:997072 hum:43 alt:245 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120535.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:248070 err:0
+
+	ax:-0.023682 ay:0.064941 az:1.004395 gx:17.465649 gy:-0.351145 gz:0.183206 therm:27.837992 err:0
+
+	ch0:1104 ch1:569 err:0
+
+	therm0:2238 therm1:2286 err:0
+
+0:04:08.402	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120535.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:248070 err:0
+
+0:04:13.509	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120536.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:249070 err:0
+
+0:04:13.566	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:14.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120541.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:249070 err:0
+
+0:04:14.583	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:14.643	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2521 err:0
+
+0:04:14.786	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2530 press:997077 hum:43 alt:240 err:0
+
+0:04:14.828	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023437500 ay:0.068847656 az:1.001953125 gx:17.099237442 gy:-0.595419824 gz:-0.419847339 therm:27.694223403 err:0
+
+0:04:14.880	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:568 err:0
+
+0:04:14.908	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2292 err:0
+
+0:04:14.932 DATA:
+
+	vbat:4833 therm:2521 err:0
+
+	therm:2530 press:997077 hum:43 alt:240 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120541.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:249070 err:0
+
+	ax:-0.023438 ay:0.068848 az:1.001953 gx:17.099237 gy:-0.595420 gz:-0.419847 therm:27.694223 err:0
+
+	ch0:1105 ch1:568 err:0
+
+	therm0:2238 therm1:2292 err:0
+
+0:04:20.087	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120542.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:249070 err:0
+
+0:04:20.145	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:20.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120547.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:249070 err:0
+
+0:04:21.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120548.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:261070 err:0
+
+0:04:21.161	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:21.222	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2457 err:0
+
+0:04:21.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120548.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:261070 err:0
+
+0:04:21.375	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2531 press:997057 hum:43 alt:1 err:0
+
+0:04:21.419	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022705078 ay:0.066650390 az:1.001708984 gx:17.954198837 gy:-0.442748099 gz:0.145038172 therm:27.885913848 err:0
+
+0:04:21.470	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:570 err:0
+
+0:04:21.498	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2292 err:0
+
+0:04:21.523 DATA:
+
+	vbat:4842 therm:2457 err:0
+
+	therm:2531 press:997057 hum:43 alt:1 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120548.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:261070 err:0
+
+	ax:-0.022705 ay:0.066650 az:1.001709 gx:17.954199 gy:-0.442748 gz:0.145038 therm:27.885914 err:0
+
+	ch0:1103 ch1:570 err:0
+
+	therm0:2238 therm1:2292 err:0
+
+0:04:26.675	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120549.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:262070 err:0
+
+0:04:26.731	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:27.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120554.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:262070 err:0
+
+0:04:27.749	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:27.810	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4801 therm:2489 err:0
+
+0:04:27.952	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2533 press:997077 hum:43 alt:240 err:0
+
+0:04:27.991	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024414062 ay:0.065185546 az:1.002441406 gx:17.587785720 gy:-0.603053450 gz:0.320610702 therm:27.885913848 err:0
+
+0:04:28.045	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:568 err:0
+
+0:04:28.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120555.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:268070 err:0
+
+0:04:28.124	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2292 err:0
+
+0:04:28.152 DATA:
+
+	vbat:4801 therm:2489 err:0
+
+	therm:2533 press:997077 hum:43 alt:240 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120554.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:262070 err:0
+
+	ax:-0.024414 ay:0.065186 az:1.002441 gx:17.587786 gy:-0.603053 gz:0.320611 therm:27.885914 err:0
+
+	ch0:1105 ch1:568 err:0
+
+	therm0:2244 therm1:2292 err:0
+
+0:04:33.302	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120556.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:269070 err:0
+
+0:04:33.360	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:34.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120601.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:269070 err:0
+
+0:04:34.376	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:34.439	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2489 err:0
+
+0:04:34.583	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2533 press:997072 hum:42 alt:245 err:0
+
+0:04:34.624	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.020263671 ay:0.062500000 az:0.998291015 gx:17.221374511 gy:-0.465648859 gz:0.099236644 therm:27.885913848 err:0
+
+0:04:34.675	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:569 err:0
+
+0:04:34.703	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2292 err:0
+
+0:04:34.729 DATA:
+
+	vbat:4842 therm:2489 err:0
+
+	therm:2533 press:997072 hum:42 alt:245 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120601.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:269070 err:0
+
+	ax:-0.020264 ay:0.062500 az:0.998291 gx:17.221375 gy:-0.465649 gz:0.099237 therm:27.885914 err:0
+
+	ch0:1104 ch1:569 err:0
+
+	therm0:2238 therm1:2292 err:0
+
+0:04:39.880	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120602.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:275071 err:0
+
+0:04:39.937	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:40.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120607.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:275071 err:0
+
+0:04:40.954	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:41.014	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4817 therm:2489 err:0
+
+0:04:41.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120608.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:281071 err:0
+
+0:04:41.158	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2537 press:997094 hum:42 alt:226 err:0
+
+0:04:41.198	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026611328 ay:0.065185546 az:0.999023437 gx:17.465648651 gy:-0.549618303 gz:-0.114503815 therm:27.790067672 err:0
+
+0:04:41.252	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1106 ch1:568 err:0
+
+0:04:41.280	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2292 err:0
+
+0:04:41.304 DATA:
+
+	vbat:4817 therm:2489 err:0
+
+	therm:2537 press:997094 hum:42 alt:226 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120608.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:281071 err:0
+
+	ax:-0.026611 ay:0.065186 az:0.999023 gx:17.465649 gy:-0.549618 gz:-0.114504 therm:27.790068 err:0
+
+	ch0:1106 ch1:568 err:0
+
+	therm0:2244 therm1:2292 err:0
+
+0:04:41.405	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120608.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:281071 err:0
+
+0:04:46.512	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120609.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:282072 err:0
+
+0:04:46.570	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:47.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120614.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:282072 err:0
+
+0:04:47.586	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:47.647	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4769 therm:2521 err:0
+
+0:04:47.789	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2537 press:997073 hum:42 alt:244 err:0
+
+0:04:47.831	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026611328 ay:0.066650390 az:0.999023437 gx:17.709922790 gy:-0.870229005 gz:-0.045801527 therm:27.885913848 err:0
+
+0:04:47.883	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:569 err:0
+
+0:04:47.911	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2298 err:0
+
+0:04:47.935 DATA:
+
+	vbat:4769 therm:2521 err:0
+
+	therm:2537 press:997073 hum:42 alt:244 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120614.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:282072 err:0
+
+	ax:-0.026611 ay:0.066650 az:0.999023 gx:17.709923 gy:-0.870229 gz:-0.045802 therm:27.885914 err:0
+
+	ch0:1102 ch1:569 err:0
+
+	therm0:2244 therm1:2298 err:0
+
+0:04:53.091	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120615.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:282072 err:0
+
+0:04:53.151	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:04:53.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120620.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:282072 err:0
+
+0:04:54.071	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120621.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:294071 err:0
+
+0:04:54.167	TRACE	src/main.c:57:	Reset watchdog.
+
+0:04:54.228	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2521 err:0
+
+0:04:54.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120621.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:294071 err:0
+
+0:04:54.376	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2537 press:997079 hum:43 alt:239 err:0
+
+0:04:54.418	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.028564453 ay:0.064941406 az:1.003173828 gx:17.709922790 gy:-0.580152690 gz:0.068702287 therm:27.646299362 err:0
+
+0:04:54.471	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:568 err:0
+
+0:04:54.498	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2292 err:0
+
+0:04:54.522 DATA:
+
+	vbat:4825 therm:2521 err:0
+
+	therm:2537 press:997079 hum:43 alt:239 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120621.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:294071 err:0
+
+	ax:-0.028564 ay:0.064941 az:1.003174 gx:17.709923 gy:-0.580153 gz:0.068702 therm:27.646299 err:0
+
+	ch0:1105 ch1:568 err:0
+
+	therm0:2244 therm1:2292 err:0
+
+0:04:59.676	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120622.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:295071 err:0
+
+0:04:59.732	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:00.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120627.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:295071 err:0
+
+0:05:00.751	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:00.811	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:5099 therm:2521 err:0
+
+0:05:00.953	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2540 press:997071 hum:42 alt:245 err:0
+
+0:05:00.994	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027343750 ay:0.064453125 az:1.003417968 gx:17.465648651 gy:-0.740458011 gz:0.083969466 therm:27.837991714 err:0
+
+0:05:01.047	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:568 err:0
+
+0:05:01.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120628.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:301070 err:0
+
+0:05:01.124	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2298 err:0
+
+0:05:01.153 DATA:
+
+	vbat:5099 therm:2521 err:0
+
+	therm:2540 press:997071 hum:42 alt:245 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120627.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:295071 err:0
+
+	ax:-0.027344 ay:0.064453 az:1.003418 gx:17.465649 gy:-0.740458 gz:0.083969 therm:27.837992 err:0
+
+	ch0:1104 ch1:568 err:0
+
+	therm0:2244 therm1:2298 err:0
+
+0:05:06.303	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120629.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:302070 err:0
+
+0:05:06.361	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:07.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120634.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:302070 err:0
+
+0:05:07.378	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:07.438	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4801 therm:2489 err:0
+
+0:05:07.582	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2540 press:997053 hum:42 alt:5 err:0
+
+0:05:07.622	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.021728515 ay:0.064208984 az:0.996093750 gx:17.587785720 gy:-0.526717543 gz:0.045801527 therm:27.885913848 err:0
+
+0:05:07.674	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:568 err:0
+
+0:05:07.702	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2298 err:0
+
+0:05:07.728 DATA:
+
+	vbat:4801 therm:2489 err:0
+
+	therm:2540 press:997053 hum:42 alt:5 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120634.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:302070 err:0
+
+	ax:-0.021729 ay:0.064209 az:0.996094 gx:17.587786 gy:-0.526718 gz:0.045802 therm:27.885914 err:0
+
+	ch0:1103 ch1:568 err:0
+
+	therm0:2244 therm1:2298 err:0
+
+0:05:12.881	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120635.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:308070 err:0
+
+0:05:12.938	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:13.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120640.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:308070 err:0
+
+0:05:13.955	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:14.014	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2521 err:0
+
+0:05:14.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120641.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:314070 err:0
+
+0:05:14.159	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2543 press:997063 hum:42 alt:252 err:0
+
+0:05:14.199	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023681640 ay:0.064941406 az:1.000000000 gx:17.709922790 gy:-0.511450409 gz:-0.167938932 therm:27.790067672 err:0
+
+0:05:14.253	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:569 err:0
+
+0:05:14.281	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2298 err:0
+
+0:05:14.305 DATA:
+
+	vbat:4833 therm:2521 err:0
+
+	therm:2543 press:997063 hum:42 alt:252 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120641.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:314070 err:0
+
+	ax:-0.023682 ay:0.064941 az:1.000000 gx:17.709923 gy:-0.511450 gz:-0.167939 therm:27.790068 err:0
+
+	ch0:1105 ch1:569 err:0
+
+	therm0:2244 therm1:2298 err:0
+
+0:05:14.406	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120641.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:314070 err:0
+
+0:05:19.513	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120642.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:315070 err:0
+
+0:05:19.571	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:20.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120647.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:315070 err:0
+
+0:05:20.588	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:20.648	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2489 err:0
+
+0:05:20.790	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2543 press:997075 hum:42 alt:242 err:0
+
+0:05:20.833	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025878906 ay:0.061279296 az:1.002197265 gx:17.954198837 gy:-0.473282456 gz:0.061068702 therm:27.885913848 err:0
+
+0:05:20.884	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1106 ch1:568 err:0
+
+0:05:20.912	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2304 err:0
+
+0:05:20.936 DATA:
+
+	vbat:4833 therm:2489 err:0
+
+	therm:2543 press:997075 hum:42 alt:242 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120647.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:315070 err:0
+
+	ax:-0.025879 ay:0.061279 az:1.002197 gx:17.954199 gy:-0.473282 gz:0.061069 therm:27.885914 err:0
+
+	ch0:1106 ch1:568 err:0
+
+	therm0:2244 therm1:2304 err:0
+
+0:05:26.092	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120648.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:315070 err:0
+
+0:05:26.147	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:26.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120653.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:315070 err:0
+
+0:05:27.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120654.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:327070 err:0
+
+0:05:27.166	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:27.228	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4769 therm:2521 err:0
+
+0:05:27.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120654.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:327070 err:0
+
+0:05:27.375	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2543 press:997078 hum:42 alt:240 err:0
+
+0:05:27.418	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027343750 ay:0.065429687 az:0.998535156 gx:17.709922790 gy:-0.473282456 gz:-0.198473289 therm:27.885913848 err:0
+
+0:05:27.470	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:567 err:0
+
+0:05:27.498	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2304 err:0
+
+0:05:27.522 DATA:
+
+	vbat:4769 therm:2521 err:0
+
+	therm:2543 press:997078 hum:42 alt:240 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120654.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:327070 err:0
+
+	ax:-0.027344 ay:0.065430 az:0.998535 gx:17.709923 gy:-0.473282 gz:-0.198473 therm:27.885914 err:0
+
+	ch0:1104 ch1:567 err:0
+
+	therm0:2244 therm1:2304 err:0
+
+0:05:32.678	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120655.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:328070 err:0
+
+0:05:32.733	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:33.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120700.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:328070 err:0
+
+0:05:33.750	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:33.811	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4705 therm:2521 err:0
+
+0:05:33.953	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2548 press:997079 hum:42 alt:239 err:0
+
+0:05:33.993	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026367187 ay:0.064941406 az:1.005126953 gx:18.076335906 gy:-0.473282456 gz:0.259541988 therm:27.885913848 err:0
+
+0:05:34.046	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:567 err:0
+
+0:05:34.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120701.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:334070 err:0
+
+0:05:34.124	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2304 err:0
+
+0:05:34.153 DATA:
+
+	vbat:4705 therm:2521 err:0
+
+	therm:2548 press:997079 hum:42 alt:239 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120700.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:328070 err:0
+
+	ax:-0.026367 ay:0.064941 az:1.005127 gx:18.076336 gy:-0.473282 gz:0.259542 therm:27.885914 err:0
+
+	ch0:1103 ch1:567 err:0
+
+	therm0:2250 therm1:2304 err:0
+
+0:05:39.304	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120702.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:335070 err:0
+
+0:05:39.362	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:40.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120707.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:335070 err:0
+
+0:05:40.378	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:40.439	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2521 err:0
+
+0:05:40.583	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2548 press:997101 hum:42 alt:220 err:0
+
+0:05:40.623	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.032226562 ay:0.066894531 az:1.013427734 gx:17.709922790 gy:-0.603053450 gz:0.175572514 therm:27.885913848 err:0
+
+0:05:40.675	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:567 err:0
+
+0:05:40.703	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2304 err:0
+
+0:05:40.728 DATA:
+
+	vbat:4842 therm:2521 err:0
+
+	therm:2548 press:997101 hum:42 alt:220 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120707.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:335070 err:0
+
+	ax:-0.032227 ay:0.066895 az:1.013428 gx:17.709923 gy:-0.603053 gz:0.175573 therm:27.885914 err:0
+
+	ch0:1102 ch1:567 err:0
+
+	therm0:2250 therm1:2304 err:0
+
+0:05:45.883	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120708.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:341071 err:0
+
+0:05:45.940	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:46.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120713.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:341071 err:0
+
+0:05:46.957	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:47.016	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2521 err:0
+
+0:05:47.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120714.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:347070 err:0
+
+0:05:47.161	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2551 press:997086 hum:42 alt:233 err:0
+
+0:05:47.202	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025390625 ay:0.063720703 az:0.989257812 gx:17.709922790 gy:-0.687022924 gz:0.099236644 therm:28.029682159 err:0
+
+0:05:47.255	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:568 err:0
+
+0:05:47.283	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:05:47.307 DATA:
+
+	vbat:4833 therm:2521 err:0
+
+	therm:2551 press:997086 hum:42 alt:233 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120714.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:347070 err:0
+
+	ax:-0.025391 ay:0.063721 az:0.989258 gx:17.709923 gy:-0.687023 gz:0.099237 therm:28.029682 err:0
+
+	ch0:1102 ch1:568 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:05:47.408	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120714.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:347070 err:0
+
+0:05:52.516	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120715.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:348070 err:0
+
+0:05:52.572	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:05:53.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120720.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:348070 err:0
+
+0:05:53.591	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:53.651	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2521 err:0
+
+0:05:53.793	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2552 press:997082 hum:42 alt:236 err:0
+
+0:05:53.836	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022949218 ay:0.065917968 az:1.001708984 gx:17.587785720 gy:-0.488549619 gz:-0.251908391 therm:27.837991714 err:0
+
+0:05:53.887	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:568 err:0
+
+0:05:53.915	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:05:53.940 DATA:
+
+	vbat:4833 therm:2521 err:0
+
+	therm:2552 press:997082 hum:42 alt:236 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120720.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:348070 err:0
+
+	ax:-0.022949 ay:0.065918 az:1.001709 gx:17.587786 gy:-0.488550 gz:-0.251908 therm:27.837992 err:0
+
+	ch0:1103 ch1:568 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:05:54.147	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120721.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:354096 err:0
+
+0:05:54.200	TRACE	src/log.c:164:	Succesfully saved image to file test37/img354.jpg.
+
+0:05:54.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120721.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:354096 err:0
+
+0:05:55.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120722.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:355070 err:0
+
+0:05:55.223	TRACE	src/main.c:57:	Reset watchdog.
+
+0:05:55.285	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2554 err:0
+
+0:05:55.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120722.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:355070 err:0
+
+0:05:55.427	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2552 press:997068 hum:42 alt:248 err:0
+
+0:05:55.467	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.030761718 ay:0.068847656 az:0.999755859 gx:17.709922790 gy:-0.519083976 gz:0.114503815 therm:27.981760025 err:0
+
+0:05:55.520	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:569 err:0
+
+0:05:55.548	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:05:55.573 DATA:
+
+	vbat:4825 therm:2554 err:0
+
+	therm:2552 press:997068 hum:42 alt:248 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120722.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:355070 err:0
+
+	ax:-0.030762 ay:0.068848 az:0.999756 gx:17.709923 gy:-0.519084 gz:0.114504 therm:27.981760 err:0
+
+	ch0:1105 ch1:569 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:06:00.729	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120723.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:356070 err:0
+
+0:06:00.784	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:06:01.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120728.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:356070 err:0
+
+0:06:01.801	TRACE	src/main.c:57:	Reset watchdog.
+
+0:06:01.861	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2521 err:0
+
+0:06:02.004	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2552 press:997046 hum:42 alt:11 err:0
+
+0:06:02.044	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027832031 ay:0.066650390 az:1.006591796 gx:17.587785720 gy:-0.770992398 gz:0.114503815 therm:27.885913848 err:0
+
+0:06:02.092	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120729.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:362070 err:0
+
+0:06:02.145	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:569 err:0
+
+0:06:02.176	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:06:02.200 DATA:
+
+	vbat:4842 therm:2521 err:0
+
+	therm:2552 press:997046 hum:42 alt:11 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120728.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:356070 err:0
+
+	ax:-0.027832 ay:0.066650 az:1.006592 gx:17.587786 gy:-0.770992 gz:0.114504 therm:27.885914 err:0
+
+	ch0:1104 ch1:569 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:06:07.354	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120729.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:362070 err:0
+
+0:06:07.411	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:06:08.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120735.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:362070 err:0
+
+0:06:08.428	TRACE	src/main.c:57:	Reset watchdog.
+
+0:06:08.488	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2521 err:0
+
+0:06:08.632	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2552 press:997063 hum:42 alt:252 err:0
+
+0:06:08.672	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027343750 ay:0.063720703 az:0.998291015 gx:17.954198837 gy:-0.694656491 gz:-0.244274809 therm:28.173450469 err:0
+
+0:06:08.724	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1106 ch1:569 err:0
+
+0:06:08.752	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:06:08.776 DATA:
+
+	vbat:4833 therm:2521 err:0
+
+	therm:2552 press:997063 hum:42 alt:252 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120735.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:362070 err:0
+
+	ax:-0.027344 ay:0.063721 az:0.998291 gx:17.954199 gy:-0.694656 gz:-0.244275 therm:28.173450 err:0
+
+	ch0:1106 ch1:569 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:06:13.930	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120736.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:369070 err:0
+
+0:06:13.988	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:06:14.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120741.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:369070 err:0
+
+0:06:15.004	TRACE	src/main.c:57:	Reset watchdog.
+
+0:06:15.065	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2554 err:0
+
+0:06:15.088	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120742.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:375071 err:0
+
+0:06:15.207	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2554 press:997078 hum:42 alt:240 err:0
+
+0:06:15.247	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026611328 ay:0.065185546 az:1.000488281 gx:17.709922790 gy:-0.526717543 gz:0.022900763 therm:27.981760025 err:0
+
+0:06:15.299	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:568 err:0
+
+0:06:15.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120742.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:375071 err:0
+
+0:06:15.375	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:06:15.402 DATA:
+
+	vbat:4842 therm:2554 err:0
+
+	therm:2554 press:997078 hum:42 alt:240 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120742.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:375071 err:0
+
+	ax:-0.026611 ay:0.065186 az:1.000488 gx:17.709923 gy:-0.526718 gz:0.022901 therm:27.981760 err:0
+
+	ch0:1105 ch1:568 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:06:20.558	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120743.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:376070 err:0
+
+0:06:20.614	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:06:21.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120748.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:376070 err:0
+
+0:06:21.633	TRACE	src/main.c:57:	Reset watchdog.
+
+0:06:21.693	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2489 err:0
+
+0:06:21.836	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2553 press:997111 hum:42 alt:212 err:0
+
+0:06:21.878	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027099609 ay:0.063232421 az:1.000732421 gx:17.709922790 gy:-0.435114502 gz:-0.236641228 therm:27.981760025 err:0
+
+0:06:21.930	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1105 ch1:566 err:0
+
+0:06:21.958	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:06:21.982 DATA:
+
+	vbat:4842 therm:2489 err:0
+
+	therm:2553 press:997111 hum:42 alt:212 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120748.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:376070 err:0
+
+	ax:-0.027100 ay:0.063232 az:1.000732 gx:17.709923 gy:-0.435115 gz:-0.236641 therm:27.981760 err:0
+
+	ch0:1105 ch1:566 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:06:22.082	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120749.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:382070 err:0
+
+0:06:27.192	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120749.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:382070 err:0
+
+0:06:27.250	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:06:27.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120754.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:382070 err:0
+
+0:06:28.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120755.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:388070 err:0
+
+0:06:28.266	TRACE	src/main.c:57:	Reset watchdog.
+
+0:06:28.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120755.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:388070 err:0
+
+0:06:28.374	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4987 therm:2489 err:0
+
+0:06:28.521	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2554 press:997066 hum:42 alt:250 err:0
+
+0:06:28.562	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026611328 ay:0.062988281 az:1.003662109 gx:18.076335906 gy:-0.618320584 gz:-0.030534351 therm:27.981760025 err:0
+
+0:06:28.613	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:568 err:0
+
+0:06:28.641	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:06:28.665 DATA:
+
+	vbat:4987 therm:2489 err:0
+
+	therm:2554 press:997066 hum:42 alt:250 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120755.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:388070 err:0
+
+	ax:-0.026611 ay:0.062988 az:1.003662 gx:18.076336 gy:-0.618321 gz:-0.030534 therm:27.981760 err:0
+
+	ch0:1102 ch1:568 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:06:33.822	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120756.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:389070 err:0
+
+0:06:33.879	ERROR	src/log.c:166:	Failed to save file with error code 1!
+
+0:06:34.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120801.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:389070 err:0
+
+0:06:34.896	TRACE	src/main.c:57:	Reset watchdog.
+
+0:06:34.956	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2554 err:0
+
+0:06:35.070	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120802.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:395070 err:0
+
+0:06:35.126	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2556 press:997098 hum:42 alt:223 err:0
+
+0:06:35.166	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024902343 ay:0.062500000 az:1.003173828 gx:17.954198837 gy:-0.580152690 gz:0.038167938 therm:27.981760025 err:0
+
+0:06:35.218	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:567 err:0
+
+0:06:35.248	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2310 err:0
+
+0:06:35.272 DATA:
+
+	vbat:4842 therm:2554 err:0
+
+	therm:2556 press:997098 hum:42 alt:223 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120802.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:395070 err:0
+
+	ax:-0.024902 ay:0.062500 az:1.003174 gx:17.954199 gy:-0.580153 gz:0.038168 therm:27.981760 err:0
+
+	ch0:1103 ch1:567 err:0
+
+	therm0:2256 therm1:2310 err:0
+
+0:06:35.372	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120802.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:395070 err:0
+
+0:00:00.271	TRACE	src/sensors/adc.c:52:	Succesfully initialized ADC (empty function)
+
+0:00:00.329	TRACE	src/sensors/bme.c:81:	Successfully initialized BME!
+
+0:00:00.394	TRACE	src/sensors/gps.c:138:	Successfully initialized GPS Serial Driver!
+
+0:00:00.416	TRACE	src/sensors/imu.c:33:	Successfully intialized IMU.
+
+0:00:00.445	TRACE	src/sensors/ltr.c:29:	Succesfully initialized LTR.
+
+0:00:00.462	TRACE	src/sensors/therm.c:35:	Successfully initialized therm sensor with ID 0!
+
+0:00:00.486	TRACE	src/sensors/therm.c:35:	Successfully initialized therm sensor with ID 1!
+
+0:00:00.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:0 mm:0 yyyy:0 time:120840.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:519 err:0
+
+0:00:00.691	WARN 	src/pi2c.c:44:	I2C Message Reset on address 0x3C
+
+0:00:00.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120840.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:519 err:0
+
+0:00:01.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120841.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:1519 err:0
+
+0:00:01.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120841.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:1519 err:0
+
+0:00:01.823	INFO 	src/main.c:45:	Initialized with err 0.
+
+0:00:01.888	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4809 therm:2199 err:0
+
+0:00:02.033	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2547 press:997074 hum:42 alt:243 err:0
+
+0:00:02.073	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025390625 ay:0.064208984 az:1.004394531 gx:17.954198837 gy:-0.694656491 gz:-0.152671754 therm:27.981760025 err:0
+
+0:00:02.125	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:566 err:0
+
+0:00:02.153	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2238 therm1:2310 err:0
+
+0:00:02.179 DATA:
+
+	vbat:4809 therm:2199 err:0
+
+	therm:2547 press:997074 hum:42 alt:243 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120841.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:1519 err:0
+
+	ax:-0.025391 ay:0.064209 az:1.004395 gx:17.954199 gy:-0.694656 gz:-0.152672 therm:27.981760 err:0
+
+	ch0:1102 ch1:566 err:0
+
+	therm0:2238 therm1:2310 err:0
+
+0:00:07.322	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120842.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:2519 err:0
+
+0:00:07.377	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:07.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120847.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:2519 err:0
+
+0:00:08.394	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:08.455	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2425 err:0
+
+0:00:08.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120848.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:8519 err:0
+
+0:00:08.599	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2546 press:997079 hum:42 alt:239 err:0
+
+0:00:08.639	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026123046 ay:0.065185546 az:0.996093750 gx:17.954198837 gy:-0.374045789 gz:-0.038167938 therm:27.981760025 err:0
+
+0:00:08.692	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:567 err:0
+
+0:00:08.720	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2310 err:0
+
+0:00:08.744 DATA:
+
+	vbat:4833 therm:2425 err:0
+
+	therm:2546 press:997079 hum:42 alt:239 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120848.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:8519 err:0
+
+	ax:-0.026123 ay:0.065186 az:0.996094 gx:17.954199 gy:-0.374046 gz:-0.038168 therm:27.981760 err:0
+
+	ch0:1102 ch1:567 err:0
+
+	therm0:2244 therm1:2310 err:0
+
+0:00:08.845	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120848.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:8519 err:0
+
+0:00:13.944	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120849.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9519 err:0
+
+0:00:13.999	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:14.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120854.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9519 err:0
+
+0:00:15.016	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:15.077	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2489 err:0
+
+0:00:15.219	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2544 press:997072 hum:42 alt:245 err:0
+
+0:00:15.262	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024902343 ay:0.059326171 az:1.001464843 gx:18.076335906 gy:-0.488549619 gz:-0.114503815 therm:27.981760025 err:0
+
+0:00:15.313	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:565 err:0
+
+0:00:15.341	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2244 therm1:2310 err:0
+
+0:00:15.365 DATA:
+
+	vbat:4842 therm:2489 err:0
+
+	therm:2544 press:997072 hum:42 alt:245 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120854.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:9519 err:0
+
+	ax:-0.024902 ay:0.059326 az:1.001465 gx:18.076336 gy:-0.488550 gz:-0.114504 therm:27.981760 err:0
+
+	ch0:1104 ch1:565 err:0
+
+	therm0:2244 therm1:2310 err:0
+
+0:00:20.512	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120855.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9519 err:0
+
+0:00:20.567	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:20.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120900.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:9519 err:0
+
+0:00:21.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120901.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:21519 err:0
+
+0:00:21.585	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:21.645	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:5019 therm:2521 err:0
+
+0:00:21.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120901.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:21519 err:0
+
+0:00:21.823	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2544 press:997065 hum:42 alt:250 err:0
+
+0:00:21.866	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022216796 ay:0.064941406 az:1.000488281 gx:17.954198837 gy:-0.709923684 gz:0.282442748 therm:27.981760025 err:0
+
+0:00:21.920	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1099 ch1:567 err:0
+
+0:00:21.948	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:00:21.972 DATA:
+
+	vbat:5019 therm:2521 err:0
+
+	therm:2544 press:997065 hum:42 alt:250 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120901.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:21519 err:0
+
+	ax:-0.022217 ay:0.064941 az:1.000488 gx:17.954199 gy:-0.709924 gz:0.282443 therm:27.981760 err:0
+
+	ch0:1099 ch1:567 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:00:27.119	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120902.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:22519 err:0
+
+0:00:27.172	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:27.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120907.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:22519 err:0
+
+0:00:28.192	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:28.252	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2457 err:0
+
+0:00:28.394	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2546 press:997101 hum:42 alt:220 err:0
+
+0:00:28.433	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024169921 ay:0.063476562 az:0.999267578 gx:17.587785720 gy:-0.755725204 gz:-0.099236644 therm:28.029682159 err:0
+
+0:00:28.486	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:565 err:0
+
+0:00:28.514	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:00:28.538	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120908.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:28518 err:0
+
+0:00:28.595 DATA:
+
+	vbat:4833 therm:2457 err:0
+
+	therm:2546 press:997101 hum:42 alt:220 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120907.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:22519 err:0
+
+	ax:-0.024170 ay:0.063477 az:0.999268 gx:17.587786 gy:-0.755725 gz:-0.099237 therm:28.029682 err:0
+
+	ch0:1102 ch1:565 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:00:28.798	TRACE	src/log.c:164:	Succesfully saved image to file test38/img28.jpg.
+
+0:00:29.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120909.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:28518 err:0
+
+0:00:29.823	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:29.885	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4882 therm:2521 err:0
+
+0:00:30.028	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2546 press:997092 hum:42 alt:228 err:0
+
+0:00:30.068	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022705078 ay:0.060791015 az:1.005126953 gx:17.954198837 gy:-0.625954210 gz:0.053435113 therm:28.077606201 err:0
+
+0:00:30.121	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1100 ch1:565 err:0
+
+0:00:30.149	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:00:30.174 DATA:
+
+	vbat:4882 therm:2521 err:0
+
+	therm:2546 press:997092 hum:42 alt:228 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120909.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:28518 err:0
+
+	ax:-0.022705 ay:0.060791 az:1.005127 gx:17.954199 gy:-0.625954 gz:0.053435 therm:28.077606 err:0
+
+	ch0:1100 ch1:565 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:00:35.321	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120910.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:30518 err:0
+
+0:00:35.377	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:35.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120915.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:30518 err:0
+
+0:00:36.394	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:36.454	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2457 err:0
+
+0:00:36.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120916.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:36519 err:0
+
+0:00:36.597	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2547 press:997085 hum:42 alt:234 err:0
+
+0:00:36.637	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025878906 ay:0.066162109 az:0.999023437 gx:17.954198837 gy:-0.511450409 gz:-0.183206111 therm:27.837991714 err:0
+
+0:00:36.689	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1100 ch1:566 err:0
+
+0:00:36.717	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2310 err:0
+
+0:00:36.743 DATA:
+
+	vbat:4850 therm:2457 err:0
+
+	therm:2547 press:997085 hum:42 alt:234 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120916.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:36519 err:0
+
+	ax:-0.025879 ay:0.066162 az:0.999023 gx:17.954199 gy:-0.511450 gz:-0.183206 therm:27.837992 err:0
+
+	ch0:1100 ch1:566 err:0
+
+	therm0:2256 therm1:2310 err:0
+
+0:00:36.840	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120916.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:36519 err:0
+
+0:00:36.995	TRACE	src/log.c:164:	Succesfully saved image to file test38/img36.jpg.
+
+0:00:37.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120917.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:37518 err:0
+
+0:00:37.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120917.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:37518 err:0
+
+0:00:38.014	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:38.075	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2521 err:0
+
+0:00:38.217	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2548 press:997117 hum:42 alt:207 err:0
+
+0:00:38.258	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025390625 ay:0.065429687 az:0.992187500 gx:17.587785720 gy:-0.572519063 gz:-0.167938932 therm:27.885913848 err:0
+
+0:00:38.311	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:567 err:0
+
+0:00:38.339	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:00:38.363 DATA:
+
+	vbat:4842 therm:2521 err:0
+
+	therm:2548 press:997117 hum:42 alt:207 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120917.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:37518 err:0
+
+	ax:-0.025391 ay:0.065430 az:0.992188 gx:17.587786 gy:-0.572519 gz:-0.167939 therm:27.885914 err:0
+
+	ch0:1102 ch1:567 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:00:43.512	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120918.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:37518 err:0
+
+0:00:43.567	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:43.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120923.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:37518 err:0
+
+0:00:44.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120924.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:44519 err:0
+
+0:00:44.584	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:44.645	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2489 err:0
+
+0:00:44.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120924.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:44519 err:0
+
+0:00:44.826	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2548 press:997093 hum:42 alt:227 err:0
+
+0:00:44.866	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025390625 ay:0.063476562 az:0.996582031 gx:17.954198837 gy:-0.534351170 gz:0.122137404 therm:28.077606201 err:0
+
+0:00:44.918	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:565 err:0
+
+0:00:44.948	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2310 err:0
+
+0:00:44.972 DATA:
+
+	vbat:4833 therm:2489 err:0
+
+	therm:2548 press:997093 hum:42 alt:227 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120924.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:44519 err:0
+
+	ax:-0.025391 ay:0.063477 az:0.996582 gx:17.954199 gy:-0.534351 gz:0.122137 therm:28.077606 err:0
+
+	ch0:1101 ch1:565 err:0
+
+	therm0:2256 therm1:2310 err:0
+
+0:00:50.119	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120925.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:45519 err:0
+
+0:00:50.174	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:50.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120930.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:45519 err:0
+
+0:00:51.191	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:51.254	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2489 err:0
+
+0:00:51.396	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2550 press:997090 hum:42 alt:229 err:0
+
+0:00:51.436	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026855468 ay:0.062011718 az:1.001708984 gx:18.198472976 gy:-0.534351170 gz:0.236641228 therm:27.981760025 err:0
+
+0:00:51.488	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:566 err:0
+
+0:00:51.518	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2250 therm1:2310 err:0
+
+0:00:51.542	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120931.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:51518 err:0
+
+0:00:51.597 DATA:
+
+	vbat:4850 therm:2489 err:0
+
+	therm:2550 press:997090 hum:42 alt:229 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120930.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:45519 err:0
+
+	ax:-0.026855 ay:0.062012 az:1.001709 gx:18.198473 gy:-0.534351 gz:0.236641 therm:27.981760 err:0
+
+	ch0:1101 ch1:566 err:0
+
+	therm0:2250 therm1:2310 err:0
+
+0:00:56.749	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120932.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:52518 err:0
+
+0:00:56.805	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:00:57.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120937.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:52518 err:0
+
+0:00:57.825	TRACE	src/main.c:57:	Reset watchdog.
+
+0:00:57.886	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2554 err:0
+
+0:00:58.028	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2551 press:997063 hum:42 alt:252 err:0
+
+0:00:58.068	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026611328 ay:0.065917968 az:1.000244140 gx:17.954198837 gy:-0.587786257 gz:-0.190839692 therm:28.221374511 err:0
+
+0:00:58.122	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:566 err:0
+
+0:00:58.150	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2310 err:0
+
+0:00:58.174 DATA:
+
+	vbat:4850 therm:2554 err:0
+
+	therm:2551 press:997063 hum:42 alt:252 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120937.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:52518 err:0
+
+	ax:-0.026611 ay:0.065918 az:1.000244 gx:17.954199 gy:-0.587786 gz:-0.190840 therm:28.221375 err:0
+
+	ch0:1101 ch1:566 err:0
+
+	therm0:2256 therm1:2310 err:0
+
+0:01:03.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120938.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:58518 err:0
+
+0:01:03.378	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:03.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120943.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:58518 err:0
+
+0:01:04.396	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:04.456	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4817 therm:2489 err:0
+
+0:01:04.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120944.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:64518 err:0
+
+0:01:04.598	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2552 press:997067 hum:42 alt:249 err:0
+
+0:01:04.639	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.028076171 ay:0.065917968 az:1.000000000 gx:18.564886093 gy:-0.465648859 gz:-0.015267175 therm:28.173450469 err:0
+
+0:01:04.690	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:565 err:0
+
+0:01:04.718	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2310 err:0
+
+0:01:04.745 DATA:
+
+	vbat:4817 therm:2489 err:0
+
+	therm:2552 press:997067 hum:42 alt:249 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120944.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:64518 err:0
+
+	ax:-0.028076 ay:0.065918 az:1.000000 gx:18.564886 gy:-0.465649 gz:-0.015267 therm:28.173450 err:0
+
+	ch0:1102 ch1:565 err:0
+
+	therm0:2256 therm1:2310 err:0
+
+0:01:04.841	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120944.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:64518 err:0
+
+0:01:09.948	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120945.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:65518 err:0
+
+0:01:10.003	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:10.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120950.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:65518 err:0
+
+0:01:11.020	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:11.081	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2457 err:0
+
+0:01:11.223	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2552 press:997082 hum:42 alt:236 err:0
+
+0:01:11.263	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022460937 ay:0.065673828 az:1.001953125 gx:17.709922790 gy:-0.496183216 gz:-0.129770994 therm:27.837991714 err:0
+
+0:01:11.317	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1098 ch1:566 err:0
+
+0:01:11.345	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2310 err:0
+
+0:01:11.369 DATA:
+
+	vbat:4842 therm:2457 err:0
+
+	therm:2552 press:997082 hum:42 alt:236 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120950.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:65518 err:0
+
+	ax:-0.022461 ay:0.065674 az:1.001953 gx:17.709923 gy:-0.496183 gz:-0.129771 therm:27.837992 err:0
+
+	ch0:1098 ch1:566 err:0
+
+	therm0:2256 therm1:2310 err:0
+
+0:01:16.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120951.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:65518 err:0
+
+0:01:16.575	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:16.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120956.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:65518 err:0
+
+0:01:17.520	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120957.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:77520 err:0
+
+0:01:17.592	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:17.652	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2554 err:0
+
+0:01:17.771	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120957.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:77520 err:0
+
+0:01:17.825	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2552 press:997069 hum:42 alt:247 err:0
+
+0:01:17.867	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026367187 ay:0.063964843 az:1.000488281 gx:18.076335906 gy:-0.358778625 gz:-0.030534351 therm:27.981760025 err:0
+
+0:01:17.918	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:565 err:0
+
+0:01:17.948	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2310 err:0
+
+0:01:17.973 DATA:
+
+	vbat:4842 therm:2554 err:0
+
+	therm:2552 press:997069 hum:42 alt:247 err:0
+
+	dd:28 mm:6 yyyy:2006 time:120957.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:77520 err:0
+
+	ax:-0.026367 ay:0.063965 az:1.000488 gx:18.076336 gy:-0.358779 gz:-0.030534 therm:27.981760 err:0
+
+	ch0:1101 ch1:565 err:0
+
+	therm0:2256 therm1:2310 err:0
+
+0:01:23.120	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:120958.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:78518 err:0
+
+0:01:23.178	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:23.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121003.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:78518 err:0
+
+0:01:24.195	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:24.257	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2586 err:0
+
+0:01:24.400	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2557 press:997105 hum:42 alt:217 err:0
+
+0:01:24.440	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024169921 ay:0.068847656 az:1.002441406 gx:18.076335906 gy:-0.480916023 gz:-0.282442748 therm:28.029682159 err:0
+
+0:01:24.492	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:565 err:0
+
+0:01:24.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121004.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:84519 err:0
+
+0:01:24.574	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2316 err:0
+
+0:01:24.598 DATA:
+
+	vbat:4850 therm:2586 err:0
+
+	therm:2557 press:997105 hum:42 alt:217 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121003.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:78518 err:0
+
+	ax:-0.024170 ay:0.068848 az:1.002441 gx:18.076336 gy:-0.480916 gz:-0.282443 therm:28.029682 err:0
+
+	ch0:1101 ch1:565 err:0
+
+	therm0:2256 therm1:2316 err:0
+
+0:01:29.747	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121005.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:85518 err:0
+
+0:01:29.803	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:30.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121010.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:85518 err:0
+
+0:01:30.826	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:30.886	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2489 err:0
+
+0:01:31.029	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2558 press:997100 hum:42 alt:221 err:0
+
+0:01:31.069	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026123046 ay:0.062744140 az:0.996337890 gx:17.954198837 gy:-0.709923684 gz:-0.007633587 therm:28.173450469 err:0
+
+0:01:31.123	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:566 err:0
+
+0:01:31.151	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2316 err:0
+
+0:01:31.175 DATA:
+
+	vbat:4842 therm:2489 err:0
+
+	therm:2558 press:997100 hum:42 alt:221 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121010.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:85518 err:0
+
+	ax:-0.026123 ay:0.062744 az:0.996338 gx:17.954199 gy:-0.709924 gz:-0.007634 therm:28.173450 err:0
+
+	ch0:1102 ch1:566 err:0
+
+	therm0:2256 therm1:2316 err:0
+
+0:01:36.323	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121011.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:91519 err:0
+
+0:01:36.379	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:36.771	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121016.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:91519 err:0
+
+0:01:37.396	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:37.456	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4866 therm:2554 err:0
+
+0:01:37.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121017.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:97519 err:0
+
+0:01:37.598	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2558 press:997071 hum:42 alt:245 err:0
+
+0:01:37.641	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025878906 ay:0.063720703 az:1.002685546 gx:18.564886093 gy:-0.473282456 gz:0.007633587 therm:28.173450469 err:0
+
+0:01:37.692	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1102 ch1:566 err:0
+
+0:01:37.720	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2316 err:0
+
+0:01:37.744 DATA:
+
+	vbat:4866 therm:2554 err:0
+
+	therm:2558 press:997071 hum:42 alt:245 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121017.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:97519 err:0
+
+	ax:-0.025879 ay:0.063721 az:1.002686 gx:18.564886 gy:-0.473282 gz:0.007634 therm:28.173450 err:0
+
+	ch0:1102 ch1:566 err:0
+
+	therm0:2256 therm1:2316 err:0
+
+0:01:37.845	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121017.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:97519 err:0
+
+0:01:42.949	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121018.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:98519 err:0
+
+0:01:43.004	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:43.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121023.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:98519 err:0
+
+0:01:44.021	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:44.082	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4825 therm:2521 err:0
+
+0:01:44.224	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2559 press:997089 hum:42 alt:230 err:0
+
+0:01:44.265	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.014648437 ay:0.066894531 az:1.002685546 gx:18.564886093 gy:-0.656488537 gz:0.099236644 therm:28.029682159 err:0
+
+0:01:44.316	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:565 err:0
+
+0:01:44.346	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2316 err:0
+
+0:01:44.370 DATA:
+
+	vbat:4825 therm:2521 err:0
+
+	therm:2559 press:997089 hum:42 alt:230 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121023.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:98519 err:0
+
+	ax:-0.014648 ay:0.066895 az:1.002686 gx:18.564886 gy:-0.656489 gz:0.099237 therm:28.029682 err:0
+
+	ch0:1103 ch1:565 err:0
+
+	therm0:2256 therm1:2316 err:0
+
+0:01:49.521	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121024.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:98519 err:0
+
+0:01:49.576	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:49.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121029.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:98519 err:0
+
+0:01:50.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121030.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:110518 err:0
+
+0:01:50.593	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:50.653	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4608 therm:2586 err:0
+
+0:01:50.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121030.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:110518 err:0
+
+0:01:50.825	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2563 press:997081 hum:42 alt:237 err:0
+
+0:01:50.866	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.028564453 ay:0.060302734 az:0.996337890 gx:17.954198837 gy:-0.648854970 gz:-0.129770994 therm:27.981760025 err:0
+
+0:01:50.917	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1099 ch1:567 err:0
+
+0:01:50.945	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2256 therm1:2322 err:0
+
+0:01:50.972 DATA:
+
+	vbat:4608 therm:2586 err:0
+
+	therm:2563 press:997081 hum:42 alt:237 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121030.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:110518 err:0
+
+	ax:-0.028564 ay:0.060303 az:0.996338 gx:17.954199 gy:-0.648855 gz:-0.129771 therm:27.981760 err:0
+
+	ch0:1099 ch1:567 err:0
+
+	therm0:2256 therm1:2322 err:0
+
+0:01:56.117	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121031.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:111518 err:0
+
+0:01:56.175	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:01:56.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121036.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:111518 err:0
+
+0:01:57.192	TRACE	src/main.c:57:	Reset watchdog.
+
+0:01:57.253	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4640 therm:2586 err:0
+
+0:01:57.397	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2562 press:997105 hum:41 alt:217 err:0
+
+0:01:57.437	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027832031 ay:0.067382812 az:1.000976562 gx:18.442749023 gy:-0.648854970 gz:-0.145038172 therm:27.981760025 err:0
+
+0:01:57.489	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1104 ch1:565 err:0
+
+0:01:57.517	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2316 err:0
+
+0:01:57.543	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121037.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:117518 err:0
+
+0:01:57.597 DATA:
+
+	vbat:4640 therm:2586 err:0
+
+	therm:2562 press:997105 hum:41 alt:217 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121036.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:111518 err:0
+
+	ax:-0.027832 ay:0.067383 az:1.000977 gx:18.442749 gy:-0.648855 gz:-0.145038 therm:27.981760 err:0
+
+	ch0:1104 ch1:565 err:0
+
+	therm0:2262 therm1:2316 err:0
+
+0:02:02.748	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121038.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:118519 err:0
+
+0:02:02.804	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:03.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121043.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:118519 err:0
+
+0:02:03.825	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:03.886	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4809 therm:2521 err:0
+
+0:02:04.030	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2563 press:997085 hum:41 alt:234 err:0
+
+0:02:04.071	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026123046 ay:0.061035156 az:0.998046875 gx:17.954198837 gy:-0.282442748 gz:-0.213740453 therm:28.029682159 err:0
+
+0:02:04.123	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1098 ch1:565 err:0
+
+0:02:04.151	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:02:04.176 DATA:
+
+	vbat:4809 therm:2521 err:0
+
+	therm:2563 press:997085 hum:41 alt:234 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121043.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:118519 err:0
+
+	ax:-0.026123 ay:0.061035 az:0.998047 gx:17.954199 gy:-0.282443 gz:-0.213740 therm:28.029682 err:0
+
+	ch0:1098 ch1:565 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:02:09.329	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121044.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:124518 err:0
+
+0:02:09.385	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:09.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121049.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:124518 err:0
+
+0:02:10.402	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:10.462	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4560 therm:2554 err:0
+
+0:02:10.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121050.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:130519 err:0
+
+0:02:10.605	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2564 press:997092 hum:42 alt:228 err:0
+
+0:02:10.647	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027587890 ay:0.067871093 az:0.972412109 gx:18.198472976 gy:-0.755725204 gz:-0.045801527 therm:28.077606201 err:0
+
+0:02:10.699	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1099 ch1:565 err:0
+
+0:02:10.727	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:02:10.751 DATA:
+
+	vbat:4560 therm:2554 err:0
+
+	therm:2564 press:997092 hum:42 alt:228 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121050.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:130519 err:0
+
+	ax:-0.027588 ay:0.067871 az:0.972412 gx:18.198473 gy:-0.755725 gz:-0.045802 therm:28.077606 err:0
+
+	ch0:1099 ch1:565 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:02:10.852	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121050.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:130519 err:0
+
+0:02:15.957	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121051.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:131519 err:0
+
+0:02:16.013	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:16.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121056.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:131519 err:0
+
+0:02:17.030	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:17.090	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2521 err:0
+
+0:02:17.233	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2565 press:997064 hum:42 alt:251 err:0
+
+0:02:17.273	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.030517578 ay:0.064208984 az:0.985107421 gx:18.198472976 gy:-1.328244328 gz:0.160305351 therm:27.981760025 err:0
+
+0:02:17.324	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:565 err:0
+
+0:02:17.354	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:02:17.379 DATA:
+
+	vbat:4833 therm:2521 err:0
+
+	therm:2565 press:997064 hum:42 alt:251 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121056.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:131519 err:0
+
+	ax:-0.030518 ay:0.064209 az:0.985107 gx:18.198473 gy:-1.328244 gz:0.160305 therm:27.981760 err:0
+
+	ch0:1101 ch1:565 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:02:22.530	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121057.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:131519 err:0
+
+0:02:22.586	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:22.771	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121102.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:131519 err:0
+
+0:02:23.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121103.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:143519 err:0
+
+0:02:23.603	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:23.662	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4833 therm:2554 err:0
+
+0:02:23.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121103.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:143519 err:0
+
+0:02:23.826	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2564 press:997072 hum:42 alt:245 err:0
+
+0:02:23.867	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026123046 ay:0.064941406 az:1.000732421 gx:18.564886093 gy:-0.603053450 gz:-0.152671754 therm:28.173450469 err:0
+
+0:02:23.918	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1103 ch1:565 err:0
+
+0:02:23.946	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:02:23.972 DATA:
+
+	vbat:4833 therm:2554 err:0
+
+	therm:2564 press:997072 hum:42 alt:245 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121103.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:143519 err:0
+
+	ax:-0.026123 ay:0.064941 az:1.000732 gx:18.564886 gy:-0.603053 gz:-0.152672 therm:28.173450 err:0
+
+	ch0:1103 ch1:565 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:02:29.120	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121104.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:144519 err:0
+
+0:02:29.178	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:29.771	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121109.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:144519 err:0
+
+0:02:30.195	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:30.255	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4866 therm:2554 err:0
+
+0:02:30.399	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2566 press:997048 hum:41 alt:9 err:0
+
+0:02:30.439	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.029785156 ay:0.063476562 az:1.002929687 gx:18.198472976 gy:-0.389312982 gz:0.167938932 therm:27.981760025 err:0
+
+0:02:30.490	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:566 err:0
+
+0:02:30.518	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:02:30.545	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121110.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:150519 err:0
+
+0:02:30.598 DATA:
+
+	vbat:4866 therm:2554 err:0
+
+	therm:2566 press:997048 hum:41 alt:9 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121109.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:144519 err:0
+
+	ax:-0.029785 ay:0.063477 az:1.002930 gx:18.198473 gy:-0.389313 gz:0.167939 therm:27.981760 err:0
+
+	ch0:1101 ch1:566 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:02:35.749	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121111.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:151519 err:0
+
+0:02:35.805	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:36.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121116.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:151519 err:0
+
+0:02:36.825	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:36.886	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4721 therm:2554 err:0
+
+0:02:37.028	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2569 press:997060 hum:41 alt:255 err:0
+
+0:02:37.069	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.022705078 ay:0.065185546 az:0.999755859 gx:18.076335906 gy:-0.404580146 gz:0.190839692 therm:28.221374511 err:0
+
+0:02:37.121	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:565 err:0
+
+0:02:37.149	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2328 err:0
+
+0:02:37.173 DATA:
+
+	vbat:4721 therm:2554 err:0
+
+	therm:2569 press:997060 hum:41 alt:255 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121116.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:151519 err:0
+
+	ax:-0.022705 ay:0.065186 az:0.999756 gx:18.076336 gy:-0.404580 gz:0.190840 therm:28.221375 err:0
+
+	ch0:1101 ch1:565 err:0
+
+	therm0:2262 therm1:2328 err:0
+
+0:02:37.383	TRACE	src/log.c:164:	Succesfully saved image to file test38/img157.jpg.
+
+0:02:37.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121117.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:157519 err:0
+
+0:02:37.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121117.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:157519 err:0
+
+0:02:38.403	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:38.463	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4890 therm:2586 err:0
+
+0:02:38.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121118.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:158518 err:0
+
+0:02:38.606	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2570 press:997064 hum:41 alt:251 err:0
+
+0:02:38.648	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026367187 ay:0.064697265 az:1.000732421 gx:18.198472976 gy:-0.587786257 gz:0.114503815 therm:28.029682159 err:0
+
+0:02:38.700	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1098 ch1:565 err:0
+
+0:02:38.728	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2328 err:0
+
+0:02:38.752 DATA:
+
+	vbat:4890 therm:2586 err:0
+
+	therm:2570 press:997064 hum:41 alt:251 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121118.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:158518 err:0
+
+	ax:-0.026367 ay:0.064697 az:1.000732 gx:18.198473 gy:-0.587786 gz:0.114504 therm:28.029682 err:0
+
+	ch0:1098 ch1:565 err:0
+
+	therm0:2262 therm1:2328 err:0
+
+0:02:38.853	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121118.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:158518 err:0
+
+0:02:43.959	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121119.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:159518 err:0
+
+0:02:44.015	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:44.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121124.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:159518 err:0
+
+0:02:45.032	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:45.092	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4882 therm:2554 err:0
+
+0:02:45.235	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2570 press:997035 hum:41 alt:20 err:0
+
+0:02:45.275	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027343750 ay:0.065673828 az:1.000732421 gx:18.076335906 gy:-0.603053450 gz:0.106870226 therm:28.029682159 err:0
+
+0:02:45.326	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1097 ch1:565 err:0
+
+0:02:45.355	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2328 err:0
+
+0:02:45.379 DATA:
+
+	vbat:4882 therm:2554 err:0
+
+	therm:2570 press:997035 hum:41 alt:20 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121124.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:159518 err:0
+
+	ax:-0.027344 ay:0.065674 az:1.000732 gx:18.076336 gy:-0.603053 gz:0.106870 therm:28.029682 err:0
+
+	ch0:1097 ch1:565 err:0
+
+	therm0:2262 therm1:2328 err:0
+
+0:02:50.531	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121125.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:159518 err:0
+
+0:02:50.587	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:50.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121130.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:159518 err:0
+
+0:02:51.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121131.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:171518 err:0
+
+0:02:51.604	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:51.665	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:5003 therm:2554 err:0
+
+0:02:51.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121131.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:171518 err:0
+
+0:02:51.825	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2571 press:997067 hum:41 alt:249 err:0
+
+0:02:51.866	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.023437500 ay:0.066894531 az:1.006835937 gx:17.709922790 gy:-0.687022924 gz:0.244274809 therm:27.981760025 err:0
+
+0:02:51.917	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1099 ch1:565 err:0
+
+0:02:51.945	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2328 err:0
+
+0:02:51.971 DATA:
+
+	vbat:5003 therm:2554 err:0
+
+	therm:2571 press:997067 hum:41 alt:249 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121131.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:171518 err:0
+
+	ax:-0.023438 ay:0.066895 az:1.006836 gx:17.709923 gy:-0.687023 gz:0.244275 therm:27.981760 err:0
+
+	ch0:1099 ch1:565 err:0
+
+	therm0:2262 therm1:2328 err:0
+
+0:02:57.119	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121132.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:172518 err:0
+
+0:02:57.177	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:02:57.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121137.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:172518 err:0
+
+0:02:58.194	TRACE	src/main.c:57:	Reset watchdog.
+
+0:02:58.254	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4785 therm:2554 err:0
+
+0:02:58.399	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2571 press:997068 hum:41 alt:248 err:0
+
+0:02:58.439	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024169921 ay:0.065673828 az:1.003662109 gx:17.954198837 gy:-0.259541988 gz:0.091603055 therm:27.981760025 err:0
+
+0:02:58.490	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1100 ch1:565 err:0
+
+0:02:58.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121138.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:178518 err:0
+
+0:02:58.574	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2328 err:0
+
+0:02:58.598 DATA:
+
+	vbat:4785 therm:2554 err:0
+
+	therm:2571 press:997068 hum:41 alt:248 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121137.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:172518 err:0
+
+	ax:-0.024170 ay:0.065674 az:1.003662 gx:17.954199 gy:-0.259542 gz:0.091603 therm:27.981760 err:0
+
+	ch0:1100 ch1:565 err:0
+
+	therm0:2262 therm1:2328 err:0
+
+0:03:03.750	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121139.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:179519 err:0
+
+0:03:03.806	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:03:04.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121144.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:179519 err:0
+
+0:03:04.824	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:04.886	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4688 therm:2618 err:0
+
+0:03:05.028	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2567 press:997052 hum:42 alt:5 err:0
+
+0:03:05.068	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025878906 ay:0.053222656 az:0.995849609 gx:18.198472976 gy:-0.488549619 gz:-0.122137404 therm:27.885913848 err:0
+
+0:03:05.121	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1101 ch1:565 err:0
+
+0:03:05.149	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:05.174 DATA:
+
+	vbat:4688 therm:2618 err:0
+
+	therm:2567 press:997052 hum:42 alt:5 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121144.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:179519 err:0
+
+	ax:-0.025879 ay:0.053223 az:0.995850 gx:18.198473 gy:-0.488550 gz:-0.122137 therm:27.885914 err:0
+
+	ch0:1101 ch1:565 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:03:05.376	TRACE	src/log.c:164:	Succesfully saved image to file test38/img185.jpg.
+
+0:03:05.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121145.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:185518 err:0
+
+0:03:05.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121145.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:185518 err:0
+
+0:03:06.396	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:06.456	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2586 err:0
+
+0:03:06.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121146.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:186518 err:0
+
+0:03:06.598	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2568 press:997046 hum:42 alt:11 err:0
+
+0:03:06.641	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.080078125 ay:-0.025634765 az:0.948486328 gx:17.709922790 gy:-23.595420837 gz:29.862594604 therm:27.790067672 err:0
+
+0:03:06.692	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1099 ch1:565 err:0
+
+0:03:06.720	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:06.745 DATA:
+
+	vbat:4850 therm:2586 err:0
+
+	therm:2568 press:997046 hum:42 alt:11 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121146.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:186518 err:0
+
+	ax:-0.080078 ay:-0.025635 az:0.948486 gx:17.709923 gy:-23.595421 gz:29.862595 therm:27.790068 err:0
+
+	ch0:1099 ch1:565 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:03:06.846	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121146.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:186518 err:0
+
+0:03:11.953	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121147.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:187518 err:0
+
+0:03:12.008	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:03:12.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121152.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:187518 err:0
+
+0:03:13.025	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:13.086	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4688 therm:2586 err:0
+
+0:03:13.228	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2570 press:997019 hum:41 alt:33 err:0
+
+0:03:13.268	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.024414062 ay:0.063476562 az:1.002685546 gx:17.709922790 gy:-0.312977105 gz:-0.328244268 therm:27.981760025 err:0
+
+0:03:13.320	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1099 ch1:566 err:0
+
+0:03:13.349	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:13.373 DATA:
+
+	vbat:4688 therm:2586 err:0
+
+	therm:2570 press:997019 hum:41 alt:33 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121152.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:187518 err:0
+
+	ax:-0.024414 ay:0.063477 az:1.002686 gx:17.709923 gy:-0.312977 gz:-0.328244 therm:27.981760 err:0
+
+	ch0:1099 ch1:566 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:03:18.526	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121153.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:187518 err:0
+
+0:03:18.581	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:03:18.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121158.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:187518 err:0
+
+0:03:19.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121159.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:199518 err:0
+
+0:03:19.598	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:19.659	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2521 err:0
+
+0:03:19.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121159.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:199518 err:0
+
+0:03:19.825	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2571 press:997037 hum:41 alt:18 err:0
+
+0:03:19.865	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027832031 ay:0.058105468 az:1.005859375 gx:17.587785720 gy:-0.580152690 gz:0.061068702 therm:27.885913848 err:0
+
+0:03:19.916	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1089 ch1:566 err:0
+
+0:03:19.944	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2328 err:0
+
+0:03:19.971 DATA:
+
+	vbat:4842 therm:2521 err:0
+
+	therm:2571 press:997037 hum:41 alt:18 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121159.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:199518 err:0
+
+	ax:-0.027832 ay:0.058105 az:1.005859 gx:17.587786 gy:-0.580153 gz:0.061069 therm:27.885914 err:0
+
+	ch0:1089 ch1:566 err:0
+
+	therm0:2262 therm1:2328 err:0
+
+0:03:20.170	TRACE	src/log.c:164:	Succesfully saved image to file test38/img200.jpg.
+
+0:03:20.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121200.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:200518 err:0
+
+0:03:20.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121200.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:200518 err:0
+
+0:03:21.190	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:21.250	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4995 therm:2521 err:0
+
+0:03:21.394	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2572 press:997026 hum:41 alt:27 err:0
+
+0:03:21.435	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.027832031 ay:0.065429687 az:1.008056640 gx:17.709922790 gy:-0.786259531 gz:-0.038167938 therm:27.885913848 err:0
+
+0:03:21.486	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1087 ch1:563 err:0
+
+0:03:21.514	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:21.540	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121201.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:201518 err:0
+
+0:03:21.594 DATA:
+
+	vbat:4995 therm:2521 err:0
+
+	therm:2572 press:997026 hum:41 alt:27 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121200.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:200518 err:0
+
+	ax:-0.027832 ay:0.065430 az:1.008057 gx:17.709923 gy:-0.786260 gz:-0.038168 therm:27.885914 err:0
+
+	ch0:1087 ch1:563 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:03:26.747	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121202.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:202519 err:0
+
+0:03:26.803	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:03:27.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121207.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:202519 err:0
+
+0:03:27.825	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:27.886	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4842 therm:2554 err:0
+
+0:03:28.028	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2572 press:997041 hum:41 alt:15 err:0
+
+0:03:28.068	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026367187 ay:0.064697265 az:1.008544921 gx:17.954198837 gy:-0.587786257 gz:0.061068702 therm:28.029682159 err:0
+
+0:03:28.121	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1087 ch1:561 err:0
+
+0:03:28.149	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:28.174 DATA:
+
+	vbat:4842 therm:2554 err:0
+
+	therm:2572 press:997041 hum:41 alt:15 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121207.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:202519 err:0
+
+	ax:-0.026367 ay:0.064697 az:1.008545 gx:17.954199 gy:-0.587786 gz:0.061069 therm:28.029682 err:0
+
+	ch0:1087 ch1:561 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:03:33.326	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121208.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:208518 err:0
+
+0:03:33.382	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:03:33.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121213.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:208518 err:0
+
+0:03:34.399	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:34.459	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4850 therm:2554 err:0
+
+0:03:34.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121214.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:214518 err:0
+
+0:03:34.602	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2570 press:997017 hum:42 alt:35 err:0
+
+0:03:34.644	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026855468 ay:0.065429687 az:0.999023437 gx:17.709922790 gy:-0.725190818 gz:0.038167938 therm:27.790067672 err:0
+
+0:03:34.695	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1083 ch1:538 err:0
+
+0:03:34.723	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:34.747 DATA:
+
+	vbat:4850 therm:2554 err:0
+
+	therm:2570 press:997017 hum:42 alt:35 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121214.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:214518 err:0
+
+	ax:-0.026855 ay:0.065430 az:0.999023 gx:17.709923 gy:-0.725191 gz:0.038168 therm:27.790068 err:0
+
+	ch0:1083 ch1:538 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:03:34.848	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121214.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:214518 err:0
+
+0:03:35.014	TRACE	src/log.c:164:	Succesfully saved image to file test38/img214.jpg.
+
+0:03:35.518	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121215.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:215518 err:0
+
+0:03:35.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121215.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:215518 err:0
+
+0:03:36.034	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:36.094	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4922 therm:2521 err:0
+
+0:03:36.236	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2571 press:997015 hum:41 alt:37 err:0
+
+0:03:36.277	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.026367187 ay:0.060302734 az:1.002929687 gx:17.709922790 gy:-0.671755731 gz:0.183206111 therm:28.029682159 err:0
+
+0:03:36.328	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1031 ch1:529 err:0
+
+0:03:36.358	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:36.382 DATA:
+
+	vbat:4922 therm:2521 err:0
+
+	therm:2571 press:997015 hum:41 alt:37 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121215.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:215518 err:0
+
+	ax:-0.026367 ay:0.060303 az:1.002930 gx:17.709923 gy:-0.671756 gz:0.183206 therm:28.029682 err:0
+
+	ch0:1031 ch1:529 err:0
+
+	therm0:2262 therm1:2322 err:0
+
+0:03:41.533	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121216.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:215518 err:0
+
+0:03:41.591	ERROR	src/log.c:166:	Failed to save image with error code 21!
+
+0:03:41.769	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121221.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:215518 err:0
+
+0:03:42.519	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121222.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:222519 err:0
+
+0:03:42.608	TRACE	src/main.c:57:	Reset watchdog.
+
+0:03:42.668	TRACE	src/sensors/adc.c:95:	Successfully retrieved ADC data vbat:4745 therm:2554 err:0
+
+0:03:42.770	TRACE	src/sensors/gps.c:115:	Succesfully updated GPS data dd:28 mm:6 yyyy:2006 time:121222.000000000 lat:0.000000000degN lon:0.000000000degE alt:0.000000000 fix:0 sat:0 dil:0.000000000 ms:222519 err:0
+
+0:03:42.825	TRACE	src/sensors/bme.c:224:	Succesfully read BME data therm:2571 press:997059 hum:41 alt:0 err:0
+
+0:03:42.865	TRACE	src/sensors/imu.c:96:	Succesfully read IMU data ax:-0.025146484 ay:0.058349609 az:1.001953125 gx:17.709922790 gy:-0.641221404 gz:0.099236644 therm:27.885913848 err:0
+
+0:03:42.917	TRACE	src/sensors/ltr.c:54:	Succesfully read LTR data ch0:1012 ch1:534 err:0
+
+0:03:42.945	TRACE	src/sensors/therm.c:99:	Succesfully read therm data therm0:2262 therm1:2322 err:0
+
+0:03:42.971 DATA:
+
+	vbat:4745 therm:2554 err:0
+
+	therm:2571 press:997059 hum:41 alt:0 err:0
+
+	dd:28 mm:6 yyyy:2006 time:121222.000000 lat:0.000000degN lon:0.000000degE alt:0.000000 fix:0 sat:0 dil:0.000000 ms:222519 err:0
+
+	ax:-0.025146 ay:0.058350 az:1.001953 gx:17.709923 gy:-0.641221 gz:0.099237 therm:27.885914 err:0
+
+	ch0:1012 ch1:534 err:0
+
+	therm0:2262 therm1:2322 err:0
+

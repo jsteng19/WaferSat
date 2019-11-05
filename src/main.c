@@ -26,22 +26,42 @@
 #include "log.h"
 #include "ff.h"
 #include "wdg.h"
+#include "sdram.h"
 #include "pi2c.h"
 #include "sensors/common.h"
+#include "sensors/ltr.h"
 #include "radio/si.h"
 
 int main(void) {
 	halInit();
 	chSysInit();
+	// initialize watchdog first
 	sd_init();
 	log_init();
 	sensor_init();
-	wdg_init();
+	fsmcSdramInit();
+	fsmcSdramStart(&SDRAMD, &sdram_cfg);
+	OV5640_init();
 	si_err_t error = si_init();
 	log_info("Initialized with err %u.", error);
 
+	wdg_init();
+
+	uint32_t count = 0;
+	 
 	while (true) {
-		log_data();
+
+		if((count % 60) == 0) {
+			log_data();
+			struct ltr_t light = ltr_get();
+			if(light.ch0 > 50 || light.ch1 > 50 || (count % 3600) == 0) {
+				log_image();
+			}
+			count = 0;
+		}
+
+		count++;
+
 		LED_OK();
 		chThdSleepMilliseconds(500);
 		LED_CLEAR();

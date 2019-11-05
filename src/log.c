@@ -160,6 +160,11 @@ void log_image(void) {
 		}
 	}
 	chMtxUnlock(&(L.mtx));
+	if(err == FR_OK) {
+		log_trace("Succesfully saved image to file %s.", image_filename);
+	} else {
+		log_error("Failed to save image with error code %u!", err);
+	}
 #else /* !LOG_MEM */
 	log_warn("Did not save camera data because logging to memory is disabled!");
 #endif /* LOG_MEM */

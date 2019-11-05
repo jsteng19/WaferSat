@@ -1,0 +1,4 @@
+0:00:00.251	TRACE	src/sensors/adc.c:52:	Succesfully initialized ADC (empty function)
+
+0:00:00.309	TRACE	src/sensors/bme.c:81:	Successfully initialized BME!
+
