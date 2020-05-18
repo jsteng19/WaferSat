@@ -6,3 +6,5 @@ os-community/
 *.elf
 *.hex
 .project
+*.log
+*.out
