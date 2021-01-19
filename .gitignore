@@ -1,11 +1,2 @@
-build/
-.dep/
-os-community/
-*.o
-*.launch
-*.elf
-*.hex
-.project
 *.log
-*.out
 /logging
