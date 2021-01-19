@@ -1,2 +1,0 @@
-sudo stty -F /dev/ttyUSB$1 38400;
-sudo cat /dev/ttyUSB$1 | tee logs/$(date +%Y-%m-%d-%R).log

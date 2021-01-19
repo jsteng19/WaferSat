@@ -8,3 +8,4 @@ os-community/
 .project
 *.log
 *.out
+/logging
