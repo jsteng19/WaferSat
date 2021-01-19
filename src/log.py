@@ -1,29 +1,25 @@
-import camera
+import camera, sensors
+import logging
+
+IMG_FOLDER = "images"
 
 def log_data():
     # stub
     try:
+        data = "filler data"
+        logging.info(data)
         pass
     # log data from sensors
     except BaseException as err:
-        log_error("Failed to save data with error type {}!".format(err))
+        logging.error("Failed to save data with error type {}!".format(err))
         raise
     return
-
-
-def get_light_data():
-    # stub
-    return {"ch0": 0, "ch1": 0}
-
 
 def log_image():
     # stub
     try:
-        camera.take_image()
+        file_name = camera.take_image(IMG_FOLDER)
+        logging.info("Successfully saved image to file {}.".format(file_name))
     except BaseException as err:
-        log_error("Failed to save image with error type {}!".format(err))
+        logging.error("Failed to save image with error type {}!".format(err))
         raise
-
-def log_error():
-    #stub
-    return
