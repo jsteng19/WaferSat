@@ -20,7 +20,8 @@ def main():
         if count % 60 == 0:
             try:
                 log.log_data()
-                light = sensors.get_light_data()
+                # light = sensors.get_light_data()
+                light = {'ch0': 0, 'ch1': 0}  # for testing
                 if light.ch0 > 50 or light.ch1 > 50 or count % 3600 == 0:
                     log.log_image()
                     count = 0
