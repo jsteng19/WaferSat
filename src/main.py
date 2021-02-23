@@ -2,29 +2,33 @@
 # For OpenMV board
 
 
-#import log
+import log, logging
 import i2c_sensors
-#import logging
 import time
 from pyb import LED
 
+### init ###
+
 LEDS = {"red": LED(1), "green": LED(2), "blue": LED(3)}
 #INTERVAL = const(60)
-INTERVAL = const(6)
+INTERVAL = const(5)
 
+log_file = open('test.log', 'a')
+logging.basicConfig(stream = log_file) # need to implement timestamp for log file name
+###
 
-def main():
-    #logging.basicConfig("test.log") # need to implement timestamp for log file name
+def main_loop():
+
     count = 0
     sensors = i2c_sensors.Sensors()
     while True:
         if count % INTERVAL == 0:
             try:
-                #log.log_data()
+                log.log_data()
                 light = sensors.ltr.read()
                 print(light)
                 if light[0] > 50 or light[1] > 50 or count % 3600 == 0:
-                    #log.log_image()
+                    log.log_image()
                     count = 0
             except:
                 LEDS['red'].on()
@@ -41,4 +45,7 @@ def main():
             led.off()
         time.sleep_ms(500)
 
-main()
+try:
+    main_loop()
+finally:
+    log_file.close()
