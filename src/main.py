@@ -1,50 +1,44 @@
 # Jake Stenger, 1/16/21
-# Intended for PyBoard v1.1
+# For OpenMV board
 
 
-import log, sensors
-import logging
+#import log
+import i2c_sensors
+#import logging
 import time
 from pyb import LED
 
-
-colors = {"RED": 1, "GREEN": 2, "YELLOW":3, "BLUE": 4}
-leds = {"red": LED(1), "green": LED(2), "yellow": LED(3), "blue": LED(4)}
+LEDS = {"red": LED(1), "green": LED(2), "blue": LED(3)}
+#INTERVAL = const(60)
+INTERVAL = const(6)
 
 
 def main():
-    logging.basicConfig("test.log") # need to implement timestamp for log file name
+    #logging.basicConfig("test.log") # need to implement timestamp for log file name
     count = 0
-
+    sensors = i2c_sensors.Sensors()
     while True:
-        if count % 60 == 0:
+        if count % INTERVAL == 0:
             try:
-                log.log_data()
-                # light = sensors.get_light_data()
-                light = {'ch0': 0, 'ch1': 0}  # for testing
-                if light.ch0 > 50 or light.ch1 > 50 or count % 3600 == 0:
-                    log.log_image()
+                #log.log_data()
+                light = sensors.ltr.read()
+                print(light)
+                if light[0] > 50 or light[1] > 50 or count % 3600 == 0:
+                    #log.log_image()
                     count = 0
             except:
-                leds.red.on()
+                LEDS['red'].on()
                 raise
             else:
-                leds.green.on()
-            count += 1
+                LEDS['green'].on()
         else:
-            leds.blue.on()
+            LEDS['blue'].on()
+
+        count += 1
 
         time.sleep_ms(500)
-        for led in leds:
+        for led in LEDS.values():
             led.off()
         time.sleep_ms(500)
 
-
-
-
-
-
-
-
-
-
+main()

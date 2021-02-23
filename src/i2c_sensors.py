@@ -1,6 +1,7 @@
 # https://docs.micropython.org/en/latest/library/machine.I2C.html
 from machine import I2C
-import LTR329ALS01, TMP100
+from LTR329ALS01 import *
+from TMP100 import *
 
 sensor_addresses = {'BME280': 0x77, 'TMP100_1': 0x48, 'TMP100_2': 0x49, 'BMX160': 0x68, 'LTR_329ALS_01': 0x29}
 
