@@ -99,6 +99,9 @@ def getLogger(name=None):
 def info(msg, *args):
     getLogger(None).info(msg, *args)
 
+def error(msg, *args):
+    getLogger(None).error(msg, *args)
+
 def debug(msg, *args):
     getLogger(None).debug(msg, *args)
 
