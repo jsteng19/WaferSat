@@ -1,4 +1,4 @@
-import camera, sensors
+import camera, i2c_sensors
 import logging
 
 IMG_FOLDER = "images"
