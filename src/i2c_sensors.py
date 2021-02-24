@@ -12,21 +12,4 @@ class Sensors:
         self.tmp2 = TMP100(i2c, sensor_addresses['TMP100_2'])
         self.ltr = LTR329ALS01(i2c)
 
-    # def get_humidity_data(self):  # stub
-    #     pass
-    #
-    # def get_temp1_data(self):  # stub
-    #     pass
-    #     # if(i2c.is_ready())
-    #
-    # def get_temp2_data(self):  # stub
-    #     tmp = TMP100(self.i2c, sensor_addresses['TMP100_2'])
-    #
-    # def get_orientation_data(self):  # stub
-    #     pass
-    #
-    # def get_light_data(self):  # stub
-    #     ltr = LTR329ALS01(self.i2c)
-    #     return ltr.light()
-
 
