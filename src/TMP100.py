@@ -1,9 +1,11 @@
 ### adapted from: https://forum.micropython.org/viewtopic.php?t=2814
 
+import logging
+
 class TMP100:
 
     # Registers
-    T_REG = 0x00
+    T_REG = const(0x00)
     CONF_REG = const(0x01)
 
     # Configuration Register
@@ -17,13 +19,22 @@ class TMP100:
     def __init__(self, i2c, addr, res=RES_12bits):
         self.i2c = i2c
         self.addr = addr
-        self.set_resolution(res)
+        try:
+            if addr not in i2c.scan():
+                raise
+            self.set_resolution(res)
+
+        except:
+            logging.error("Error initializing TMP on i2c address " + str(self.addr))
+
+        else:
+            logging.info("Successfully initialized TMP.")
 
     def set_resolution(self, res):
         buf = bytearray([res])
         self.i2c.writeto_mem(self.addr, CONF_REG, buf)
 
-    def conv_temp(t):
+    def conv_temp(self, t):
         temp = ((t[0] << 8 | t[1]) >> 4)
         if temp & 0x800:  # sign bit set
             temp = -((temp ^ 0xfff) + 1)  # two's complement conversion
@@ -33,19 +44,3 @@ class TMP100:
         raw = self.i2c.readfrom_mem(self.addr, T_REG, 2)
         tmp = self.conv_temp(raw)
         return tmp
-
-
-    # def set_shutdown(self, state):
-    #     current = self.read_register(self.CONF_REG)[0] & 0xFE
-    #     if state is True:
-    #         self.write_register(self.CONF_REG, current | self.SHUTDOWN)
-    #     else:
-    #         self.write_register(self.CONF_REG, current)
-    #
-    # def set_oneshot(self):
-    #     current = self.read_register(self.CONF_REG)[0] & 0xEF
-    #     self.write_register(self.CONF_REG, current | self.ONESHOT)
-
-
-
-

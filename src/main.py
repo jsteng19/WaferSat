@@ -26,7 +26,7 @@ def main_loop():
     while True:
         if count % INTERVAL == 0:
             try:
-                log.log_data()
+                log.log_data(sensors)
                 light = sensors.ltr.read()
                 print(light)
                 if light[0] > 50 or light[1] > 50 or count % 3600 == 0:

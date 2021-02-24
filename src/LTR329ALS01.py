@@ -1,7 +1,7 @@
 ### Source: https://github.com/pycom/pycom-libraries/blob/master/pysense/lib/LTR329ALS01.py
 
-
 import utime
+import logging
 
 class LTR329ALS01:
     ALS_I2CADDR = const(0x29) # The device's I2C address
@@ -38,14 +38,25 @@ class LTR329ALS01:
     ALS_RATE_2000 = const(0x05)
 
     def __init__(self, i2c, gain = ALS_GAIN_1X, integration = ALS_INT_100, rate = ALS_RATE_500):
+
         self.i2c = i2c
         contr = self._getContr(gain)
-        self.i2c.writeto_mem(ALS_I2CADDR, ALS_CONTR_REG, bytearray([contr]))
 
-        measrate = self._getMeasRate(integration, rate)
-        self.i2c.writeto_mem(ALS_I2CADDR, ALS_MEAS_RATE_REG, bytearray([measrate]))
+        try:
+            if ALS_I2CADDR not in i2c.scan():
+                raise
 
-        utime.sleep(0.01)
+            self.i2c.writeto_mem(ALS_I2CADDR, ALS_CONTR_REG, bytearray([contr]))
+
+            measrate = self._getMeasRate(integration, rate)
+            self.i2c.writeto_mem(ALS_I2CADDR, ALS_MEAS_RATE_REG, bytearray([measrate]))
+
+            utime.sleep(0.01)
+        except:
+            logging.error("Error initializing LTR on i2c address " + str(ALS_I2CADDR))
+        else:
+            logging.info("Successfully initialized LTR.")
+
 
     def _getContr(self, gain):
         return ((gain & 0x07) << 2) + 0x01
