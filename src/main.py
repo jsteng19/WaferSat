@@ -5,6 +5,7 @@
 import log, logging
 import i2c_sensors
 import time
+import camera
 from pyb import LED
 
 ### init ###
@@ -15,12 +16,13 @@ INTERVAL = const(5)
 
 log_file = open('test.log', 'a')
 logging.basicConfig(stream = log_file) # need to implement timestamp for log file name
-###
+
+sensors = i2c_sensors.Sensors()
+camera.init()
 
 def main_loop():
 
     count = 0
-    sensors = i2c_sensors.Sensors()
     while True:
         if count % INTERVAL == 0:
             try:
