@@ -13,7 +13,6 @@ def log_data(sensors):
         raise
     return
 
-
 def log_image(dir):
     try:
         file_name = camera.take_image(dir)
