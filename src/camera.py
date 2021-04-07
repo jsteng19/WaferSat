@@ -1,5 +1,8 @@
 import os
 import sensor
+import pyb
+
+
 
 def init():
     sensor.reset()
@@ -7,16 +10,9 @@ def init():
     sensor.set_framesize(sensor.QVGA)
     sensor.skip_frames()
 
-def take_image(dir='images'):
+def take_image(dir):
     img = sensor.snapshot()
 
-    images = os.listdir(dir)
-    if images:
-        prev_img_name = max(images)
-        prev_img_num = int(prev_img_name[3:-4])
-    else:  # there are no images
-        prev_img_num = -1
-    img_name = dir + "/img" + str(prev_img_num + 1) + ".jpg"
+    img_name = "{}/{}.jpg".format(dir, pyb.millis())
     img.save(img_name)
-
     return img_name

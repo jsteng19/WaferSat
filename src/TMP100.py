@@ -1,8 +1,9 @@
 ### adapted from: https://forum.micropython.org/viewtopic.php?t=2814
 
 import logging
+from csensor import Sensor
 
-class TMP100:
+class TMP100(Sensor):
 
     # Registers
     T_REG = const(0x00)
@@ -16,7 +17,8 @@ class TMP100:
     RES_12bits = const(0x60)  # 12bits, 0.0625C, 320ms
     ONESHOT = const(0x80)
 
-    def __init__(self, i2c, addr, res=RES_12bits):
+    def __init__(self, name, i2c, addr, res=RES_12bits):
+        super().__init__(name)
         self.i2c = i2c
         self.addr = addr
         try:
@@ -44,3 +46,14 @@ class TMP100:
         raw = self.i2c.readfrom_mem(self.addr, T_REG, 2)
         tmp = self.conv_temp(raw)
         return tmp
+
+    def update(self, *args) -> {"dtype": 1.234}:
+        """
+        Refresh the value by acquiring new data from the sensor, and then return
+        it.
+        """
+        self.most_recent = {"temp": self.read()}
+        return self.get(*args)
+
+    def get(self, units=None) -> {"dtype": 1.234}:
+        return self.most_recent
