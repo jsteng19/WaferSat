@@ -1,17 +1,17 @@
-import camera
-import logging
-import pyb
+import camera, logging, pyb
+import csensor
 
-def log_data(sensors):
+def log_data():
     try:
-        for sensor in sensors.values():
-            sensor.update()
-            logging.info(str(sensor))
+        logstring = "{}: {{".format(pyb.millis())
+        logstring += "\n\t".join([str(sensor for sensor in csensor.Sensor.sensors)])
+        logstring += "\n}\n"
+        
+        logging.info(logstring)
 
     except BaseException as err:
         logging.error("Failed to save data with error type {}!".format(err))
         raise
-    return
 
 def log_image(dir):
     try:

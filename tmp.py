@@ -3,7 +3,7 @@
 import logging
 from csensor import Sensor
 
-class TMP100(Sensor):
+class TMP(Sensor):
 
     # Registers
     T_REG = const(0x00)

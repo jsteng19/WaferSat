@@ -1,10 +1,26 @@
+from ltr import LTR
+from tmp import TMP
+from bme import BME
+
+from machine import I2C
+
+def init():
+    sensor_addresses = {'BME280': 0x77, 'TMP100_0': 0x48, 'TMP100_1': 0x49, 'BMX160': 0x68, 'LTR_329ALS_01': 0x29}
+    i2c = I2C()  # create I2C peripheral at frequency of 400kHz
+
+    TMP(i2c=i2c, name='TMP100_1', addr=sensor_addresses['TMP100_1'])
+    LTR(i2c=i2c, name='LTR_329ALS_01', addr=sensor_addresses['LTR_329ALS_01'])
+    
+
 class Sensor(object):
     most_recent = {} # a dict of the most recent sensor values
     units = [] # a list of acceptable units for this sensor
     name = "" # this sensors name
-
+    sensors = {}  # static dict of all sensor-type objects
+    
     def __init__(self, name):
         self.name = name
+        Sensor.sensors[name] = self
 
     def update(self, *args) -> {"dtype": 1.234}:
         """

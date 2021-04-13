@@ -2,9 +2,9 @@
 
 import utime
 import logging
-from i2c_sensors import Sensor
+from csensors import Sensor
 
-class LTR329ALS01(Sensor):
+class LTR(Sensor):
     ALS_I2CADDR = const(0x29) # The device's I2C address
 
     ALS_CONTR_REG = const(0x80)
@@ -38,7 +38,7 @@ class LTR329ALS01(Sensor):
     ALS_RATE_1000 = const(0x04)
     ALS_RATE_2000 = const(0x05)
 
-    def __init__(self, i2c, gain = ALS_GAIN_1X, integration = ALS_INT_100, rate = ALS_RATE_500, name = 'ltr'):
+    def __init__(self, i2c, gain = ALS_GAIN_1X, integration = ALS_INT_100, rate = ALS_RATE_500):
 
         super().__init__(name)
         self.i2c = i2c
